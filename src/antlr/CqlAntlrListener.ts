@@ -22,57 +22,6 @@ import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
 import {Token} from "antlr4ts/Token";
 import {ParseTree} from "antlr4ts/tree";
 
-class CqlAntlrListener implements cqlListener {
-    constructor(private cqlResult: CqlResult) {
-    }
-
-    enterLibrary(ctx: LibraryContext): void {
-        console.log(`Entering antlr root at line number ${ctx._start.line}`)
-    }
-
-    enterLibraryDefinition(ctx: LibraryDefinitionContext) {
-        const cqlVersionCreator = new CqlVersionCreator(ctx);
-        this.cqlResult.library = cqlVersionCreator.buildDao();
-    }
-
-    enterUsingDefinition(ctx: UsingDefinitionContext): void {
-        const cqlVersionCreator = new CqlVersionCreator(ctx);
-        this.cqlResult.using = cqlVersionCreator.buildDao();
-    }
-
-    enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
-        const cqlInclude: CqlInclude | undefined = new CqlIncludeCreator(ctx).buildDao();
-
-        if (cqlInclude) {
-            this.cqlResult.includes.push(cqlInclude);
-        }
-    }
-
-    enterCodesystemDefinition(ctx: CodesystemDefinitionContext): void {
-        const cqlCodeSystem: CqlCodeSystem | undefined = new CqlCodeSystemCreator(ctx).buildDao();
-
-        if (cqlCodeSystem) {
-            this.cqlResult.codeSystems.push(cqlCodeSystem);
-        }
-    }
-
-    enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
-        const cqlValueSet: CqlValueSet | undefined = new CqlValueSystemCreator(ctx).buildDao();
-
-        if (cqlValueSet) {
-            this.cqlResult.valueSets.push(cqlValueSet);
-        }
-    }
-
-    enterCodeDefinition(ctx: CodeDefinitionContext): void {
-        const cqlCode: CqlValueSet | undefined = new CqlCodeCreator(ctx).buildDao();
-
-        if (cqlCode) {
-            this.cqlResult.codes.push(cqlCode);
-        }
-
-    }
-}
 
 abstract class CreatorBase<T extends CqlText> {
     protected constructor(protected ctx: ParserRuleContext, protected cqlDao: T) {
@@ -180,4 +129,54 @@ class CqlCodeCreator extends CreatorBase<CqlCode> {
     }
 }
 
-export default CqlAntlrListener;
+export default class CqlAntlrListener implements cqlListener {
+    constructor(private cqlResult: CqlResult) {
+    }
+
+    enterLibrary(ctx: LibraryContext): void {
+        console.log(`Entering antlr root at line number ${ctx._start.line}`);
+    }
+
+    enterLibraryDefinition(ctx: LibraryDefinitionContext) {
+        const cqlVersionCreator = new CqlVersionCreator(ctx);
+        this.cqlResult.library = cqlVersionCreator.buildDao();
+    }
+
+    enterUsingDefinition(ctx: UsingDefinitionContext): void {
+        const cqlVersionCreator = new CqlVersionCreator(ctx);
+        this.cqlResult.using = cqlVersionCreator.buildDao();
+    }
+
+    enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
+        const cqlInclude: CqlInclude | undefined = new CqlIncludeCreator(ctx).buildDao();
+
+        if (cqlInclude) {
+            this.cqlResult.includes.push(cqlInclude);
+        }
+    }
+
+    enterCodesystemDefinition(ctx: CodesystemDefinitionContext): void {
+        const cqlCodeSystem: CqlCodeSystem | undefined = new CqlCodeSystemCreator(ctx).buildDao();
+
+        if (cqlCodeSystem) {
+            this.cqlResult.codeSystems.push(cqlCodeSystem);
+        }
+    }
+
+    enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
+        const cqlValueSet: CqlValueSet | undefined = new CqlValueSystemCreator(ctx).buildDao();
+
+        if (cqlValueSet) {
+            this.cqlResult.valueSets.push(cqlValueSet);
+        }
+    }
+
+    enterCodeDefinition(ctx: CodeDefinitionContext): void {
+        const cqlCode: CqlValueSet | undefined = new CqlCodeCreator(ctx).buildDao();
+
+        if (cqlCode) {
+            this.cqlResult.codes.push(cqlCode);
+        }
+    }
+}
+

@@ -14,17 +14,16 @@ export class AntlrUtils {
     }
 
     static findChildText(children: ParseTree[] | undefined, lexerType: number, occurrence: number = 1): string | undefined {
-        if (!children || children.length === 0) {
-            return undefined;
+        if (children && children.length > 0) {
+
+            const foundChild = AntlrUtils.findChild(children, lexerType, occurrence);
+
+            if (!foundChild) {
+                return undefined;
+            }
+
+            return AntlrUtils.findText(foundChild as ParserRuleContext)
         }
-
-        const foundChild = AntlrUtils.findChild(children, lexerType, occurrence);
-
-        if (!foundChild) {
-            return undefined;
-        }
-
-        return AntlrUtils.findText(foundChild as ParserRuleContext)
     }
 
     protected static findChild(children: ParseTree[], lexerType: number, occurrence: number): ParseTree | undefined {
@@ -37,8 +36,6 @@ export class AntlrUtils {
                 }
             }
         }
-
-        return undefined;
     }
 
     private static isTargetType(child: ParseTree, targetType: number): boolean {

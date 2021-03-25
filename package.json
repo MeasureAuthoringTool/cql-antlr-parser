@@ -1,6 +1,6 @@
 {
   "name": "cql-antlr-parser",
-  "version": "0.0.8",
+  "version": "0.0.1-alpha",
   "description": "Antlr Parsing of CQL in typescript",
   "files": [
     "lib"
@@ -8,9 +8,10 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "build-lib": "npx tsc -p tsconfig.json",
-    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
+    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
+    "antlr4ts": "antlr4ts src/antlr/generated/cql.g4"
   },
-  "main": "lib/CqlAntlr.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MeasureAuthoringTool/cql-antlr-parser.git"

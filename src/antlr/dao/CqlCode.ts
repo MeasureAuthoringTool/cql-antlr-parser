@@ -1,6 +1,6 @@
-import {CqlText} from "./CqlText";
+import CqlText from "./CqlText";
 
-export interface CqlCode extends CqlText {
+export default interface CqlCode extends CqlText {
     codeId?: string;
     codeSystem?: string;
 }

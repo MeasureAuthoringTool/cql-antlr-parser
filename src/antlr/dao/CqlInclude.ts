@@ -1,5 +1,5 @@
-import {CqlVersion} from "./CqlVersion";
+import CqlVersion from "./CqlVersion";
 
-export interface CqlInclude extends CqlVersion {
+export default interface CqlInclude extends CqlVersion {
     called?: string;
 }

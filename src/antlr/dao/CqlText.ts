@@ -1,6 +1,6 @@
-import {LineInfo} from "./LineInfo";
+import LineInfo from "./LineInfo";
 
-export interface CqlText {
+export default interface CqlText {
     text?: string;
     name?: string;
 

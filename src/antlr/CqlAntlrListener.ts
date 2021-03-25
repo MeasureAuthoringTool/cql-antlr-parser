@@ -10,17 +10,17 @@ import {
 } from "./generated/cqlParser";
 import {AntlrUtils} from "./AntlrUtils";
 import {cqlLexer} from "./generated/cqlLexer";
-import {CqlResult} from "./dao/CqlResult";
-import {CqlVersion} from "./dao/CqlVersion";
+import CqlResult from "./dao/CqlResult";
+import CqlVersion from "./dao/CqlVersion";
+import CqlText from "./dao/CqlText";
+import CqlInclude from "./dao/CqlInclude";
+import CqlCodeSystem from "./dao/CqlCodeSystem";
+import CqlValueSet from "./dao/CqlValueSet";
+import CqlCode from "./dao/CqlCode";
+import LineInfo from "./dao/LineInfo";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
-import {CqlText} from "./dao/CqlText";
-import {CqlInclude} from "./dao/CqlInclude";
-import {ParseTree} from "antlr4ts/tree/ParseTree";
-import {CqlCodeSystem} from "./dao/CqlCodeSystem";
-import {CqlValueSet} from "./dao/CqlValueSet";
-import {CqlCode} from "./dao/CqlCode";
-import {LineInfo} from "./dao/LineInfo";
 import {Token} from "antlr4ts/Token";
+import {ParseTree} from "antlr4ts/tree";
 
 class CqlAntlrListener implements cqlListener {
     constructor(private cqlResult: CqlResult) {

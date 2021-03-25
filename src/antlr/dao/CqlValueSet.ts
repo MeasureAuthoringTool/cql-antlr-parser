@@ -1,5 +1,5 @@
-import {CqlText} from "./CqlText";
+import CqlText from "./CqlText";
 
-export interface CqlValueSet extends CqlText {
+export default interface CqlValueSet extends CqlText {
     url?: string;
 }

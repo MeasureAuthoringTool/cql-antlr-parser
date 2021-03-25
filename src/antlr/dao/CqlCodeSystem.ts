@@ -1,5 +1,5 @@
-import {CqlVersion} from "./CqlVersion";
+import CqlVersion from "./CqlVersion";
 
-export interface CqlCodeSystem extends CqlVersion {
+export default interface CqlCodeSystem extends CqlVersion {
     oid?: string;
 }

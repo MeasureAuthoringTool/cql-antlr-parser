@@ -1,5 +1,5 @@
-import {CqlText} from "./CqlText";
+import CqlText from "./CqlText";
 
-export interface CqlVersion extends CqlText {
+export default interface CqlVersion extends CqlText {
     version?: string;
 }

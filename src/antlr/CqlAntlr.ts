@@ -5,7 +5,7 @@ import {cqlParser, LibraryContext} from "./generated/cqlParser";
 import CqlAntlrListener from "./CqlAntlrListener";
 import {cqlListener} from "./generated/cqlListener";
 import {ParseTreeWalker} from "antlr4ts/tree";
-import {CqlResult} from "./dao/CqlResult";
+import CqlResult from "./dao/CqlResult";
 
 class CqlAntlr {
     constructor(private cql: string) {

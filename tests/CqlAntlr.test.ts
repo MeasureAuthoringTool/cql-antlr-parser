@@ -12,7 +12,7 @@ describe("test antlr", function () {
         console.log(JSON.stringify(cqlResult, null, 2));
 
         expect(cqlResult.codes.length).to.equal(1);
-        expect(cqlResult.valueSets.length).to.equal(3);
+        expect(cqlResult.valueSets.length).to.equal(4);
         expect(cqlResult.codeSystems.length).to.equal(3);
 
     });

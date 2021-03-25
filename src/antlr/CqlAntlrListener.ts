@@ -39,19 +39,17 @@ abstract class CreatorBase<T extends CqlText> {
     }
 
     buildLineInfo(token: Token | undefined): LineInfo | undefined {
-        if (!token) {
-            return undefined;
+        if (token) {
+            const lineInfo = {} as LineInfo;
+            lineInfo.line = token.line;
+            lineInfo.position = token.charPositionInLine;
+
+            if (token.charPositionInLine !== 0) {
+                lineInfo.position += token.stopIndex - token.startIndex;
+            }
+
+            return lineInfo;
         }
-
-        const lineInfo = {} as LineInfo;
-        lineInfo.line = token.line;
-        lineInfo.position = token.charPositionInLine;
-
-        if (token.charPositionInLine !== 0) {
-            lineInfo.position += token.stopIndex - token.startIndex;
-        }
-
-        return lineInfo;
     }
 
     protected findChildText(cqlLexerId: number, occurrence: number = 1): string | undefined {

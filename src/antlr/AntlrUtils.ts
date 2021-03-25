@@ -18,11 +18,9 @@ export class AntlrUtils {
 
             const foundChild = AntlrUtils.findChild(children, lexerType, occurrence);
 
-            if (!foundChild) {
-                return undefined;
+            if (foundChild) {
+                return AntlrUtils.findText(foundChild as ParserRuleContext);
             }
-
-            return AntlrUtils.findText(foundChild as ParserRuleContext)
         }
     }
 

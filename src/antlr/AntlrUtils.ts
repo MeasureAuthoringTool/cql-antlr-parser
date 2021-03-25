@@ -11,8 +11,6 @@ export class AntlrUtils {
             const interval = new Interval(ctx.start.startIndex, stop);
             return ctx.start.inputStream?.getText(interval);
         }
-
-        return undefined;
     }
 
     static findChildText(children: ParseTree[] | undefined, lexerType: number, occurrence: number = 1): string | undefined {
@@ -40,13 +38,12 @@ export class AntlrUtils {
             }
         }
 
-        return undefined
+        return undefined;
     }
 
     private static isTargetType(child: ParseTree, targetType: number): boolean {
         if (child instanceof ParserRuleContext) {
-            const rule = child as ParserRuleContext;
-            return rule.start.type === targetType;
+            return child.start.type === targetType;
         } else {
             return false;
         }

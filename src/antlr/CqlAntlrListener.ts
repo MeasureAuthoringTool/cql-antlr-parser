@@ -31,11 +31,13 @@ class CqlAntlrListener implements cqlListener {
     }
 
     enterLibraryDefinition(ctx: LibraryDefinitionContext) {
-        this.cqlResult.library = new CqlVersionCreator(ctx).buildDao();
+        const cqlVersionCreator = new CqlVersionCreator(ctx);
+        this.cqlResult.library = cqlVersionCreator.buildDao();
     }
 
     enterUsingDefinition(ctx: UsingDefinitionContext): void {
-        this.cqlResult.using = new CqlVersionCreator(ctx).buildDao();
+        const cqlVersionCreator = new CqlVersionCreator(ctx);
+        this.cqlResult.using = cqlVersionCreator.buildDao();
     }
 
     enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
@@ -66,7 +68,7 @@ class CqlAntlrListener implements cqlListener {
         const cqlCode: CqlValueSet | undefined = new CqlCodeCreator(ctx).buildDao();
 
         if (cqlCode) {
-            this.cqlResult.codes.push(cqlCode)
+            this.cqlResult.codes.push(cqlCode);
         }
 
     }
@@ -84,8 +86,6 @@ abstract class CreatorBase<T extends CqlText> {
 
         if (typeof this.cqlDao.text === "string") {
             return this.build();
-        } else {
-            return undefined;
         }
     }
 

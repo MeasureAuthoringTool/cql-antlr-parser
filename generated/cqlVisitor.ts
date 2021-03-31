@@ -1,0 +1,1526 @@
+// Generated from antlr/generated/cql.g4 by ANTLR 4.9.0-SNAPSHOT
+
+
+import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
+
+import { MemberInvocationContext , FunctionInvocationContext , ThisInvocationContext , IndexInvocationContext , TotalInvocationContext , TermExpressionTermContext , InvocationExpressionTermContext , IndexedExpressionTermContext , ConversionExpressionTermContext , PolarityExpressionTermContext , TimeBoundaryExpressionTermContext , TimeUnitExpressionTermContext , DurationExpressionTermContext , DifferenceExpressionTermContext , WidthExpressionTermContext , SuccessorExpressionTermContext , PredecessorExpressionTermContext , ElementExtractorExpressionTermContext , PointExtractorExpressionTermContext , TypeExtentExpressionTermContext , PowerExpressionTermContext , MultiplicationExpressionTermContext , AdditionExpressionTermContext , IfThenElseExpressionTermContext , CaseExpressionTermContext , AggregateExpressionTermContext , SetAggregateExpressionTermContext , BooleanLiteralContext , NullLiteralContext , StringLiteralContext , NumberLiteralContext , DateTimeLiteralContext , TimeLiteralContext , QuantityLiteralContext , RatioLiteralContext , InvocationTermContext , LiteralTermContext , ExternalConstantTermContext , IntervalSelectorTermContext , TupleSelectorTermContext , InstanceSelectorTermContext , ListSelectorTermContext , CodeSelectorTermContext , ConceptSelectorTermContext , ParenthesizedTermContext , SimplePathReferentialIdentifierContext , SimplePathQualifiedIdentifierContext , SimplePathIndexerContext , TermExpressionContext , RetrieveExpressionContext , QueryExpressionContext , BooleanExpressionContext , TypeExpressionContext , CastExpressionContext , NotExpressionContext , ExistenceExpressionContext , BetweenExpressionContext , DurationBetweenExpressionContext , DifferenceBetweenExpressionContext , InequalityExpressionContext , TimingExpressionContext , EqualityExpressionContext , MembershipExpressionContext , AndExpressionContext , OrExpressionContext , ImpliesExpressionContext , InFixSetExpressionContext , QualifiedMemberInvocationContext , QualifiedFunctionInvocationContext , ConcurrentWithIntervalOperatorPhraseContext , IncludesIntervalOperatorPhraseContext , IncludedInIntervalOperatorPhraseContext , BeforeOrAfterIntervalOperatorPhraseContext , WithinIntervalOperatorPhraseContext , MeetsIntervalOperatorPhraseContext , OverlapsIntervalOperatorPhraseContext , StartsIntervalOperatorPhraseContext , EndsIntervalOperatorPhraseContext , LibraryContext , LibraryDefinitionContext , UsingDefinitionContext , IncludeDefinitionContext , LocalIdentifierContext , AccessModifierContext , ParameterDefinitionContext , CodesystemDefinitionContext , ValuesetDefinitionContext , CodesystemsContext , CodesystemIdentifierContext , LibraryIdentifierContext , CodeDefinitionContext , ConceptDefinitionContext , CodeIdentifierContext , CodesystemIdContext , ValuesetIdContext , VersionSpecifierContext , CodeIdContext , TypeSpecifierContext , NamedTypeSpecifierContext , ModelIdentifierContext , ListTypeSpecifierContext , IntervalTypeSpecifierContext , TupleTypeSpecifierContext , TupleElementDefinitionContext , ChoiceTypeSpecifierContext , StatementContext , ExpressionDefinitionContext , ContextDefinitionContext , FunctionDefinitionContext , OperandDefinitionContext , FunctionBodyContext , QuerySourceContext , AliasedQuerySourceContext , AliasContext , QueryInclusionClauseContext , WithClauseContext , WithoutClauseContext , RetrieveContext , ContextIdentifierContext , CodePathContext , TerminologyContext , QualifierContext , QueryContext , SourceClauseContext , LetClauseContext , LetClauseItemContext , WhereClauseContext , ReturnClauseContext , SortClauseContext , SortDirectionContext , SortByItemContext , QualifiedIdentifierContext , QualifiedIdentifierExpressionContext , QualifierExpressionContext , SimplePathContext , SimpleLiteralContext , ExpressionContext , DateTimePrecisionContext , DateTimeComponentContext , PluralDateTimePrecisionContext , ExpressionTermContext , CaseExpressionItemContext , DateTimePrecisionSpecifierContext , RelativeQualifierContext , OffsetRelativeQualifierContext , ExclusiveRelativeQualifierContext , QuantityOffsetContext , TemporalRelationshipContext , IntervalOperatorPhraseContext , TermContext , QualifiedInvocationContext , QualifiedFunctionContext , InvocationContext , C_functionContext , RatioContext , LiteralContext , IntervalSelectorContext , TupleSelectorContext , TupleElementSelectorContext , InstanceSelectorContext , InstanceElementSelectorContext , ListSelectorContext , DisplayClauseContext , CodeSelectorContext , ConceptSelectorContext , KeywordContext , ReservedWordContext , KeywordIdentifierContext , ObsoleteIdentifierContext , FunctionIdentifierContext , TypeNameIdentifierContext , ReferentialIdentifierContext , ReferentialOrTypeNameIdentifierContext , IdentifierOrFunctionIdentifierContext , IdentifierContext , ExternalConstantContext , ParamListContext , QuantityContext , UnitContext } from "./cqlParser";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * This interface defines a complete generic visitor for a parse tree produced
+ * by `cqlParser`.
+ *
+ * @param <Result> The return type of the visit operation. Use `void` for
+ * operations with no return type.
+ */
+export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
+	/**
+	 * Visit a parse tree produced by the `memberInvocation`
+	 * labeled alternative in `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMemberInvocation?: (ctx: MemberInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `functionInvocation`
+	 * labeled alternative in `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionInvocation?: (ctx: FunctionInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `thisInvocation`
+	 * labeled alternative in `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitThisInvocation?: (ctx: ThisInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `indexInvocation`
+	 * labeled alternative in `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIndexInvocation?: (ctx: IndexInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `totalInvocation`
+	 * labeled alternative in `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTotalInvocation?: (ctx: TotalInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `termExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTermExpressionTerm?: (ctx: TermExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `invocationExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInvocationExpressionTerm?: (ctx: InvocationExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `indexedExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIndexedExpressionTerm?: (ctx: IndexedExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `conversionExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConversionExpressionTerm?: (ctx: ConversionExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `polarityExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPolarityExpressionTerm?: (ctx: PolarityExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `timeBoundaryExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTimeBoundaryExpressionTerm?: (ctx: TimeBoundaryExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `timeUnitExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTimeUnitExpressionTerm?: (ctx: TimeUnitExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `durationExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDurationExpressionTerm?: (ctx: DurationExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `differenceExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDifferenceExpressionTerm?: (ctx: DifferenceExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `widthExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWidthExpressionTerm?: (ctx: WidthExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `successorExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSuccessorExpressionTerm?: (ctx: SuccessorExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `predecessorExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPredecessorExpressionTerm?: (ctx: PredecessorExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `elementExtractorExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitElementExtractorExpressionTerm?: (ctx: ElementExtractorExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `pointExtractorExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPointExtractorExpressionTerm?: (ctx: PointExtractorExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `typeExtentExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTypeExtentExpressionTerm?: (ctx: TypeExtentExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `powerExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPowerExpressionTerm?: (ctx: PowerExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `multiplicationExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMultiplicationExpressionTerm?: (ctx: MultiplicationExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `additionExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAdditionExpressionTerm?: (ctx: AdditionExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `ifThenElseExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIfThenElseExpressionTerm?: (ctx: IfThenElseExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `caseExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCaseExpressionTerm?: (ctx: CaseExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `aggregateExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAggregateExpressionTerm?: (ctx: AggregateExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `setAggregateExpressionTerm`
+	 * labeled alternative in `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetAggregateExpressionTerm?: (ctx: SetAggregateExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `booleanLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBooleanLiteral?: (ctx: BooleanLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `nullLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNullLiteral?: (ctx: NullLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `stringLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringLiteral?: (ctx: StringLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `numberLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNumberLiteral?: (ctx: NumberLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `dateTimeLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDateTimeLiteral?: (ctx: DateTimeLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `timeLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTimeLiteral?: (ctx: TimeLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `quantityLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuantityLiteral?: (ctx: QuantityLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `ratioLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRatioLiteral?: (ctx: RatioLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `invocationTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInvocationTerm?: (ctx: InvocationTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `literalTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLiteralTerm?: (ctx: LiteralTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `externalConstantTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExternalConstantTerm?: (ctx: ExternalConstantTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `intervalSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIntervalSelectorTerm?: (ctx: IntervalSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `tupleSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTupleSelectorTerm?: (ctx: TupleSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `instanceSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInstanceSelectorTerm?: (ctx: InstanceSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `listSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitListSelectorTerm?: (ctx: ListSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `codeSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeSelectorTerm?: (ctx: CodeSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `conceptSelectorTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConceptSelectorTerm?: (ctx: ConceptSelectorTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `parenthesizedTerm`
+	 * labeled alternative in `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitParenthesizedTerm?: (ctx: ParenthesizedTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `simplePathReferentialIdentifier`
+	 * labeled alternative in `cqlParser.simplePath`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimplePathReferentialIdentifier?: (ctx: SimplePathReferentialIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `simplePathQualifiedIdentifier`
+	 * labeled alternative in `cqlParser.simplePath`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimplePathQualifiedIdentifier?: (ctx: SimplePathQualifiedIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `simplePathIndexer`
+	 * labeled alternative in `cqlParser.simplePath`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimplePathIndexer?: (ctx: SimplePathIndexerContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `termExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTermExpression?: (ctx: TermExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `retrieveExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRetrieveExpression?: (ctx: RetrieveExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `queryExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQueryExpression?: (ctx: QueryExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `booleanExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBooleanExpression?: (ctx: BooleanExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `typeExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTypeExpression?: (ctx: TypeExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `castExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCastExpression?: (ctx: CastExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `notExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNotExpression?: (ctx: NotExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `existenceExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExistenceExpression?: (ctx: ExistenceExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `betweenExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBetweenExpression?: (ctx: BetweenExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `durationBetweenExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDurationBetweenExpression?: (ctx: DurationBetweenExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `differenceBetweenExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDifferenceBetweenExpression?: (ctx: DifferenceBetweenExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `inequalityExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInequalityExpression?: (ctx: InequalityExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `timingExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTimingExpression?: (ctx: TimingExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `equalityExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitEqualityExpression?: (ctx: EqualityExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `membershipExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMembershipExpression?: (ctx: MembershipExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `andExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAndExpression?: (ctx: AndExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `orExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitOrExpression?: (ctx: OrExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `impliesExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitImpliesExpression?: (ctx: ImpliesExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `inFixSetExpression`
+	 * labeled alternative in `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInFixSetExpression?: (ctx: InFixSetExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `qualifiedMemberInvocation`
+	 * labeled alternative in `cqlParser.qualifiedInvocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedMemberInvocation?: (ctx: QualifiedMemberInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `qualifiedFunctionInvocation`
+	 * labeled alternative in `cqlParser.qualifiedInvocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedFunctionInvocation?: (ctx: QualifiedFunctionInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `concurrentWithIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConcurrentWithIntervalOperatorPhrase?: (ctx: ConcurrentWithIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `includesIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIncludesIntervalOperatorPhrase?: (ctx: IncludesIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `includedInIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIncludedInIntervalOperatorPhrase?: (ctx: IncludedInIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `beforeOrAfterIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBeforeOrAfterIntervalOperatorPhrase?: (ctx: BeforeOrAfterIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `withinIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWithinIntervalOperatorPhrase?: (ctx: WithinIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `meetsIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMeetsIntervalOperatorPhrase?: (ctx: MeetsIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `overlapsIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitOverlapsIntervalOperatorPhrase?: (ctx: OverlapsIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `startsIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStartsIntervalOperatorPhrase?: (ctx: StartsIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `endsIntervalOperatorPhrase`
+	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitEndsIntervalOperatorPhrase?: (ctx: EndsIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.library`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLibrary?: (ctx: LibraryContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.libraryDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLibraryDefinition?: (ctx: LibraryDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.usingDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitUsingDefinition?: (ctx: UsingDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.includeDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIncludeDefinition?: (ctx: IncludeDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.localIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLocalIdentifier?: (ctx: LocalIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.accessModifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAccessModifier?: (ctx: AccessModifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.parameterDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitParameterDefinition?: (ctx: ParameterDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codesystemDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodesystemDefinition?: (ctx: CodesystemDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.valuesetDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitValuesetDefinition?: (ctx: ValuesetDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codesystems`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodesystems?: (ctx: CodesystemsContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codesystemIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodesystemIdentifier?: (ctx: CodesystemIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.libraryIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLibraryIdentifier?: (ctx: LibraryIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codeDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeDefinition?: (ctx: CodeDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.conceptDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConceptDefinition?: (ctx: ConceptDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codeIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeIdentifier?: (ctx: CodeIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codesystemId`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodesystemId?: (ctx: CodesystemIdContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.valuesetId`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitValuesetId?: (ctx: ValuesetIdContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.versionSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitVersionSpecifier?: (ctx: VersionSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codeId`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeId?: (ctx: CodeIdContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.typeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTypeSpecifier?: (ctx: TypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.namedTypeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNamedTypeSpecifier?: (ctx: NamedTypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.modelIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitModelIdentifier?: (ctx: ModelIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.listTypeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitListTypeSpecifier?: (ctx: ListTypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.intervalTypeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIntervalTypeSpecifier?: (ctx: IntervalTypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.tupleTypeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTupleTypeSpecifier?: (ctx: TupleTypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.tupleElementDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTupleElementDefinition?: (ctx: TupleElementDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.choiceTypeSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitChoiceTypeSpecifier?: (ctx: ChoiceTypeSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.statement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStatement?: (ctx: StatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.expressionDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExpressionDefinition?: (ctx: ExpressionDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.contextDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitContextDefinition?: (ctx: ContextDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.functionDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionDefinition?: (ctx: FunctionDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.operandDefinition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitOperandDefinition?: (ctx: OperandDefinitionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.functionBody`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionBody?: (ctx: FunctionBodyContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.querySource`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuerySource?: (ctx: QuerySourceContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.aliasedQuerySource`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAliasedQuerySource?: (ctx: AliasedQuerySourceContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.alias`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAlias?: (ctx: AliasContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.queryInclusionClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQueryInclusionClause?: (ctx: QueryInclusionClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.withClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWithClause?: (ctx: WithClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.withoutClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWithoutClause?: (ctx: WithoutClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.retrieve`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRetrieve?: (ctx: RetrieveContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.contextIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitContextIdentifier?: (ctx: ContextIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codePath`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodePath?: (ctx: CodePathContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.terminology`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTerminology?: (ctx: TerminologyContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifier?: (ctx: QualifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.query`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuery?: (ctx: QueryContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.sourceClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSourceClause?: (ctx: SourceClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.letClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLetClause?: (ctx: LetClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.letClauseItem`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLetClauseItem?: (ctx: LetClauseItemContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.whereClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWhereClause?: (ctx: WhereClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.returnClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitReturnClause?: (ctx: ReturnClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.sortClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSortClause?: (ctx: SortClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.sortDirection`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSortDirection?: (ctx: SortDirectionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.sortByItem`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSortByItem?: (ctx: SortByItemContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifiedIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedIdentifier?: (ctx: QualifiedIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifiedIdentifierExpression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedIdentifierExpression?: (ctx: QualifiedIdentifierExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifierExpression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifierExpression?: (ctx: QualifierExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.simplePath`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimplePath?: (ctx: SimplePathContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimpleLiteral?: (ctx: SimpleLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.expression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExpression?: (ctx: ExpressionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.dateTimePrecision`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDateTimePrecision?: (ctx: DateTimePrecisionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.dateTimeComponent`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDateTimeComponent?: (ctx: DateTimeComponentContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.pluralDateTimePrecision`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPluralDateTimePrecision?: (ctx: PluralDateTimePrecisionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.expressionTerm`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExpressionTerm?: (ctx: ExpressionTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.caseExpressionItem`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCaseExpressionItem?: (ctx: CaseExpressionItemContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.dateTimePrecisionSpecifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDateTimePrecisionSpecifier?: (ctx: DateTimePrecisionSpecifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.relativeQualifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRelativeQualifier?: (ctx: RelativeQualifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.offsetRelativeQualifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitOffsetRelativeQualifier?: (ctx: OffsetRelativeQualifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.exclusiveRelativeQualifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExclusiveRelativeQualifier?: (ctx: ExclusiveRelativeQualifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.quantityOffset`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuantityOffset?: (ctx: QuantityOffsetContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.temporalRelationship`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTemporalRelationship?: (ctx: TemporalRelationshipContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.intervalOperatorPhrase`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIntervalOperatorPhrase?: (ctx: IntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.term`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTerm?: (ctx: TermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifiedInvocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedInvocation?: (ctx: QualifiedInvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.qualifiedFunction`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQualifiedFunction?: (ctx: QualifiedFunctionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.invocation`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInvocation?: (ctx: InvocationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.c_function`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitC_function?: (ctx: C_functionContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.ratio`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRatio?: (ctx: RatioContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLiteral?: (ctx: LiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.intervalSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIntervalSelector?: (ctx: IntervalSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.tupleSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTupleSelector?: (ctx: TupleSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.tupleElementSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTupleElementSelector?: (ctx: TupleElementSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.instanceSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInstanceSelector?: (ctx: InstanceSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.instanceElementSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInstanceElementSelector?: (ctx: InstanceElementSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.listSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitListSelector?: (ctx: ListSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.displayClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDisplayClause?: (ctx: DisplayClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.codeSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeSelector?: (ctx: CodeSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.conceptSelector`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConceptSelector?: (ctx: ConceptSelectorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.keyword`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitKeyword?: (ctx: KeywordContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.reservedWord`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitReservedWord?: (ctx: ReservedWordContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.keywordIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitKeywordIdentifier?: (ctx: KeywordIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.obsoleteIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitObsoleteIdentifier?: (ctx: ObsoleteIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.functionIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionIdentifier?: (ctx: FunctionIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.typeNameIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTypeNameIdentifier?: (ctx: TypeNameIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.referentialIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitReferentialIdentifier?: (ctx: ReferentialIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.referentialOrTypeNameIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitReferentialOrTypeNameIdentifier?: (ctx: ReferentialOrTypeNameIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.identifierOrFunctionIdentifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIdentifierOrFunctionIdentifier?: (ctx: IdentifierOrFunctionIdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.identifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIdentifier?: (ctx: IdentifierContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.externalConstant`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExternalConstant?: (ctx: ExternalConstantContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.paramList`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitParamList?: (ctx: ParamListContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.quantity`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuantity?: (ctx: QuantityContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.unit`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitUnit?: (ctx: UnitContext) => Result;
+}
+

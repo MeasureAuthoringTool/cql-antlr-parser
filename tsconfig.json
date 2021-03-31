@@ -5,11 +5,10 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./lib",
+    "outDir": "dist",
     "declaration": true,
-    "noImplicitAny": true
-  },
-  "include": [
-    "./src"
-  ]
+    "declarationMap": true,
+    "noImplicitAny": true,
+    "sourceMap": true
+  }
 }

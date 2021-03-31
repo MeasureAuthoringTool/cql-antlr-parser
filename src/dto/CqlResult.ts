@@ -5,11 +5,10 @@ import CqlValueSet from "./CqlValueSet";
 import CqlCode from "./CqlCode";
 
 export default interface CqlResult {
-    library?: CqlVersion;
-    using?: CqlVersion;
-    includes: CqlInclude[];
-    codeSystems: CqlCodeSystem[];
-    valueSets: CqlValueSet[];
-    codes: CqlCode[];
+  library?: CqlVersion;
+  using?: CqlVersion;
+  includes: CqlInclude[];
+  codeSystems: CqlCodeSystem[];
+  valueSets: CqlValueSet[];
+  codes: CqlCode[];
 }
-

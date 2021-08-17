@@ -1,7 +1,7 @@
 import {AbstractParseTreeVisitor} from "antlr4ts/tree";
-import {AliasContext, cqlLexer, cqlVisitor, InvocationTermContext} from "../generated";
 import {ParseTree} from "antlr4ts/tree/ParseTree";
 import {RuleNode} from "antlr4ts/tree/RuleNode";
+import {AliasContext, cqlLexer, cqlVisitor, InvocationTermContext} from "../generated";
 import AntlrUtils from "./AntlrUtils";
 import {CqlResult} from "./dto";
 import CqlFinder from "./util/CqlFinder";
@@ -15,7 +15,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
     this.finder = new CqlFinder(result, aliases);
   }
 
-  static count: number = 0;
+  static count = 0;
 
   protected defaultResult(): void {
   }
@@ -23,12 +23,10 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
 
   visit(tree: ParseTree): void {
     tree.accept(this);
-
-    CqlExpressionVisitor.count++;
-    console.log(CqlExpressionVisitor.count + ": " + tree.constructor.name + "\n\t" + tree.text)
+    CqlExpressionVisitor.count += CqlExpressionVisitor.count;
   }
 
-  visitChildren(/*@NotNull*/ node: RuleNode): void {
+  visitChildren(/* @NotNull */ node: RuleNode): void {
     for (let i = 0; i < node.childCount; i++) {
       this.visit(node.getChild(i))
     }
@@ -45,11 +43,8 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
   visitInvocationTerm(ctx: InvocationTermContext): void {
     let term = AntlrUtils.findChildText(ctx.children, ctx.start.type);
 
-    console.log("visitInvocationTerm->" + term);
-
     if (term) {
      // term = term.replace(/"/g, ""); // remove double quotes
-
       if (!this.finder.find(term)) {
         const cqlError = new CqlErrorCreator(ctx).buildDao();
 

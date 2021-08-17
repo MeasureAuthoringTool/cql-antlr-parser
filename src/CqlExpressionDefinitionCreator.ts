@@ -1,11 +1,11 @@
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import {ParseTree} from "antlr4ts/tree";
 import CreatorBase from "./CreatorBase";
 import CqlInclude from "./dto/CqlInclude";
 import CqlVersionCreator from "./CqlVersionCreator";
 import {cqlLexer} from "../generated";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
 import {AntlrUtils} from "./index";
-import {ParseTree} from "antlr4ts/tree";
 
 export default class CqlExpressionDefinitionCreator extends CreatorBase<CqlExpressionDefinition> {
   constructor(ctx: ParserRuleContext) {
@@ -14,18 +14,16 @@ export default class CqlExpressionDefinitionCreator extends CreatorBase<CqlExpre
 
   private findExpressionType(children: ParseTree[] | undefined,
                              lexerType: number,
-                             occurrence: number = 1): void {
+                             occurrence = 1): void {
     if (children) {
       const foundChild = AntlrUtils.findChild(children, lexerType, occurrence);
-      this.processExpressionClass(foundChild, lexerType, occurrence);
+      this.processExpressionClass(foundChild);
     }
   }
 
   private processExpressionClass(foundChild: ParseTree | undefined): void {
     if (foundChild) {
-      const className = foundChild.constructor.name;
-      console.log("InstanceName=" + className)
-      this.cqlDao.expressionClass = className;
+      this.cqlDao.expressionClass = foundChild.constructor.name;
     }
   }
 
@@ -43,8 +41,6 @@ export default class CqlExpressionDefinitionCreator extends CreatorBase<CqlExpre
     } else {
       this.findExpressionType(this.ctx.children, cqlLexer.IDENTIFIER, 1);
     }
-
-    console.log(this.cqlDao.expression);
 
     return this.cqlDao;
   }

@@ -1,7 +1,8 @@
 import CqlAntlr from "../src/CqlAntlr";
 import CqlExpressionVisitor from "../src/CqlExpressionVisitor";
 import CqlInclude from "../src/dto/CqlInclude";
-import {CqlValueSet} from "../lib";
+import CqlValueSet from "../src/dto/CqlValueSet";
+import {ExpressionDefinitionContext} from "../generated";
 
 
 const testDefineWithAlias = `define "Antithrombotic Not Given at Discharge":
@@ -45,17 +46,20 @@ function createValueSet(name: string): CqlValueSet {
   return cqlValueSet;
 }
 
-function createAntlrContext(cql: string) {
+function createAntlrContext(cql: string): ExpressionDefinitionContext {
   const cqlAntlr = new CqlAntlr(cql);
   const parser = cqlAntlr.buildParser();
   return parser.expressionDefinition();
 }
 
 describe("test visitor", () => {
-  it("parse alias no errors", () => {
-    let cqlResult = CqlAntlr.initCqlResult();
+  it("parse alias and value sets with no errors", () => {
+    const cqlResult = CqlAntlr.initCqlResult();
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
+
+    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""))
+    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""))
 
     const cqlExpressionVisitor = new CqlExpressionVisitor(cqlResult);
     cqlExpressionVisitor.visit(createAntlrContext(testDefineWithAlias));
@@ -63,27 +67,25 @@ describe("test visitor", () => {
   });
 
   it("parse alias with errors", () => {
-    let cqlResult = CqlAntlr.initCqlResult();
+    const cqlResult = CqlAntlr.initCqlResult();
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(testDefineWithAlias));
 
-    console.log(JSON.stringify(cqlResult, null, 2));
-    expect(cqlResult.errors.length).toEqual(4);
+    expect(cqlResult.errors.length).toEqual(6);
   });
 
   it("parse sde with errors", () => {
-    let cqlResult = CqlAntlr.initCqlResult();
+    const cqlResult = CqlAntlr.initCqlResult();
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeDefine));
 
-    console.log(JSON.stringify(cqlResult, null, 2));
     expect(cqlResult.errors.length).toEqual(1);
   });
 
   it("parse sde no errors", () => {
-    let cqlResult = CqlAntlr.initCqlResult();
+    const cqlResult = CqlAntlr.initCqlResult();
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
@@ -91,13 +93,12 @@ describe("test visitor", () => {
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeDefine));
 
-    console.log(JSON.stringify(cqlResult, null, 2));
     expect(cqlResult.errors.length).toEqual(0);
   });
 
 
-  it("parse valueset with errors", () => {
-    let cqlResult = CqlAntlr.initCqlResult();
+  it("parse valueset with no errors", () => {
+    const cqlResult = CqlAntlr.initCqlResult();
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
@@ -107,7 +108,6 @@ describe("test visitor", () => {
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeValueset));
 
-    console.log(JSON.stringify(cqlResult, null, 2));
     expect(cqlResult.errors.length).toEqual(0);
   });
 

@@ -16,7 +16,5 @@ describe("test antlr", () => {
     expect(cqlResult.context?.name).toEqual("Patient");
 
     expect(cqlResult.expressionDefinitions.length).toEqual(6);
-
-    console.log(JSON.stringify(cqlResult, null, 2));
   });
 });

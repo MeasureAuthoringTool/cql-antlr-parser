@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "test": "npx jest",
-    "coverage": "https://semanticbits.zoom.us/j/93814213667?pwd=eDlWRTdaWWFlcHo2aGdmai8zdmFkUT09",
+    "coverage": "npx jest --coverage",
     "prebuild": "rm -rf dist",
     "build": "tsc",
     "generate": "npx antlr4ts generated/cql.g4",

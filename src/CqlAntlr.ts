@@ -1,10 +1,8 @@
 import {CharStreams, CommonTokenStream} from "antlr4ts";
 import {CodePointCharStream} from "antlr4ts/CodePointCharStream";
 import {ParseTreeWalker} from "antlr4ts/tree";
-import {cqlLexer} from "../generated";
-import {cqlParser, LibraryContext} from "../generated";
+import {cqlLexer, cqlParser, LibraryContext, cqlListener} from "../generated";
 import CqlAntlrListener from "./CqlAntlrListener";
-import {cqlListener} from "../generated";
 import CqlResult from "./dto/CqlResult";
 
 class CqlAntlr {

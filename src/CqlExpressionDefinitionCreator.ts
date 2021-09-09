@@ -5,7 +5,7 @@ import CqlInclude from "./dto/CqlInclude";
 import CqlVersionCreator from "./CqlVersionCreator";
 import {cqlLexer} from "../generated";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
-import {AntlrUtils} from "./index";
+import AntlrUtils from "./AntlrUtils";
 
 export default class CqlExpressionDefinitionCreator extends CreatorBase<CqlExpressionDefinition> {
   constructor(ctx: ParserRuleContext) {

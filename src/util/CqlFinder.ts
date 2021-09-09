@@ -11,15 +11,17 @@ export default class CqlFinder {
       return true;
     }
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const i of this.result.includes) {
       if( i.called === term) {
-        i.hits++;
+        i.hits += 1;
         return true;
       }
     }
+    // eslint-disable-next-line no-restricted-syntax
     for (const v of this.result.valueSets) {
       if (v.name === term) {
-        v.hits++;
+        v.hits += 1;
         return true
       }
     }

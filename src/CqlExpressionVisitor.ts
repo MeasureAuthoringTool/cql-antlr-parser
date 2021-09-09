@@ -27,7 +27,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
   }
 
   visitChildren(/* @NotNull */ node: RuleNode): void {
-    for (let i = 0; i < node.childCount; i++) {
+    for (let i = 0; i < node.childCount; i += 1) {
       this.visit(node.getChild(i))
     }
   }
@@ -41,7 +41,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
   }
 
   visitInvocationTerm(ctx: InvocationTermContext): void {
-    let term = AntlrUtils.findChildText(ctx.children, ctx.start.type);
+    const term = AntlrUtils.findChildText(ctx.children, ctx.start.type);
 
     if (term) {
      // term = term.replace(/"/g, ""); // remove double quotes

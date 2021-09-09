@@ -8,7 +8,7 @@ export default class CqlErrorCreator extends CreatorBase<CqlError> {
   }
 
 
-  protected processLineInfo() {
+  protected processLineInfo(): void {
     super.processLineInfo();
 
     if (this.cqlDao.stop) {
@@ -23,7 +23,8 @@ export default class CqlErrorCreator extends CreatorBase<CqlError> {
     //   this.cqlDao.name = this.cqlDao.name.replace(/"/g, "");
     // }
 
-    this.cqlDao.message = "Cannot find symbol " + this.cqlDao.name + ".";
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    this.cqlDao.message = `Cannot find symbol ${this.cqlDao.name}.`;
 
     return this.cqlDao;
   }

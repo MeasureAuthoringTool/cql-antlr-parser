@@ -1,4 +1,4 @@
-// Generated from generated/cql.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from cql.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ATN } from "antlr4ts/atn/ATN";
@@ -24,6 +24,8 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 import * as Utils from "antlr4ts/misc/Utils";
 
 import { cqlListener } from "./cqlListener";
+import { cqlVisitor } from "./cqlVisitor";
+
 
 export class cqlParser extends Parser {
 	public static readonly T__0 = 1;
@@ -7619,6 +7621,14 @@ export class LibraryContext extends ParserRuleContext {
 			listener.exitLibrary(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLibrary) {
+			return visitor.visitLibrary(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7646,6 +7656,14 @@ export class LibraryDefinitionContext extends ParserRuleContext {
 			listener.exitLibraryDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLibraryDefinition) {
+			return visitor.visitLibraryDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7671,6 +7689,14 @@ export class UsingDefinitionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitUsingDefinition) {
 			listener.exitUsingDefinition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitUsingDefinition) {
+			return visitor.visitUsingDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -7703,6 +7729,14 @@ export class IncludeDefinitionContext extends ParserRuleContext {
 			listener.exitIncludeDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIncludeDefinition) {
+			return visitor.visitIncludeDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7727,6 +7761,14 @@ export class LocalIdentifierContext extends ParserRuleContext {
 			listener.exitLocalIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLocalIdentifier) {
+			return visitor.visitLocalIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7746,6 +7788,14 @@ export class AccessModifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitAccessModifier) {
 			listener.exitAccessModifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAccessModifier) {
+			return visitor.visitAccessModifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -7781,6 +7831,14 @@ export class ParameterDefinitionContext extends ParserRuleContext {
 			listener.exitParameterDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitParameterDefinition) {
+			return visitor.visitParameterDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7812,6 +7870,14 @@ export class CodesystemDefinitionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodesystemDefinition) {
 			listener.exitCodesystemDefinition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodesystemDefinition) {
+			return visitor.visitCodesystemDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -7850,6 +7916,14 @@ export class ValuesetDefinitionContext extends ParserRuleContext {
 			listener.exitValuesetDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitValuesetDefinition) {
+			return visitor.visitValuesetDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7880,6 +7954,14 @@ export class CodesystemsContext extends ParserRuleContext {
 			listener.exitCodesystems(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodesystems) {
+			return visitor.visitCodesystems(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7907,6 +7989,14 @@ export class CodesystemIdentifierContext extends ParserRuleContext {
 			listener.exitCodesystemIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodesystemIdentifier) {
+			return visitor.visitCodesystemIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -7929,6 +8019,14 @@ export class LibraryIdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitLibraryIdentifier) {
 			listener.exitLibraryIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLibraryIdentifier) {
+			return visitor.visitLibraryIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -7965,6 +8063,14 @@ export class CodeDefinitionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodeDefinition) {
 			listener.exitCodeDefinition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodeDefinition) {
+			return visitor.visitCodeDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8006,6 +8112,14 @@ export class ConceptDefinitionContext extends ParserRuleContext {
 			listener.exitConceptDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitConceptDefinition) {
+			return visitor.visitConceptDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8033,6 +8147,14 @@ export class CodeIdentifierContext extends ParserRuleContext {
 			listener.exitCodeIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodeIdentifier) {
+			return visitor.visitCodeIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8053,6 +8175,14 @@ export class CodesystemIdContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodesystemId) {
 			listener.exitCodesystemId(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodesystemId) {
+			return visitor.visitCodesystemId(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8077,6 +8207,14 @@ export class ValuesetIdContext extends ParserRuleContext {
 			listener.exitValuesetId(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitValuesetId) {
+			return visitor.visitValuesetId(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8099,6 +8237,14 @@ export class VersionSpecifierContext extends ParserRuleContext {
 			listener.exitVersionSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitVersionSpecifier) {
+			return visitor.visitVersionSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8119,6 +8265,14 @@ export class CodeIdContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodeId) {
 			listener.exitCodeId(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodeId) {
+			return visitor.visitCodeId(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8157,6 +8311,14 @@ export class TypeSpecifierContext extends ParserRuleContext {
 			listener.exitTypeSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTypeSpecifier) {
+			return visitor.visitTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8190,6 +8352,14 @@ export class NamedTypeSpecifierContext extends ParserRuleContext {
 			listener.exitNamedTypeSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitNamedTypeSpecifier) {
+			return visitor.visitNamedTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8212,6 +8382,14 @@ export class ModelIdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitModelIdentifier) {
 			listener.exitModelIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitModelIdentifier) {
+			return visitor.visitModelIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8238,6 +8416,14 @@ export class ListTypeSpecifierContext extends ParserRuleContext {
 			listener.exitListTypeSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitListTypeSpecifier) {
+			return visitor.visitListTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8260,6 +8446,14 @@ export class IntervalTypeSpecifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIntervalTypeSpecifier) {
 			listener.exitIntervalTypeSpecifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIntervalTypeSpecifier) {
+			return visitor.visitIntervalTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8292,6 +8486,14 @@ export class TupleTypeSpecifierContext extends ParserRuleContext {
 			listener.exitTupleTypeSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTupleTypeSpecifier) {
+			return visitor.visitTupleTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8317,6 +8519,14 @@ export class TupleElementDefinitionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTupleElementDefinition) {
 			listener.exitTupleElementDefinition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTupleElementDefinition) {
+			return visitor.visitTupleElementDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8349,6 +8559,14 @@ export class ChoiceTypeSpecifierContext extends ParserRuleContext {
 			listener.exitChoiceTypeSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitChoiceTypeSpecifier) {
+			return visitor.visitChoiceTypeSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8377,6 +8595,14 @@ export class StatementContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitStatement) {
 			listener.exitStatement(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitStatement) {
+			return visitor.visitStatement(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8409,6 +8635,14 @@ export class ExpressionDefinitionContext extends ParserRuleContext {
 			listener.exitExpressionDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitExpressionDefinition) {
+			return visitor.visitExpressionDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8434,6 +8668,14 @@ export class ContextDefinitionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitContextDefinition) {
 			listener.exitContextDefinition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitContextDefinition) {
+			return visitor.visitContextDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8478,6 +8720,14 @@ export class FunctionDefinitionContext extends ParserRuleContext {
 			listener.exitFunctionDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitFunctionDefinition) {
+			return visitor.visitFunctionDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8505,6 +8755,14 @@ export class OperandDefinitionContext extends ParserRuleContext {
 			listener.exitOperandDefinition(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitOperandDefinition) {
+			return visitor.visitOperandDefinition(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8527,6 +8785,14 @@ export class FunctionBodyContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitFunctionBody) {
 			listener.exitFunctionBody(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitFunctionBody) {
+			return visitor.visitFunctionBody(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8559,6 +8825,14 @@ export class QuerySourceContext extends ParserRuleContext {
 			listener.exitQuerySource(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQuerySource) {
+			return visitor.visitQuerySource(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8586,6 +8860,14 @@ export class AliasedQuerySourceContext extends ParserRuleContext {
 			listener.exitAliasedQuerySource(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAliasedQuerySource) {
+			return visitor.visitAliasedQuerySource(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8608,6 +8890,14 @@ export class AliasContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitAlias) {
 			listener.exitAlias(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAlias) {
+			return visitor.visitAlias(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8637,6 +8927,14 @@ export class QueryInclusionClauseContext extends ParserRuleContext {
 			listener.exitQueryInclusionClause(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQueryInclusionClause) {
+			return visitor.visitQueryInclusionClause(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8664,6 +8962,14 @@ export class WithClauseContext extends ParserRuleContext {
 			listener.exitWithClause(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitWithClause) {
+			return visitor.visitWithClause(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8689,6 +8995,14 @@ export class WithoutClauseContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitWithoutClause) {
 			listener.exitWithoutClause(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitWithoutClause) {
+			return visitor.visitWithoutClause(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8724,6 +9038,14 @@ export class RetrieveContext extends ParserRuleContext {
 			listener.exitRetrieve(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitRetrieve) {
+			return visitor.visitRetrieve(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8748,6 +9070,14 @@ export class ContextIdentifierContext extends ParserRuleContext {
 			listener.exitContextIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitContextIdentifier) {
+			return visitor.visitContextIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8770,6 +9100,14 @@ export class CodePathContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodePath) {
 			listener.exitCodePath(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodePath) {
+			return visitor.visitCodePath(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8799,6 +9137,14 @@ export class TerminologyContext extends ParserRuleContext {
 			listener.exitTerminology(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTerminology) {
+			return visitor.visitTerminology(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8821,6 +9167,14 @@ export class QualifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitQualifier) {
 			listener.exitQualifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifier) {
+			return visitor.visitQualifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8868,6 +9222,14 @@ export class QueryContext extends ParserRuleContext {
 			listener.exitQuery(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQuery) {
+			return visitor.visitQuery(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8896,6 +9258,14 @@ export class SourceClauseContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitSourceClause) {
 			listener.exitSourceClause(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSourceClause) {
+			return visitor.visitSourceClause(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -8928,6 +9298,14 @@ export class LetClauseContext extends ParserRuleContext {
 			listener.exitLetClause(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLetClause) {
+			return visitor.visitLetClause(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8955,6 +9333,14 @@ export class LetClauseItemContext extends ParserRuleContext {
 			listener.exitLetClauseItem(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLetClauseItem) {
+			return visitor.visitLetClauseItem(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -8979,6 +9365,14 @@ export class WhereClauseContext extends ParserRuleContext {
 			listener.exitWhereClause(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitWhereClause) {
+			return visitor.visitWhereClause(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9001,6 +9395,14 @@ export class ReturnClauseContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitReturnClause) {
 			listener.exitReturnClause(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitReturnClause) {
+			return visitor.visitReturnClause(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9036,6 +9438,14 @@ export class SortClauseContext extends ParserRuleContext {
 			listener.exitSortClause(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSortClause) {
+			return visitor.visitSortClause(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9055,6 +9465,14 @@ export class SortDirectionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitSortDirection) {
 			listener.exitSortDirection(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSortDirection) {
+			return visitor.visitSortDirection(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9082,6 +9500,14 @@ export class SortByItemContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitSortByItem) {
 			listener.exitSortByItem(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSortByItem) {
+			return visitor.visitSortByItem(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9117,6 +9543,14 @@ export class QualifiedIdentifierContext extends ParserRuleContext {
 			listener.exitQualifiedIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifiedIdentifier) {
+			return visitor.visitQualifiedIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9150,6 +9584,14 @@ export class QualifiedIdentifierExpressionContext extends ParserRuleContext {
 			listener.exitQualifiedIdentifierExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifiedIdentifierExpression) {
+			return visitor.visitQualifiedIdentifierExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9172,6 +9614,14 @@ export class QualifierExpressionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitQualifierExpression) {
 			listener.exitQualifierExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifierExpression) {
+			return visitor.visitQualifierExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9207,6 +9657,14 @@ export class SimplePathReferentialIdentifierContext extends SimplePathContext {
 			listener.exitSimplePathReferentialIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSimplePathReferentialIdentifier) {
+			return visitor.visitSimplePathReferentialIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class SimplePathQualifiedIdentifierContext extends SimplePathContext {
 	public simplePath(): SimplePathContext {
@@ -9229,6 +9687,14 @@ export class SimplePathQualifiedIdentifierContext extends SimplePathContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitSimplePathQualifiedIdentifier) {
 			listener.exitSimplePathQualifiedIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSimplePathQualifiedIdentifier) {
+			return visitor.visitSimplePathQualifiedIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9255,6 +9721,14 @@ export class SimplePathIndexerContext extends SimplePathContext {
 			listener.exitSimplePathIndexer(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSimplePathIndexer) {
+			return visitor.visitSimplePathIndexer(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9276,6 +9750,14 @@ export class SimpleLiteralContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitSimpleLiteral) {
 			listener.exitSimpleLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSimpleLiteral) {
+			return visitor.visitSimpleLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9311,6 +9793,14 @@ export class TermExpressionContext extends ExpressionContext {
 			listener.exitTermExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTermExpression) {
+			return visitor.visitTermExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class RetrieveExpressionContext extends ExpressionContext {
 	public retrieve(): RetrieveContext {
@@ -9330,6 +9820,14 @@ export class RetrieveExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitRetrieveExpression) {
 			listener.exitRetrieveExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitRetrieveExpression) {
+			return visitor.visitRetrieveExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9353,6 +9851,14 @@ export class QueryExpressionContext extends ExpressionContext {
 			listener.exitQueryExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQueryExpression) {
+			return visitor.visitQueryExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class BooleanExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext {
@@ -9372,6 +9878,14 @@ export class BooleanExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitBooleanExpression) {
 			listener.exitBooleanExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitBooleanExpression) {
+			return visitor.visitBooleanExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9398,6 +9912,14 @@ export class TypeExpressionContext extends ExpressionContext {
 			listener.exitTypeExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTypeExpression) {
+			return visitor.visitTypeExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class CastExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext {
@@ -9422,6 +9944,14 @@ export class CastExpressionContext extends ExpressionContext {
 			listener.exitCastExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCastExpression) {
+			return visitor.visitCastExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class NotExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext {
@@ -9443,6 +9973,14 @@ export class NotExpressionContext extends ExpressionContext {
 			listener.exitNotExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitNotExpression) {
+			return visitor.visitNotExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class ExistenceExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext {
@@ -9462,6 +10000,14 @@ export class ExistenceExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitExistenceExpression) {
 			listener.exitExistenceExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitExistenceExpression) {
+			return visitor.visitExistenceExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9494,6 +10040,14 @@ export class BetweenExpressionContext extends ExpressionContext {
 			listener.exitBetweenExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitBetweenExpression) {
+			return visitor.visitBetweenExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class DurationBetweenExpressionContext extends ExpressionContext {
 	public pluralDateTimePrecision(): PluralDateTimePrecisionContext {
@@ -9522,6 +10076,14 @@ export class DurationBetweenExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitDurationBetweenExpression) {
 			listener.exitDurationBetweenExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDurationBetweenExpression) {
+			return visitor.visitDurationBetweenExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9554,6 +10116,14 @@ export class DifferenceBetweenExpressionContext extends ExpressionContext {
 			listener.exitDifferenceBetweenExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDifferenceBetweenExpression) {
+			return visitor.visitDifferenceBetweenExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class InequalityExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext[];
@@ -9579,6 +10149,14 @@ export class InequalityExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitInequalityExpression) {
 			listener.exitInequalityExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInequalityExpression) {
+			return visitor.visitInequalityExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9611,6 +10189,14 @@ export class TimingExpressionContext extends ExpressionContext {
 			listener.exitTimingExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTimingExpression) {
+			return visitor.visitTimingExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class EqualityExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext[];
@@ -9636,6 +10222,14 @@ export class EqualityExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitEqualityExpression) {
 			listener.exitEqualityExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitEqualityExpression) {
+			return visitor.visitEqualityExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9668,6 +10262,14 @@ export class MembershipExpressionContext extends ExpressionContext {
 			listener.exitMembershipExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitMembershipExpression) {
+			return visitor.visitMembershipExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class AndExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext[];
@@ -9693,6 +10295,14 @@ export class AndExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitAndExpression) {
 			listener.exitAndExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAndExpression) {
+			return visitor.visitAndExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9722,6 +10332,14 @@ export class OrExpressionContext extends ExpressionContext {
 			listener.exitOrExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitOrExpression) {
+			return visitor.visitOrExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class ImpliesExpressionContext extends ExpressionContext {
 	public expression(): ExpressionContext[];
@@ -9747,6 +10365,14 @@ export class ImpliesExpressionContext extends ExpressionContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitImpliesExpression) {
 			listener.exitImpliesExpression(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitImpliesExpression) {
+			return visitor.visitImpliesExpression(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9776,6 +10402,14 @@ export class InFixSetExpressionContext extends ExpressionContext {
 			listener.exitInFixSetExpression(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInFixSetExpression) {
+			return visitor.visitInFixSetExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9795,6 +10429,14 @@ export class DateTimePrecisionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitDateTimePrecision) {
 			listener.exitDateTimePrecision(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDateTimePrecision) {
+			return visitor.visitDateTimePrecision(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9821,6 +10463,14 @@ export class DateTimeComponentContext extends ParserRuleContext {
 			listener.exitDateTimeComponent(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDateTimeComponent) {
+			return visitor.visitDateTimeComponent(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -9840,6 +10490,14 @@ export class PluralDateTimePrecisionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitPluralDateTimePrecision) {
 			listener.exitPluralDateTimePrecision(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitPluralDateTimePrecision) {
+			return visitor.visitPluralDateTimePrecision(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9875,6 +10533,14 @@ export class TermExpressionTermContext extends ExpressionTermContext {
 			listener.exitTermExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTermExpressionTerm) {
+			return visitor.visitTermExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class InvocationExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -9899,6 +10565,14 @@ export class InvocationExpressionTermContext extends ExpressionTermContext {
 			listener.exitInvocationExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInvocationExpressionTerm) {
+			return visitor.visitInvocationExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class IndexedExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -9921,6 +10595,14 @@ export class IndexedExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIndexedExpressionTerm) {
 			listener.exitIndexedExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIndexedExpressionTerm) {
+			return visitor.visitIndexedExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -9950,6 +10632,14 @@ export class ConversionExpressionTermContext extends ExpressionTermContext {
 			listener.exitConversionExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitConversionExpressionTerm) {
+			return visitor.visitConversionExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class PolarityExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -9971,6 +10661,14 @@ export class PolarityExpressionTermContext extends ExpressionTermContext {
 			listener.exitPolarityExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitPolarityExpressionTerm) {
+			return visitor.visitPolarityExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class TimeBoundaryExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -9990,6 +10688,14 @@ export class TimeBoundaryExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTimeBoundaryExpressionTerm) {
 			listener.exitTimeBoundaryExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTimeBoundaryExpressionTerm) {
+			return visitor.visitTimeBoundaryExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10016,6 +10722,14 @@ export class TimeUnitExpressionTermContext extends ExpressionTermContext {
 			listener.exitTimeUnitExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTimeUnitExpressionTerm) {
+			return visitor.visitTimeUnitExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class DurationExpressionTermContext extends ExpressionTermContext {
 	public pluralDateTimePrecision(): PluralDateTimePrecisionContext {
@@ -10038,6 +10752,14 @@ export class DurationExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitDurationExpressionTerm) {
 			listener.exitDurationExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDurationExpressionTerm) {
+			return visitor.visitDurationExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10064,6 +10786,14 @@ export class DifferenceExpressionTermContext extends ExpressionTermContext {
 			listener.exitDifferenceExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDifferenceExpressionTerm) {
+			return visitor.visitDifferenceExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class WidthExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -10083,6 +10813,14 @@ export class WidthExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitWidthExpressionTerm) {
 			listener.exitWidthExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitWidthExpressionTerm) {
+			return visitor.visitWidthExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10106,6 +10844,14 @@ export class SuccessorExpressionTermContext extends ExpressionTermContext {
 			listener.exitSuccessorExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSuccessorExpressionTerm) {
+			return visitor.visitSuccessorExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class PredecessorExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -10125,6 +10871,14 @@ export class PredecessorExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitPredecessorExpressionTerm) {
 			listener.exitPredecessorExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitPredecessorExpressionTerm) {
+			return visitor.visitPredecessorExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10148,6 +10902,14 @@ export class ElementExtractorExpressionTermContext extends ExpressionTermContext
 			listener.exitElementExtractorExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitElementExtractorExpressionTerm) {
+			return visitor.visitElementExtractorExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class PointExtractorExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext {
@@ -10169,6 +10931,14 @@ export class PointExtractorExpressionTermContext extends ExpressionTermContext {
 			listener.exitPointExtractorExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitPointExtractorExpressionTerm) {
+			return visitor.visitPointExtractorExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class TypeExtentExpressionTermContext extends ExpressionTermContext {
 	public namedTypeSpecifier(): NamedTypeSpecifierContext {
@@ -10188,6 +10958,14 @@ export class TypeExtentExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTypeExtentExpressionTerm) {
 			listener.exitTypeExtentExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTypeExtentExpressionTerm) {
+			return visitor.visitTypeExtentExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10217,6 +10995,14 @@ export class PowerExpressionTermContext extends ExpressionTermContext {
 			listener.exitPowerExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitPowerExpressionTerm) {
+			return visitor.visitPowerExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class MultiplicationExpressionTermContext extends ExpressionTermContext {
 	public expressionTerm(): ExpressionTermContext[];
@@ -10242,6 +11028,14 @@ export class MultiplicationExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitMultiplicationExpressionTerm) {
 			listener.exitMultiplicationExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitMultiplicationExpressionTerm) {
+			return visitor.visitMultiplicationExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10271,6 +11065,14 @@ export class AdditionExpressionTermContext extends ExpressionTermContext {
 			listener.exitAdditionExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAdditionExpressionTerm) {
+			return visitor.visitAdditionExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class IfThenElseExpressionTermContext extends ExpressionTermContext {
 	public expression(): ExpressionContext[];
@@ -10296,6 +11098,14 @@ export class IfThenElseExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIfThenElseExpressionTerm) {
 			listener.exitIfThenElseExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIfThenElseExpressionTerm) {
+			return visitor.visitIfThenElseExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10334,6 +11144,14 @@ export class CaseExpressionTermContext extends ExpressionTermContext {
 			listener.exitCaseExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCaseExpressionTerm) {
+			return visitor.visitCaseExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class AggregateExpressionTermContext extends ExpressionTermContext {
 	public expression(): ExpressionContext {
@@ -10353,6 +11171,14 @@ export class AggregateExpressionTermContext extends ExpressionTermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitAggregateExpressionTerm) {
 			listener.exitAggregateExpressionTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitAggregateExpressionTerm) {
+			return visitor.visitAggregateExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10385,6 +11211,14 @@ export class SetAggregateExpressionTermContext extends ExpressionTermContext {
 			listener.exitSetAggregateExpressionTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitSetAggregateExpressionTerm) {
+			return visitor.visitSetAggregateExpressionTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -10415,6 +11249,14 @@ export class CaseExpressionItemContext extends ParserRuleContext {
 			listener.exitCaseExpressionItem(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCaseExpressionItem) {
+			return visitor.visitCaseExpressionItem(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -10439,6 +11281,14 @@ export class DateTimePrecisionSpecifierContext extends ParserRuleContext {
 			listener.exitDateTimePrecisionSpecifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDateTimePrecisionSpecifier) {
+			return visitor.visitDateTimePrecisionSpecifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -10458,6 +11308,14 @@ export class RelativeQualifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitRelativeQualifier) {
 			listener.exitRelativeQualifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitRelativeQualifier) {
+			return visitor.visitRelativeQualifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10481,6 +11339,14 @@ export class OffsetRelativeQualifierContext extends ParserRuleContext {
 			listener.exitOffsetRelativeQualifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitOffsetRelativeQualifier) {
+			return visitor.visitOffsetRelativeQualifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -10500,6 +11366,14 @@ export class ExclusiveRelativeQualifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitExclusiveRelativeQualifier) {
 			listener.exitExclusiveRelativeQualifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitExclusiveRelativeQualifier) {
+			return visitor.visitExclusiveRelativeQualifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10532,6 +11406,14 @@ export class QuantityOffsetContext extends ParserRuleContext {
 			listener.exitQuantityOffset(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQuantityOffset) {
+			return visitor.visitQuantityOffset(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -10551,6 +11433,14 @@ export class TemporalRelationshipContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTemporalRelationship) {
 			listener.exitTemporalRelationship(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTemporalRelationship) {
+			return visitor.visitTemporalRelationship(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10589,6 +11479,14 @@ export class ConcurrentWithIntervalOperatorPhraseContext extends IntervalOperato
 			listener.exitConcurrentWithIntervalOperatorPhrase(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitConcurrentWithIntervalOperatorPhrase) {
+			return visitor.visitConcurrentWithIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class IncludesIntervalOperatorPhraseContext extends IntervalOperatorPhraseContext {
 	public dateTimePrecisionSpecifier(): DateTimePrecisionSpecifierContext | undefined {
@@ -10610,6 +11508,14 @@ export class IncludesIntervalOperatorPhraseContext extends IntervalOperatorPhras
 			listener.exitIncludesIntervalOperatorPhrase(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIncludesIntervalOperatorPhrase) {
+			return visitor.visitIncludesIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class IncludedInIntervalOperatorPhraseContext extends IntervalOperatorPhraseContext {
 	public dateTimePrecisionSpecifier(): DateTimePrecisionSpecifierContext | undefined {
@@ -10629,6 +11535,14 @@ export class IncludedInIntervalOperatorPhraseContext extends IntervalOperatorPhr
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIncludedInIntervalOperatorPhrase) {
 			listener.exitIncludedInIntervalOperatorPhrase(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIncludedInIntervalOperatorPhrase) {
+			return visitor.visitIncludedInIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10658,6 +11572,14 @@ export class BeforeOrAfterIntervalOperatorPhraseContext extends IntervalOperator
 			listener.exitBeforeOrAfterIntervalOperatorPhrase(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitBeforeOrAfterIntervalOperatorPhrase) {
+			return visitor.visitBeforeOrAfterIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class WithinIntervalOperatorPhraseContext extends IntervalOperatorPhraseContext {
 	public quantity(): QuantityContext {
@@ -10677,6 +11599,14 @@ export class WithinIntervalOperatorPhraseContext extends IntervalOperatorPhraseC
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitWithinIntervalOperatorPhrase) {
 			listener.exitWithinIntervalOperatorPhrase(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitWithinIntervalOperatorPhrase) {
+			return visitor.visitWithinIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10700,6 +11630,14 @@ export class MeetsIntervalOperatorPhraseContext extends IntervalOperatorPhraseCo
 			listener.exitMeetsIntervalOperatorPhrase(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitMeetsIntervalOperatorPhrase) {
+			return visitor.visitMeetsIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class OverlapsIntervalOperatorPhraseContext extends IntervalOperatorPhraseContext {
 	public dateTimePrecisionSpecifier(): DateTimePrecisionSpecifierContext | undefined {
@@ -10719,6 +11657,14 @@ export class OverlapsIntervalOperatorPhraseContext extends IntervalOperatorPhras
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitOverlapsIntervalOperatorPhrase) {
 			listener.exitOverlapsIntervalOperatorPhrase(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitOverlapsIntervalOperatorPhrase) {
+			return visitor.visitOverlapsIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10742,6 +11688,14 @@ export class StartsIntervalOperatorPhraseContext extends IntervalOperatorPhraseC
 			listener.exitStartsIntervalOperatorPhrase(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitStartsIntervalOperatorPhrase) {
+			return visitor.visitStartsIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class EndsIntervalOperatorPhraseContext extends IntervalOperatorPhraseContext {
 	public dateTimePrecisionSpecifier(): DateTimePrecisionSpecifierContext | undefined {
@@ -10761,6 +11715,14 @@ export class EndsIntervalOperatorPhraseContext extends IntervalOperatorPhraseCon
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitEndsIntervalOperatorPhrase) {
 			listener.exitEndsIntervalOperatorPhrase(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitEndsIntervalOperatorPhrase) {
+			return visitor.visitEndsIntervalOperatorPhrase(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10796,6 +11758,14 @@ export class InvocationTermContext extends TermContext {
 			listener.exitInvocationTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInvocationTerm) {
+			return visitor.visitInvocationTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class LiteralTermContext extends TermContext {
 	public literal(): LiteralContext {
@@ -10815,6 +11785,14 @@ export class LiteralTermContext extends TermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitLiteralTerm) {
 			listener.exitLiteralTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitLiteralTerm) {
+			return visitor.visitLiteralTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10838,6 +11816,14 @@ export class ExternalConstantTermContext extends TermContext {
 			listener.exitExternalConstantTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitExternalConstantTerm) {
+			return visitor.visitExternalConstantTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class IntervalSelectorTermContext extends TermContext {
 	public intervalSelector(): IntervalSelectorContext {
@@ -10857,6 +11843,14 @@ export class IntervalSelectorTermContext extends TermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIntervalSelectorTerm) {
 			listener.exitIntervalSelectorTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIntervalSelectorTerm) {
+			return visitor.visitIntervalSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10880,6 +11874,14 @@ export class TupleSelectorTermContext extends TermContext {
 			listener.exitTupleSelectorTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTupleSelectorTerm) {
+			return visitor.visitTupleSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class InstanceSelectorTermContext extends TermContext {
 	public instanceSelector(): InstanceSelectorContext {
@@ -10899,6 +11901,14 @@ export class InstanceSelectorTermContext extends TermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitInstanceSelectorTerm) {
 			listener.exitInstanceSelectorTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInstanceSelectorTerm) {
+			return visitor.visitInstanceSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10922,6 +11932,14 @@ export class ListSelectorTermContext extends TermContext {
 			listener.exitListSelectorTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitListSelectorTerm) {
+			return visitor.visitListSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class CodeSelectorTermContext extends TermContext {
 	public codeSelector(): CodeSelectorContext {
@@ -10941,6 +11959,14 @@ export class CodeSelectorTermContext extends TermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodeSelectorTerm) {
 			listener.exitCodeSelectorTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodeSelectorTerm) {
+			return visitor.visitCodeSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -10964,6 +11990,14 @@ export class ConceptSelectorTermContext extends TermContext {
 			listener.exitConceptSelectorTerm(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitConceptSelectorTerm) {
+			return visitor.visitConceptSelectorTerm(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class ParenthesizedTermContext extends TermContext {
 	public expression(): ExpressionContext {
@@ -10983,6 +12017,14 @@ export class ParenthesizedTermContext extends TermContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitParenthesizedTerm) {
 			listener.exitParenthesizedTerm(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitParenthesizedTerm) {
+			return visitor.visitParenthesizedTerm(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11018,6 +12060,14 @@ export class QualifiedMemberInvocationContext extends QualifiedInvocationContext
 			listener.exitQualifiedMemberInvocation(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifiedMemberInvocation) {
+			return visitor.visitQualifiedMemberInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class QualifiedFunctionInvocationContext extends QualifiedInvocationContext {
 	public qualifiedFunction(): QualifiedFunctionContext {
@@ -11037,6 +12087,14 @@ export class QualifiedFunctionInvocationContext extends QualifiedInvocationConte
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitQualifiedFunctionInvocation) {
 			listener.exitQualifiedFunctionInvocation(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifiedFunctionInvocation) {
+			return visitor.visitQualifiedFunctionInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11064,6 +12122,14 @@ export class QualifiedFunctionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitQualifiedFunction) {
 			listener.exitQualifiedFunction(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQualifiedFunction) {
+			return visitor.visitQualifiedFunction(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11099,6 +12165,14 @@ export class MemberInvocationContext extends InvocationContext {
 			listener.exitMemberInvocation(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitMemberInvocation) {
+			return visitor.visitMemberInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class FunctionInvocationContext extends InvocationContext {
 	public c_function(): C_functionContext {
@@ -11120,6 +12194,14 @@ export class FunctionInvocationContext extends InvocationContext {
 			listener.exitFunctionInvocation(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitFunctionInvocation) {
+			return visitor.visitFunctionInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class ThisInvocationContext extends InvocationContext {
 	constructor(ctx: InvocationContext) {
@@ -11136,6 +12218,14 @@ export class ThisInvocationContext extends InvocationContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitThisInvocation) {
 			listener.exitThisInvocation(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitThisInvocation) {
+			return visitor.visitThisInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11156,6 +12246,14 @@ export class IndexInvocationContext extends InvocationContext {
 			listener.exitIndexInvocation(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIndexInvocation) {
+			return visitor.visitIndexInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class TotalInvocationContext extends InvocationContext {
 	constructor(ctx: InvocationContext) {
@@ -11172,6 +12270,14 @@ export class TotalInvocationContext extends InvocationContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTotalInvocation) {
 			listener.exitTotalInvocation(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTotalInvocation) {
+			return visitor.visitTotalInvocation(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11199,6 +12305,14 @@ export class C_functionContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitC_function) {
 			listener.exitC_function(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitC_function) {
+			return visitor.visitC_function(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11231,6 +12345,14 @@ export class RatioContext extends ParserRuleContext {
 			listener.exitRatio(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitRatio) {
+			return visitor.visitRatio(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11261,6 +12383,14 @@ export class BooleanLiteralContext extends LiteralContext {
 			listener.exitBooleanLiteral(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitBooleanLiteral) {
+			return visitor.visitBooleanLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class NullLiteralContext extends LiteralContext {
 	constructor(ctx: LiteralContext) {
@@ -11277,6 +12407,14 @@ export class NullLiteralContext extends LiteralContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitNullLiteral) {
 			listener.exitNullLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitNullLiteral) {
+			return visitor.visitNullLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11298,6 +12436,14 @@ export class StringLiteralContext extends LiteralContext {
 			listener.exitStringLiteral(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitStringLiteral) {
+			return visitor.visitStringLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class NumberLiteralContext extends LiteralContext {
 	public NUMBER(): TerminalNode { return this.getToken(cqlParser.NUMBER, 0); }
@@ -11315,6 +12461,14 @@ export class NumberLiteralContext extends LiteralContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitNumberLiteral) {
 			listener.exitNumberLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitNumberLiteral) {
+			return visitor.visitNumberLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11336,6 +12490,14 @@ export class DateTimeLiteralContext extends LiteralContext {
 			listener.exitDateTimeLiteral(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDateTimeLiteral) {
+			return visitor.visitDateTimeLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class TimeLiteralContext extends LiteralContext {
 	public TIME(): TerminalNode { return this.getToken(cqlParser.TIME, 0); }
@@ -11353,6 +12515,14 @@ export class TimeLiteralContext extends LiteralContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTimeLiteral) {
 			listener.exitTimeLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTimeLiteral) {
+			return visitor.visitTimeLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11376,6 +12546,14 @@ export class QuantityLiteralContext extends LiteralContext {
 			listener.exitQuantityLiteral(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQuantityLiteral) {
+			return visitor.visitQuantityLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 export class RatioLiteralContext extends LiteralContext {
 	public ratio(): RatioContext {
@@ -11395,6 +12573,14 @@ export class RatioLiteralContext extends LiteralContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitRatioLiteral) {
 			listener.exitRatioLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitRatioLiteral) {
+			return visitor.visitRatioLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11427,6 +12613,14 @@ export class IntervalSelectorContext extends ParserRuleContext {
 			listener.exitIntervalSelector(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIntervalSelector) {
+			return visitor.visitIntervalSelector(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11457,6 +12651,14 @@ export class TupleSelectorContext extends ParserRuleContext {
 			listener.exitTupleSelector(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTupleSelector) {
+			return visitor.visitTupleSelector(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11482,6 +12684,14 @@ export class TupleElementSelectorContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTupleElementSelector) {
 			listener.exitTupleElementSelector(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTupleElementSelector) {
+			return visitor.visitTupleElementSelector(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11517,6 +12727,14 @@ export class InstanceSelectorContext extends ParserRuleContext {
 			listener.exitInstanceSelector(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInstanceSelector) {
+			return visitor.visitInstanceSelector(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11542,6 +12760,14 @@ export class InstanceElementSelectorContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitInstanceElementSelector) {
 			listener.exitInstanceElementSelector(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitInstanceElementSelector) {
+			return visitor.visitInstanceElementSelector(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11577,6 +12803,14 @@ export class ListSelectorContext extends ParserRuleContext {
 			listener.exitListSelector(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitListSelector) {
+			return visitor.visitListSelector(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11597,6 +12831,14 @@ export class DisplayClauseContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitDisplayClause) {
 			listener.exitDisplayClause(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitDisplayClause) {
+			return visitor.visitDisplayClause(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11625,6 +12867,14 @@ export class CodeSelectorContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitCodeSelector) {
 			listener.exitCodeSelector(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitCodeSelector) {
+			return visitor.visitCodeSelector(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11660,6 +12910,14 @@ export class ConceptSelectorContext extends ParserRuleContext {
 			listener.exitConceptSelector(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitConceptSelector) {
+			return visitor.visitConceptSelector(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11679,6 +12937,14 @@ export class KeywordContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitKeyword) {
 			listener.exitKeyword(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitKeyword) {
+			return visitor.visitKeyword(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11702,6 +12968,14 @@ export class ReservedWordContext extends ParserRuleContext {
 			listener.exitReservedWord(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitReservedWord) {
+			return visitor.visitReservedWord(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11721,6 +12995,14 @@ export class KeywordIdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitKeywordIdentifier) {
 			listener.exitKeywordIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitKeywordIdentifier) {
+			return visitor.visitKeywordIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11744,6 +13026,14 @@ export class ObsoleteIdentifierContext extends ParserRuleContext {
 			listener.exitObsoleteIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitObsoleteIdentifier) {
+			return visitor.visitObsoleteIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11765,6 +13055,14 @@ export class FunctionIdentifierContext extends ParserRuleContext {
 			listener.exitFunctionIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitFunctionIdentifier) {
+			return visitor.visitFunctionIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11784,6 +13082,14 @@ export class TypeNameIdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitTypeNameIdentifier) {
 			listener.exitTypeNameIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitTypeNameIdentifier) {
+			return visitor.visitTypeNameIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11813,6 +13119,14 @@ export class ReferentialIdentifierContext extends ParserRuleContext {
 			listener.exitReferentialIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitReferentialIdentifier) {
+			return visitor.visitReferentialIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11838,6 +13152,14 @@ export class ReferentialOrTypeNameIdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitReferentialOrTypeNameIdentifier) {
 			listener.exitReferentialOrTypeNameIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitReferentialOrTypeNameIdentifier) {
+			return visitor.visitReferentialOrTypeNameIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11867,6 +13189,14 @@ export class IdentifierOrFunctionIdentifierContext extends ParserRuleContext {
 			listener.exitIdentifierOrFunctionIdentifier(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIdentifierOrFunctionIdentifier) {
+			return visitor.visitIdentifierOrFunctionIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11889,6 +13219,14 @@ export class IdentifierContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitIdentifier) {
 			listener.exitIdentifier(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitIdentifier) {
+			return visitor.visitIdentifier(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11914,6 +13252,14 @@ export class ExternalConstantContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitExternalConstant) {
 			listener.exitExternalConstant(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitExternalConstant) {
+			return visitor.visitExternalConstant(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11946,6 +13292,14 @@ export class ParamListContext extends ParserRuleContext {
 			listener.exitParamList(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitParamList) {
+			return visitor.visitParamList(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -11969,6 +13323,14 @@ export class QuantityContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitQuantity) {
 			listener.exitQuantity(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitQuantity) {
+			return visitor.visitQuantity(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -11997,6 +13359,14 @@ export class UnitContext extends ParserRuleContext {
 	public exitRule(listener: cqlListener): void {
 		if (listener.exitUnit) {
 			listener.exitUnit(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: cqlVisitor<Result>): Result {
+		if (visitor.visitUnit) {
+			return visitor.visitUnit(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }

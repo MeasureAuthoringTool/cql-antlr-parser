@@ -1,6 +1,6 @@
-import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
-import { Interval } from "antlr4ts/misc";
-import { ParseTree } from "antlr4ts/tree";
+import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import {Interval} from "antlr4ts/misc";
+import {ParseTree} from "antlr4ts/tree";
 
 export default class AntlrUtils {
   static findText(ctx: ParserRuleContext): string | undefined {
@@ -13,11 +13,9 @@ export default class AntlrUtils {
     return undefined;
   }
 
-  static findChildText(
-    children: ParseTree[] | undefined,
-    lexerType: number,
-    occurrence = 1
-  ): string | undefined {
+  static findChildText(children: ParseTree[] | undefined,
+                       lexerType: number,
+                       occurrence = 1): string | undefined {
     if (children && children.length > 0) {
       const foundChild = AntlrUtils.findChild(children, lexerType, occurrence);
 
@@ -28,11 +26,13 @@ export default class AntlrUtils {
     return undefined;
   }
 
-  protected static findChild(
-    children: ParseTree[],
-    lexerType: number,
-    occurrence: number
-  ): ParseTree | undefined {
+  static findChild(children: ParseTree[] | undefined,
+                   lexerType: number,
+                   occurrence: number): ParseTree | undefined {
+    if (!children) {
+      return undefined;
+    }
+
     let found = 0;
 
     return children.find((child: ParseTree) => {

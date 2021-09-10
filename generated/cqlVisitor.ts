@@ -1,187 +1,187 @@
-// Generated from antlr/generated/cql.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from cql.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
-import { MemberInvocationContext , FunctionInvocationContext , ThisInvocationContext , IndexInvocationContext , TotalInvocationContext , TermExpressionTermContext , InvocationExpressionTermContext , IndexedExpressionTermContext , ConversionExpressionTermContext , PolarityExpressionTermContext , TimeBoundaryExpressionTermContext , TimeUnitExpressionTermContext , DurationExpressionTermContext , DifferenceExpressionTermContext , WidthExpressionTermContext , SuccessorExpressionTermContext , PredecessorExpressionTermContext , ElementExtractorExpressionTermContext , PointExtractorExpressionTermContext , TypeExtentExpressionTermContext , PowerExpressionTermContext , MultiplicationExpressionTermContext , AdditionExpressionTermContext , IfThenElseExpressionTermContext , CaseExpressionTermContext , AggregateExpressionTermContext , SetAggregateExpressionTermContext , BooleanLiteralContext , NullLiteralContext , StringLiteralContext , NumberLiteralContext , DateTimeLiteralContext , TimeLiteralContext , QuantityLiteralContext , RatioLiteralContext , InvocationTermContext , LiteralTermContext , ExternalConstantTermContext , IntervalSelectorTermContext , TupleSelectorTermContext , InstanceSelectorTermContext , ListSelectorTermContext , CodeSelectorTermContext , ConceptSelectorTermContext , ParenthesizedTermContext , SimplePathReferentialIdentifierContext , SimplePathQualifiedIdentifierContext , SimplePathIndexerContext , TermExpressionContext , RetrieveExpressionContext , QueryExpressionContext , BooleanExpressionContext , TypeExpressionContext , CastExpressionContext , NotExpressionContext , ExistenceExpressionContext , BetweenExpressionContext , DurationBetweenExpressionContext , DifferenceBetweenExpressionContext , InequalityExpressionContext , TimingExpressionContext , EqualityExpressionContext , MembershipExpressionContext , AndExpressionContext , OrExpressionContext , ImpliesExpressionContext , InFixSetExpressionContext , QualifiedMemberInvocationContext , QualifiedFunctionInvocationContext , ConcurrentWithIntervalOperatorPhraseContext , IncludesIntervalOperatorPhraseContext , IncludedInIntervalOperatorPhraseContext , BeforeOrAfterIntervalOperatorPhraseContext , WithinIntervalOperatorPhraseContext , MeetsIntervalOperatorPhraseContext , OverlapsIntervalOperatorPhraseContext , StartsIntervalOperatorPhraseContext , EndsIntervalOperatorPhraseContext , LibraryContext , LibraryDefinitionContext , UsingDefinitionContext , IncludeDefinitionContext , LocalIdentifierContext , AccessModifierContext , ParameterDefinitionContext , CodesystemDefinitionContext , ValuesetDefinitionContext , CodesystemsContext , CodesystemIdentifierContext , LibraryIdentifierContext , CodeDefinitionContext , ConceptDefinitionContext , CodeIdentifierContext , CodesystemIdContext , ValuesetIdContext , VersionSpecifierContext , CodeIdContext , TypeSpecifierContext , NamedTypeSpecifierContext , ModelIdentifierContext , ListTypeSpecifierContext , IntervalTypeSpecifierContext , TupleTypeSpecifierContext , TupleElementDefinitionContext , ChoiceTypeSpecifierContext , StatementContext , ExpressionDefinitionContext , ContextDefinitionContext , FunctionDefinitionContext , OperandDefinitionContext , FunctionBodyContext , QuerySourceContext , AliasedQuerySourceContext , AliasContext , QueryInclusionClauseContext , WithClauseContext , WithoutClauseContext , RetrieveContext , ContextIdentifierContext , CodePathContext , TerminologyContext , QualifierContext , QueryContext , SourceClauseContext , LetClauseContext , LetClauseItemContext , WhereClauseContext , ReturnClauseContext , SortClauseContext , SortDirectionContext , SortByItemContext , QualifiedIdentifierContext , QualifiedIdentifierExpressionContext , QualifierExpressionContext , SimplePathContext , SimpleLiteralContext , ExpressionContext , DateTimePrecisionContext , DateTimeComponentContext , PluralDateTimePrecisionContext , ExpressionTermContext , CaseExpressionItemContext , DateTimePrecisionSpecifierContext , RelativeQualifierContext , OffsetRelativeQualifierContext , ExclusiveRelativeQualifierContext , QuantityOffsetContext , TemporalRelationshipContext , IntervalOperatorPhraseContext , TermContext , QualifiedInvocationContext , QualifiedFunctionContext , InvocationContext , C_functionContext , RatioContext , LiteralContext , IntervalSelectorContext , TupleSelectorContext , TupleElementSelectorContext , InstanceSelectorContext , InstanceElementSelectorContext , ListSelectorContext , DisplayClauseContext , CodeSelectorContext , ConceptSelectorContext , KeywordContext , ReservedWordContext , KeywordIdentifierContext , ObsoleteIdentifierContext , FunctionIdentifierContext , TypeNameIdentifierContext , ReferentialIdentifierContext , ReferentialOrTypeNameIdentifierContext , IdentifierOrFunctionIdentifierContext , IdentifierContext , ExternalConstantContext , ParamListContext , QuantityContext , UnitContext } from "./cqlParser";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { MemberInvocationContext } from "./cqlParser";
+import { FunctionInvocationContext } from "./cqlParser";
+import { ThisInvocationContext } from "./cqlParser";
+import { IndexInvocationContext } from "./cqlParser";
+import { TotalInvocationContext } from "./cqlParser";
+import { TermExpressionTermContext } from "./cqlParser";
+import { InvocationExpressionTermContext } from "./cqlParser";
+import { IndexedExpressionTermContext } from "./cqlParser";
+import { ConversionExpressionTermContext } from "./cqlParser";
+import { PolarityExpressionTermContext } from "./cqlParser";
+import { TimeBoundaryExpressionTermContext } from "./cqlParser";
+import { TimeUnitExpressionTermContext } from "./cqlParser";
+import { DurationExpressionTermContext } from "./cqlParser";
+import { DifferenceExpressionTermContext } from "./cqlParser";
+import { WidthExpressionTermContext } from "./cqlParser";
+import { SuccessorExpressionTermContext } from "./cqlParser";
+import { PredecessorExpressionTermContext } from "./cqlParser";
+import { ElementExtractorExpressionTermContext } from "./cqlParser";
+import { PointExtractorExpressionTermContext } from "./cqlParser";
+import { TypeExtentExpressionTermContext } from "./cqlParser";
+import { PowerExpressionTermContext } from "./cqlParser";
+import { MultiplicationExpressionTermContext } from "./cqlParser";
+import { AdditionExpressionTermContext } from "./cqlParser";
+import { IfThenElseExpressionTermContext } from "./cqlParser";
+import { CaseExpressionTermContext } from "./cqlParser";
+import { AggregateExpressionTermContext } from "./cqlParser";
+import { SetAggregateExpressionTermContext } from "./cqlParser";
+import { BooleanLiteralContext } from "./cqlParser";
+import { NullLiteralContext } from "./cqlParser";
+import { StringLiteralContext } from "./cqlParser";
+import { NumberLiteralContext } from "./cqlParser";
+import { DateTimeLiteralContext } from "./cqlParser";
+import { TimeLiteralContext } from "./cqlParser";
+import { QuantityLiteralContext } from "./cqlParser";
+import { RatioLiteralContext } from "./cqlParser";
+import { InvocationTermContext } from "./cqlParser";
+import { LiteralTermContext } from "./cqlParser";
+import { ExternalConstantTermContext } from "./cqlParser";
+import { IntervalSelectorTermContext } from "./cqlParser";
+import { TupleSelectorTermContext } from "./cqlParser";
+import { InstanceSelectorTermContext } from "./cqlParser";
+import { ListSelectorTermContext } from "./cqlParser";
+import { CodeSelectorTermContext } from "./cqlParser";
+import { ConceptSelectorTermContext } from "./cqlParser";
+import { ParenthesizedTermContext } from "./cqlParser";
+import { SimplePathReferentialIdentifierContext } from "./cqlParser";
+import { SimplePathQualifiedIdentifierContext } from "./cqlParser";
+import { SimplePathIndexerContext } from "./cqlParser";
+import { TermExpressionContext } from "./cqlParser";
+import { RetrieveExpressionContext } from "./cqlParser";
+import { QueryExpressionContext } from "./cqlParser";
+import { BooleanExpressionContext } from "./cqlParser";
+import { TypeExpressionContext } from "./cqlParser";
+import { CastExpressionContext } from "./cqlParser";
+import { NotExpressionContext } from "./cqlParser";
+import { ExistenceExpressionContext } from "./cqlParser";
+import { BetweenExpressionContext } from "./cqlParser";
+import { DurationBetweenExpressionContext } from "./cqlParser";
+import { DifferenceBetweenExpressionContext } from "./cqlParser";
+import { InequalityExpressionContext } from "./cqlParser";
+import { TimingExpressionContext } from "./cqlParser";
+import { EqualityExpressionContext } from "./cqlParser";
+import { MembershipExpressionContext } from "./cqlParser";
+import { AndExpressionContext } from "./cqlParser";
+import { OrExpressionContext } from "./cqlParser";
+import { ImpliesExpressionContext } from "./cqlParser";
+import { InFixSetExpressionContext } from "./cqlParser";
+import { QualifiedMemberInvocationContext } from "./cqlParser";
+import { QualifiedFunctionInvocationContext } from "./cqlParser";
+import { ConcurrentWithIntervalOperatorPhraseContext } from "./cqlParser";
+import { IncludesIntervalOperatorPhraseContext } from "./cqlParser";
+import { IncludedInIntervalOperatorPhraseContext } from "./cqlParser";
+import { BeforeOrAfterIntervalOperatorPhraseContext } from "./cqlParser";
+import { WithinIntervalOperatorPhraseContext } from "./cqlParser";
+import { MeetsIntervalOperatorPhraseContext } from "./cqlParser";
+import { OverlapsIntervalOperatorPhraseContext } from "./cqlParser";
+import { StartsIntervalOperatorPhraseContext } from "./cqlParser";
+import { EndsIntervalOperatorPhraseContext } from "./cqlParser";
+import { LibraryContext } from "./cqlParser";
+import { LibraryDefinitionContext } from "./cqlParser";
+import { UsingDefinitionContext } from "./cqlParser";
+import { IncludeDefinitionContext } from "./cqlParser";
+import { LocalIdentifierContext } from "./cqlParser";
+import { AccessModifierContext } from "./cqlParser";
+import { ParameterDefinitionContext } from "./cqlParser";
+import { CodesystemDefinitionContext } from "./cqlParser";
+import { ValuesetDefinitionContext } from "./cqlParser";
+import { CodesystemsContext } from "./cqlParser";
+import { CodesystemIdentifierContext } from "./cqlParser";
+import { LibraryIdentifierContext } from "./cqlParser";
+import { CodeDefinitionContext } from "./cqlParser";
+import { ConceptDefinitionContext } from "./cqlParser";
+import { CodeIdentifierContext } from "./cqlParser";
+import { CodesystemIdContext } from "./cqlParser";
+import { ValuesetIdContext } from "./cqlParser";
+import { VersionSpecifierContext } from "./cqlParser";
+import { CodeIdContext } from "./cqlParser";
+import { TypeSpecifierContext } from "./cqlParser";
+import { NamedTypeSpecifierContext } from "./cqlParser";
+import { ModelIdentifierContext } from "./cqlParser";
+import { ListTypeSpecifierContext } from "./cqlParser";
+import { IntervalTypeSpecifierContext } from "./cqlParser";
+import { TupleTypeSpecifierContext } from "./cqlParser";
+import { TupleElementDefinitionContext } from "./cqlParser";
+import { ChoiceTypeSpecifierContext } from "./cqlParser";
+import { StatementContext } from "./cqlParser";
+import { ExpressionDefinitionContext } from "./cqlParser";
+import { ContextDefinitionContext } from "./cqlParser";
+import { FunctionDefinitionContext } from "./cqlParser";
+import { OperandDefinitionContext } from "./cqlParser";
+import { FunctionBodyContext } from "./cqlParser";
+import { QuerySourceContext } from "./cqlParser";
+import { AliasedQuerySourceContext } from "./cqlParser";
+import { AliasContext } from "./cqlParser";
+import { QueryInclusionClauseContext } from "./cqlParser";
+import { WithClauseContext } from "./cqlParser";
+import { WithoutClauseContext } from "./cqlParser";
+import { RetrieveContext } from "./cqlParser";
+import { ContextIdentifierContext } from "./cqlParser";
+import { CodePathContext } from "./cqlParser";
+import { TerminologyContext } from "./cqlParser";
+import { QualifierContext } from "./cqlParser";
+import { QueryContext } from "./cqlParser";
+import { SourceClauseContext } from "./cqlParser";
+import { LetClauseContext } from "./cqlParser";
+import { LetClauseItemContext } from "./cqlParser";
+import { WhereClauseContext } from "./cqlParser";
+import { ReturnClauseContext } from "./cqlParser";
+import { SortClauseContext } from "./cqlParser";
+import { SortDirectionContext } from "./cqlParser";
+import { SortByItemContext } from "./cqlParser";
+import { QualifiedIdentifierContext } from "./cqlParser";
+import { QualifiedIdentifierExpressionContext } from "./cqlParser";
+import { QualifierExpressionContext } from "./cqlParser";
+import { SimplePathContext } from "./cqlParser";
+import { SimpleLiteralContext } from "./cqlParser";
+import { ExpressionContext } from "./cqlParser";
+import { DateTimePrecisionContext } from "./cqlParser";
+import { DateTimeComponentContext } from "./cqlParser";
+import { PluralDateTimePrecisionContext } from "./cqlParser";
+import { ExpressionTermContext } from "./cqlParser";
+import { CaseExpressionItemContext } from "./cqlParser";
+import { DateTimePrecisionSpecifierContext } from "./cqlParser";
+import { RelativeQualifierContext } from "./cqlParser";
+import { OffsetRelativeQualifierContext } from "./cqlParser";
+import { ExclusiveRelativeQualifierContext } from "./cqlParser";
+import { QuantityOffsetContext } from "./cqlParser";
+import { TemporalRelationshipContext } from "./cqlParser";
+import { IntervalOperatorPhraseContext } from "./cqlParser";
+import { TermContext } from "./cqlParser";
+import { QualifiedInvocationContext } from "./cqlParser";
+import { QualifiedFunctionContext } from "./cqlParser";
+import { InvocationContext } from "./cqlParser";
+import { C_functionContext } from "./cqlParser";
+import { RatioContext } from "./cqlParser";
+import { LiteralContext } from "./cqlParser";
+import { IntervalSelectorContext } from "./cqlParser";
+import { TupleSelectorContext } from "./cqlParser";
+import { TupleElementSelectorContext } from "./cqlParser";
+import { InstanceSelectorContext } from "./cqlParser";
+import { InstanceElementSelectorContext } from "./cqlParser";
+import { ListSelectorContext } from "./cqlParser";
+import { DisplayClauseContext } from "./cqlParser";
+import { CodeSelectorContext } from "./cqlParser";
+import { ConceptSelectorContext } from "./cqlParser";
+import { KeywordContext } from "./cqlParser";
+import { ReservedWordContext } from "./cqlParser";
+import { KeywordIdentifierContext } from "./cqlParser";
+import { ObsoleteIdentifierContext } from "./cqlParser";
+import { FunctionIdentifierContext } from "./cqlParser";
+import { TypeNameIdentifierContext } from "./cqlParser";
+import { ReferentialIdentifierContext } from "./cqlParser";
+import { ReferentialOrTypeNameIdentifierContext } from "./cqlParser";
+import { IdentifierOrFunctionIdentifierContext } from "./cqlParser";
+import { IdentifierContext } from "./cqlParser";
+import { ExternalConstantContext } from "./cqlParser";
+import { ParamListContext } from "./cqlParser";
+import { QuantityContext } from "./cqlParser";
+import { UnitContext } from "./cqlParser";
 
 
 /**

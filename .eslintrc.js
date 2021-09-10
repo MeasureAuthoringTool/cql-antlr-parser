@@ -50,6 +50,12 @@ module.exports = {
         },
       },
     ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ],
     "class-methods-use-this": "off",
     "jest/no-conditional-expect": "off"
   },

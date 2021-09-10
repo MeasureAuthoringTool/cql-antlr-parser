@@ -1,12 +1,15 @@
-import { cqlListener } from "../generated/cqlListener";
 import {
   CodeDefinitionContext,
   CodesystemDefinitionContext,
+  ContextDefinitionContext,
+  cqlListener,
+  ExpressionDefinitionContext,
   IncludeDefinitionContext,
   LibraryDefinitionContext,
+  ParameterDefinitionContext,
   UsingDefinitionContext,
-  ValuesetDefinitionContext,
-} from "../generated/cqlParser";
+  ValuesetDefinitionContext
+} from "../generated";
 import CqlResult from "./dto/CqlResult";
 import CqlInclude from "./dto/CqlInclude";
 import CqlCodeSystem from "./dto/CqlCodeSystem";
@@ -14,11 +17,19 @@ import CqlValueSet from "./dto/CqlValueSet";
 import CqlVersionCreator from "./CqlVersionCreator";
 import CqlIncludeCreator from "./CqlIncludeCreator";
 import CqlCodeSystemCreator from "./CqlCodeSystemCreator";
-import CqlValueSystemCreator from "./CqlCodeValueSystemCreator";
+import CqlValueSetSystemCreator from "./CqlCodeValueSystemCreator";
 import CqlCodeCreator from "./CqlCodeCreator";
+import CqlParameterCreator from "./CqlParameterCreator";
+import CqlParameter from "./dto/CqlParameter";
+import CqlContextCreator from "./CqlContextCreator";
+import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
+import CqlExpressionDefinitionCreator from "./CqlExpressionDefinitionCreator";
+import CqlExpressionVisitor from "./CqlExpressionVisitor";
+import {CqlCode} from "./dto";
 
 export default class CqlAntlrListener implements cqlListener {
-  constructor(private cqlResult: CqlResult) {}
+  constructor(private cqlResult: CqlResult) {
+  }
 
   enterLibraryDefinition(ctx: LibraryDefinitionContext): void {
     const cqlVersionCreator = new CqlVersionCreator(ctx);
@@ -31,12 +42,10 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
-    const cqlInclude: CqlInclude | undefined = new CqlIncludeCreator(
-      ctx
-    ).buildDao();
+    const cqlCode: CqlInclude | undefined = new CqlIncludeCreator(ctx).buildDao();
 
-    if (cqlInclude) {
-      this.cqlResult.includes.push(cqlInclude);
+    if (cqlCode) {
+      this.cqlResult.includes.push(cqlCode);
     }
   }
 
@@ -51,20 +60,40 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
-    const cqlValueSet: CqlValueSet | undefined = new CqlValueSystemCreator(
-      ctx
-    ).buildDao();
+    const cqlCode: CqlValueSet | undefined = new CqlValueSetSystemCreator(ctx).buildDao();
 
-    if (cqlValueSet) {
-      this.cqlResult.valueSets.push(cqlValueSet);
+    if (cqlCode) {
+      this.cqlResult.valueSets.push(cqlCode);
     }
   }
 
   enterCodeDefinition(ctx: CodeDefinitionContext): void {
-    const cqlCode: CqlValueSet | undefined = new CqlCodeCreator(ctx).buildDao();
+    const cqlCode: CqlCode | undefined = new CqlCodeCreator(ctx).buildDao();
 
     if (cqlCode) {
       this.cqlResult.codes.push(cqlCode);
+    }
+  }
+
+  enterParameterDefinition(ctx: ParameterDefinitionContext): void {
+    const cqlCode: CqlParameter | undefined = new CqlParameterCreator(ctx).buildDao();
+
+    if (cqlCode) {
+      this.cqlResult.parameters.push(cqlCode);
+    }
+  }
+
+  enterContextDefinition(ctx: ContextDefinitionContext): void {
+    this.cqlResult.context = new CqlContextCreator(ctx).buildDao();
+  }
+
+  enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
+    const cqlCode: CqlExpressionDefinition | undefined = new CqlExpressionDefinitionCreator(ctx).buildDao();
+
+    if (cqlCode) {
+      this.cqlResult.expressionDefinitions.push(cqlCode);
+      const cqlExpressionVisitor = new CqlExpressionVisitor(this.cqlResult);
+      cqlExpressionVisitor.visit(ctx);
     }
   }
 }

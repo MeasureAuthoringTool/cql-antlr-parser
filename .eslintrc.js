@@ -5,7 +5,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ["./tsconfig.json"],
   },
-  plugins: ["@typescript-eslint", "eslint-comments", "jest", "promise"],
+  plugins: ["@typescript-eslint", "eslint-comments", "jest", "promise", "import"],
   extends: [
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",

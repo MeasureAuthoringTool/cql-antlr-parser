@@ -42,7 +42,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^25.3.0",
-    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-promise": "^6.0.0",
     "jest": "^27.4.3",
     "jest-extended": "^1.2.0",
     "prettier": "^2.5.1",

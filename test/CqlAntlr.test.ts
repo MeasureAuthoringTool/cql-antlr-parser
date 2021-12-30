@@ -1,4 +1,10 @@
-import {testCql, cqlWithSyntaxErrors} from "./testCql";
+import { testCql,
+  cqlWithSyntaxErrors,
+  cqlWithUsedParam,
+  cqlWithUsedDefines,
+  cqlWithUsedCodeAndCodeSystem,
+  cqlWithUsedContext
+} from "./testCql";
 import CqlAntlr from "../src/CqlAntlr";
 
 describe("test antlr", () => {
@@ -38,4 +44,32 @@ describe("test antlr", () => {
     expect(cqlResult.errors[2].message).toContain("missing {QUOTEDIDENTIFIER, IDENTIFIER, DELIMITEDIDENTIFIER} at 'Interval'");
   });
 
+  it("should recognize valid parameter", () => {
+    const cqlAntlr = new CqlAntlr(cqlWithUsedParam);
+    const cqlResult = cqlAntlr.parse();
+    expect(cqlResult.parameters.length).toEqual(1);
+    expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("should recognize used valid define", () => {
+    const cqlAntlr = new CqlAntlr(cqlWithUsedDefines);
+    const cqlResult = cqlAntlr.parse();
+    expect(cqlResult.expressionDefinitions.length).toEqual(2);
+    expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("should recognize used valid code and codeSystem", () => {
+    const cqlAntlr = new CqlAntlr(cqlWithUsedCodeAndCodeSystem);
+    const cqlResult = cqlAntlr.parse();
+    expect(cqlResult.codes.length).toEqual(1);
+    expect(cqlResult.codeSystems.length).toEqual(1);
+    expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("should recognize used valid context", () => {
+    const cqlAntlr = new CqlAntlr(cqlWithUsedContext);
+    const cqlResult = cqlAntlr.parse();
+    expect(cqlResult.context?.name).toEqual("Patient");
+    expect(cqlResult.errors.length).toEqual(0);
+  });
 });

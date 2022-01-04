@@ -17,6 +17,7 @@ class CqlAntlr {
 
     const listener: cqlListener = new CqlAntlrListener(result);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
+
     const cqlExpressionVisitor = new CqlExpressionVisitor(result);
     cqlExpressionVisitor.visit(tree);
     return result;

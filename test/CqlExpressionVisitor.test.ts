@@ -3,6 +3,7 @@ import CqlExpressionVisitor from "../src/CqlExpressionVisitor";
 import CqlInclude from "../src/dto/CqlInclude";
 import CqlValueSet from "../src/dto/CqlValueSet";
 import {ExpressionDefinitionContext} from "../generated";
+import {CqlResult} from "../src";
 
 
 const testDefineWithAlias = `define "Antithrombotic Not Given at Discharge":
@@ -68,7 +69,7 @@ describe("test visitor", () => {
   });
 
   it("parse alias with errors", () => {
-    const cqlResult = CqlAntlr.initCqlResult();
+    const cqlResult: CqlResult = CqlAntlr.initCqlResult();
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(testDefineWithAlias));

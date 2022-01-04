@@ -5,13 +5,13 @@ import { testCql,
   cqlWithUsedCodeAndCodeSystem,
   cqlWithUsedContext
 } from "./testCql";
-import CqlAntlr from "../src/CqlAntlr";
+import { CqlAntlr, CqlResult } from "../src";
 
 describe("test antlr", () => {
   it("parse", () => {
     const cqlAntlr = new CqlAntlr(testCql);
 
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
 
     expect(cqlResult.codes.length).toBe(1);
     expect(cqlResult.valueSets.length).toBe(4);
@@ -27,7 +27,7 @@ describe("test antlr", () => {
   it("reports syntactical errors", () => {
     const cqlAntlr = new CqlAntlr(cqlWithSyntaxErrors);
 
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
 
     expect(cqlResult.codes.length).toBe(1);
     expect(cqlResult.codeSystems.length).toBe(3);
@@ -46,21 +46,21 @@ describe("test antlr", () => {
 
   it("should recognize valid parameter", () => {
     const cqlAntlr = new CqlAntlr(cqlWithUsedParam);
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.parameters.length).toEqual(1);
     expect(cqlResult.errors.length).toEqual(0);
   });
 
   it("should recognize used valid define", () => {
     const cqlAntlr = new CqlAntlr(cqlWithUsedDefines);
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.expressionDefinitions.length).toEqual(2);
     expect(cqlResult.errors.length).toEqual(0);
   });
 
   it("should recognize used valid code and codeSystem", () => {
     const cqlAntlr = new CqlAntlr(cqlWithUsedCodeAndCodeSystem);
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.codes.length).toEqual(1);
     expect(cqlResult.codeSystems.length).toEqual(1);
     expect(cqlResult.errors.length).toEqual(0);
@@ -68,7 +68,7 @@ describe("test antlr", () => {
 
   it("should recognize used valid context", () => {
     const cqlAntlr = new CqlAntlr(cqlWithUsedContext);
-    const cqlResult = cqlAntlr.parse();
+    const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.context?.name).toEqual("Patient");
     expect(cqlResult.errors.length).toEqual(0);
   });

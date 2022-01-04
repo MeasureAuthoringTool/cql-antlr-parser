@@ -31,7 +31,7 @@ describe("test antlr", () => {
 
     expect(cqlResult.codes.length).toBe(1);
     expect(cqlResult.codeSystems.length).toBe(3);
-    expect(cqlResult.errors.length).toBe(3);
+    expect(cqlResult.errors.length).toBe(4);
 
     expect(cqlResult.errors[0].name).toBe("includess");
     expect(cqlResult.errors[0].message).toContain("extraneous input 'includess' expecting");

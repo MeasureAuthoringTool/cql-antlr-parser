@@ -96,12 +96,11 @@ define "Has Allergy to Statin":
 
 const cqlWithUsedDefines = `
 valueset "Dementia Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.11.1517'
+define "Initial Population":
+  exists("Dementia Medications Dispensed")
 define "Dementia Medications Dispensed":
   [MedicationDispense: "Dementia Medications"] MedicationDispense
               where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
-
-define "Initial Population":
-  exists("Dementia Medications Dispensed")
 `;
 
 const cqlWithUsedCodeAndCodeSystem = `

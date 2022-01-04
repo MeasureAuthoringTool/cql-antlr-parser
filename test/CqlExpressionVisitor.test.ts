@@ -60,6 +60,7 @@ describe("test visitor", () => {
 
     cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""))
     cqlResult.valueSets.push(createValueSet("\"Medical Reason\""))
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""))
 
     const cqlExpressionVisitor = new CqlExpressionVisitor(cqlResult);
     cqlExpressionVisitor.visit(createAntlrContext(testDefineWithAlias));
@@ -72,7 +73,7 @@ describe("test visitor", () => {
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(testDefineWithAlias));
 
-    expect(cqlResult.errors.length).toEqual(6);
+    expect(cqlResult.errors.length).toEqual(7);
   });
 
   it("parse sde with errors", () => {
@@ -104,6 +105,7 @@ describe("test visitor", () => {
 
     cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""))
     cqlResult.valueSets.push(createValueSet("\"Medical Reason\""))
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""))
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeValueset));

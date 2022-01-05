@@ -5,7 +5,8 @@ import { testCql,
   cqlWithUsedCodeAndCodeSystem,
   cqlWithUsedContext
 } from "./testCql";
-import { CqlAntlr, CqlResult } from "../src";
+import { CqlAntlr } from "../src";
+import CqlResult from "../src/dto/CqlResult"
 
 describe("test antlr", () => {
   it("parse", () => {
@@ -31,7 +32,7 @@ describe("test antlr", () => {
 
     expect(cqlResult.codes.length).toBe(1);
     expect(cqlResult.codeSystems.length).toBe(3);
-    expect(cqlResult.errors?.length)?.toBe(4);
+    expect(cqlResult.errors.length).toBe(4);
 
     expect(cqlResult.errors[0].name).toBe("includess");
     expect(cqlResult.errors[0].message).toContain("extraneous input 'includess' expecting");

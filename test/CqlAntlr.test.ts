@@ -1,4 +1,5 @@
-import { testCql,
+import {
+  testCql,
   cqlWithSyntaxErrors,
   cqlWithUsedParam,
   cqlWithUsedDefines,

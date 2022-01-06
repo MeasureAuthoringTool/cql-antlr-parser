@@ -5,6 +5,7 @@ import {cqlLexer, cqlParser, LibraryContext, cqlListener} from "../generated";
 import CqlAntlrListener from "./CqlAntlrListener";
 import CqlResult from "./dto/CqlResult";
 import CustomErrorListener from "./CustomErrorListener";
+import CqlExpressionVisitor from "./CqlExpressionVisitor";
 
 class CqlAntlr {
   constructor(private cql: string) {
@@ -17,6 +18,8 @@ class CqlAntlr {
     const listener: cqlListener = new CqlAntlrListener(result);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
 
+    const cqlExpressionVisitor = new CqlExpressionVisitor(result);
+    cqlExpressionVisitor.visit(tree);
     return result;
   }
 

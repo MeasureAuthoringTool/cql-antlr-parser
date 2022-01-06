@@ -47,8 +47,7 @@ define "Antithrombotic Not Given at Discharge":
       //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
       and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and NoAntithromboticDischarge.status = 'completed'
-      and NoAntithromboticDischarge.intent = 'order'        
-  
+      and NoAntithromboticDischarge.intent = 'order'     
 `;
 
 const cqlWithSyntaxErrors = `library TJCOverall_FHIR4 version '4.0.000'
@@ -87,7 +86,48 @@ define "SDE Sex":
   SDE."SDE Sex"       
 `;
 
+const cqlWithUsedParam = `
+valueset "Statin Allergen": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.42' 
+parameter "Measurement Period" Interval<DateTime>
+define "Has Allergy to Statin":
+  exists ([AllergyIntolerance: "Statin Allergen"] StatinAllergy
+                where StatinAllergy.onset during "Measurement Period")
+`;
+
+const cqlWithUsedDefines = `
+valueset "Dementia Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.11.1517'
+define "Initial Population":
+  exists("Dementia Medications Dispensed")
+define "Dementia Medications Dispensed":
+  [MedicationDispense: "Dementia Medications"] MedicationDispense
+              where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
+`;
+
+const cqlWithUsedCodeAndCodeSystem = `
+codesystem "ICD10CM": 'http://hl7.org/fhir/sid/icd-10-cm'
+code "Encounter for palliative care": 'Z51.5' from "ICD10CM" display 'Encounter for palliative care'
+define "Dementia Medications Dispensed":
+  [MedicationDispense: "Encounter for palliative care"] MedicationDispense
+              where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
+
+define "Initial Population":
+  exists("Dementia Medications Dispensed")
+`;
+
+const cqlWithUsedContext = `
+valueset "Dementia Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.11.1517'
+context Patient
+define "Dementia Medications Dispensed":
+  [MedicationDispense: "Dementia Medications"] MedicationDispense
+                where MedicationDispense.status in { 'active', 'completed', 'on-hold' } 
+                and Patient.gender in { 'male', 'female', 'unknown' }
+`;
+
 export {
   testCql,
-  cqlWithSyntaxErrors
+  cqlWithSyntaxErrors,
+  cqlWithUsedParam,
+  cqlWithUsedDefines,
+  cqlWithUsedCodeAndCodeSystem,
+  cqlWithUsedContext
 } ;

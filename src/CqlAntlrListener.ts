@@ -24,7 +24,6 @@ import CqlParameter from "./dto/CqlParameter";
 import CqlContextCreator from "./CqlContextCreator";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
 import CqlExpressionDefinitionCreator from "./CqlExpressionDefinitionCreator";
-import CqlExpressionVisitor from "./CqlExpressionVisitor";
 import {CqlCode} from "./dto";
 
 export default class CqlAntlrListener implements cqlListener {
@@ -92,8 +91,6 @@ export default class CqlAntlrListener implements cqlListener {
 
     if (cqlCode) {
       this.cqlResult.expressionDefinitions.push(cqlCode);
-      const cqlExpressionVisitor = new CqlExpressionVisitor(this.cqlResult);
-      cqlExpressionVisitor.visit(ctx);
     }
   }
 }

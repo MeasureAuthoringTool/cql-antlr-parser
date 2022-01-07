@@ -1,4 +1,4 @@
-// Generated from cql.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from generated/cql.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
@@ -34,7 +34,9 @@ import { BooleanLiteralContext } from "./cqlParser";
 import { NullLiteralContext } from "./cqlParser";
 import { StringLiteralContext } from "./cqlParser";
 import { NumberLiteralContext } from "./cqlParser";
+import { LongNumberLiteralContext } from "./cqlParser";
 import { DateTimeLiteralContext } from "./cqlParser";
+import { DateLiteralContext } from "./cqlParser";
 import { TimeLiteralContext } from "./cqlParser";
 import { QuantityLiteralContext } from "./cqlParser";
 import { RatioLiteralContext } from "./cqlParser";
@@ -72,6 +74,8 @@ import { ImpliesExpressionContext } from "./cqlParser";
 import { InFixSetExpressionContext } from "./cqlParser";
 import { QualifiedMemberInvocationContext } from "./cqlParser";
 import { QualifiedFunctionInvocationContext } from "./cqlParser";
+import { SimpleStringLiteralContext } from "./cqlParser";
+import { SimpleNumberLiteralContext } from "./cqlParser";
 import { ConcurrentWithIntervalOperatorPhraseContext } from "./cqlParser";
 import { IncludesIntervalOperatorPhraseContext } from "./cqlParser";
 import { IncludedInIntervalOperatorPhraseContext } from "./cqlParser";
@@ -81,6 +85,7 @@ import { MeetsIntervalOperatorPhraseContext } from "./cqlParser";
 import { OverlapsIntervalOperatorPhraseContext } from "./cqlParser";
 import { StartsIntervalOperatorPhraseContext } from "./cqlParser";
 import { EndsIntervalOperatorPhraseContext } from "./cqlParser";
+import { DefinitionContext } from "./cqlParser";
 import { LibraryContext } from "./cqlParser";
 import { LibraryDefinitionContext } from "./cqlParser";
 import { UsingDefinitionContext } from "./cqlParser";
@@ -111,6 +116,7 @@ import { ChoiceTypeSpecifierContext } from "./cqlParser";
 import { StatementContext } from "./cqlParser";
 import { ExpressionDefinitionContext } from "./cqlParser";
 import { ContextDefinitionContext } from "./cqlParser";
+import { FluentModifierContext } from "./cqlParser";
 import { FunctionDefinitionContext } from "./cqlParser";
 import { OperandDefinitionContext } from "./cqlParser";
 import { FunctionBodyContext } from "./cqlParser";
@@ -123,6 +129,7 @@ import { WithoutClauseContext } from "./cqlParser";
 import { RetrieveContext } from "./cqlParser";
 import { ContextIdentifierContext } from "./cqlParser";
 import { CodePathContext } from "./cqlParser";
+import { CodeComparatorContext } from "./cqlParser";
 import { TerminologyContext } from "./cqlParser";
 import { QualifierContext } from "./cqlParser";
 import { QueryContext } from "./cqlParser";
@@ -131,6 +138,8 @@ import { LetClauseContext } from "./cqlParser";
 import { LetClauseItemContext } from "./cqlParser";
 import { WhereClauseContext } from "./cqlParser";
 import { ReturnClauseContext } from "./cqlParser";
+import { AggregateClauseContext } from "./cqlParser";
+import { StartingClauseContext } from "./cqlParser";
 import { SortClauseContext } from "./cqlParser";
 import { SortDirectionContext } from "./cqlParser";
 import { SortByItemContext } from "./cqlParser";
@@ -156,7 +165,7 @@ import { TermContext } from "./cqlParser";
 import { QualifiedInvocationContext } from "./cqlParser";
 import { QualifiedFunctionContext } from "./cqlParser";
 import { InvocationContext } from "./cqlParser";
-import { C_functionContext } from "./cqlParser";
+import { FunctionContext } from "./cqlParser";
 import { RatioContext } from "./cqlParser";
 import { LiteralContext } from "./cqlParser";
 import { IntervalSelectorContext } from "./cqlParser";
@@ -441,12 +450,28 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitNumberLiteral?: (ctx: NumberLiteralContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by the `longNumberLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLongNumberLiteral?: (ctx: LongNumberLiteralContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by the `dateTimeLiteral`
 	 * labeled alternative in `cqlParser.literal`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitDateTimeLiteral?: (ctx: DateTimeLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `dateLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDateLiteral?: (ctx: DateLiteralContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by the `timeLiteral`
@@ -745,6 +770,22 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitQualifiedFunctionInvocation?: (ctx: QualifiedFunctionInvocationContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by the `simpleStringLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimpleStringLiteral?: (ctx: SimpleStringLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by the `simpleNumberLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSimpleNumberLiteral?: (ctx: SimpleNumberLiteralContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by the `concurrentWithIntervalOperatorPhrase`
 	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
 	 * @param ctx the parse tree
@@ -815,6 +856,13 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitEndsIntervalOperatorPhrase?: (ctx: EndsIntervalOperatorPhraseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.definition`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDefinition?: (ctx: DefinitionContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `cqlParser.library`.
@@ -1027,6 +1075,13 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitContextDefinition?: (ctx: ContextDefinitionContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `cqlParser.fluentModifier`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFluentModifier?: (ctx: FluentModifierContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `cqlParser.functionDefinition`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1111,6 +1166,13 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitCodePath?: (ctx: CodePathContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `cqlParser.codeComparator`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCodeComparator?: (ctx: CodeComparatorContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `cqlParser.terminology`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1165,6 +1227,20 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitReturnClause?: (ctx: ReturnClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.aggregateClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAggregateClause?: (ctx: AggregateClauseContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `cqlParser.startingClause`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStartingClause?: (ctx: StartingClauseContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `cqlParser.sortClause`.
@@ -1342,11 +1418,11 @@ export interface cqlVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitInvocation?: (ctx: InvocationContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `cqlParser.c_function`.
+	 * Visit a parse tree produced by `cqlParser.function`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitC_function?: (ctx: C_functionContext) => Result;
+	visitFunction?: (ctx: FunctionContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `cqlParser.ratio`.

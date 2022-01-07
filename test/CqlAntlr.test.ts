@@ -4,7 +4,10 @@ import {
   cqlWithUsedParam,
   cqlWithUsedDefines,
   cqlWithUsedCodeAndCodeSystem,
-  cqlWithUsedContext
+  cqlWithUsedContext,
+  cqlFluentFunctions,
+  relatedContextRetrieve,
+  aggregateQuery
 } from "./testCql";
 import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult"
@@ -73,5 +76,23 @@ describe("test antlr", () => {
     const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.context?.name).toEqual("Patient");
     expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("should recognize cql 1.5 specific fluent functions", (): void => {
+    const cqlAntlr = new CqlAntlr(cqlFluentFunctions);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("should recognize cql 1.5 Related Context Retrieve", (): void => {
+    const cqlAntlr = new CqlAntlr(relatedContextRetrieve);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
+  });
+
+  it("should recognize cql 1.5 aggregate clause", (): void => {
+    const cqlAntlr = new CqlAntlr(aggregateQuery);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
   });
 });

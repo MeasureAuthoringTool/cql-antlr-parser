@@ -93,6 +93,6 @@ describe("test antlr", () => {
   it("should recognize cql 1.5 aggregate clause", (): void => {
     const cqlAntlr = new CqlAntlr(aggregateQuery);
     const cqlResult: CqlResult = cqlAntlr.parse();
-    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors.length).toEqual(0);
   });
 });

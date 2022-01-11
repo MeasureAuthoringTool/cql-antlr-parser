@@ -7,4 +7,4 @@ import {CqlAntlr, CqlResult}  from "cql-antlr-parser";
 ...
 
 const result: CqlResult = new CqlAntlr(cqlString).parse();`
-```\
+```

@@ -1,4 +1,5 @@
 import {
+  AggregateClauseContext,
   CodeDefinitionContext,
   CodesystemDefinitionContext,
   ContextDefinitionContext,
@@ -25,6 +26,8 @@ import CqlContextCreator from "./CqlContextCreator";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
 import CqlExpressionDefinitionCreator from "./CqlExpressionDefinitionCreator";
 import {CqlCode} from "./dto";
+import CqlIdentifier from "./dto/CqlIdentifier";
+import CqlIdentifierCreator from "./CqlIdentifierCreator";
 
 export default class CqlAntlrListener implements cqlListener {
   constructor(private cqlResult: CqlResult) {
@@ -91,6 +94,13 @@ export default class CqlAntlrListener implements cqlListener {
 
     if (cqlCode) {
       this.cqlResult.expressionDefinitions.push(cqlCode);
+    }
+  }
+
+  enterAggregateClause(ctx: AggregateClauseContext): void {
+    const identifier: CqlIdentifier | undefined = new CqlIdentifierCreator(ctx).buildDao();
+    if (identifier) {
+      this.cqlResult.identifiers.push(identifier);
     }
   }
 }

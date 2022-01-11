@@ -1,4 +1,4 @@
-// Generated from cql.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from generated/cql.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
@@ -34,7 +34,9 @@ import { BooleanLiteralContext } from "./cqlParser";
 import { NullLiteralContext } from "./cqlParser";
 import { StringLiteralContext } from "./cqlParser";
 import { NumberLiteralContext } from "./cqlParser";
+import { LongNumberLiteralContext } from "./cqlParser";
 import { DateTimeLiteralContext } from "./cqlParser";
+import { DateLiteralContext } from "./cqlParser";
 import { TimeLiteralContext } from "./cqlParser";
 import { QuantityLiteralContext } from "./cqlParser";
 import { RatioLiteralContext } from "./cqlParser";
@@ -72,6 +74,8 @@ import { ImpliesExpressionContext } from "./cqlParser";
 import { InFixSetExpressionContext } from "./cqlParser";
 import { QualifiedMemberInvocationContext } from "./cqlParser";
 import { QualifiedFunctionInvocationContext } from "./cqlParser";
+import { SimpleStringLiteralContext } from "./cqlParser";
+import { SimpleNumberLiteralContext } from "./cqlParser";
 import { ConcurrentWithIntervalOperatorPhraseContext } from "./cqlParser";
 import { IncludesIntervalOperatorPhraseContext } from "./cqlParser";
 import { IncludedInIntervalOperatorPhraseContext } from "./cqlParser";
@@ -81,6 +85,7 @@ import { MeetsIntervalOperatorPhraseContext } from "./cqlParser";
 import { OverlapsIntervalOperatorPhraseContext } from "./cqlParser";
 import { StartsIntervalOperatorPhraseContext } from "./cqlParser";
 import { EndsIntervalOperatorPhraseContext } from "./cqlParser";
+import { DefinitionContext } from "./cqlParser";
 import { LibraryContext } from "./cqlParser";
 import { LibraryDefinitionContext } from "./cqlParser";
 import { UsingDefinitionContext } from "./cqlParser";
@@ -111,6 +116,7 @@ import { ChoiceTypeSpecifierContext } from "./cqlParser";
 import { StatementContext } from "./cqlParser";
 import { ExpressionDefinitionContext } from "./cqlParser";
 import { ContextDefinitionContext } from "./cqlParser";
+import { FluentModifierContext } from "./cqlParser";
 import { FunctionDefinitionContext } from "./cqlParser";
 import { OperandDefinitionContext } from "./cqlParser";
 import { FunctionBodyContext } from "./cqlParser";
@@ -123,6 +129,7 @@ import { WithoutClauseContext } from "./cqlParser";
 import { RetrieveContext } from "./cqlParser";
 import { ContextIdentifierContext } from "./cqlParser";
 import { CodePathContext } from "./cqlParser";
+import { CodeComparatorContext } from "./cqlParser";
 import { TerminologyContext } from "./cqlParser";
 import { QualifierContext } from "./cqlParser";
 import { QueryContext } from "./cqlParser";
@@ -131,6 +138,8 @@ import { LetClauseContext } from "./cqlParser";
 import { LetClauseItemContext } from "./cqlParser";
 import { WhereClauseContext } from "./cqlParser";
 import { ReturnClauseContext } from "./cqlParser";
+import { AggregateClauseContext } from "./cqlParser";
+import { StartingClauseContext } from "./cqlParser";
 import { SortClauseContext } from "./cqlParser";
 import { SortDirectionContext } from "./cqlParser";
 import { SortByItemContext } from "./cqlParser";
@@ -156,7 +165,7 @@ import { TermContext } from "./cqlParser";
 import { QualifiedInvocationContext } from "./cqlParser";
 import { QualifiedFunctionContext } from "./cqlParser";
 import { InvocationContext } from "./cqlParser";
-import { C_functionContext } from "./cqlParser";
+import { FunctionContext } from "./cqlParser";
 import { RatioContext } from "./cqlParser";
 import { LiteralContext } from "./cqlParser";
 import { IntervalSelectorContext } from "./cqlParser";
@@ -593,6 +602,19 @@ export interface cqlListener extends ParseTreeListener {
 	exitNumberLiteral?: (ctx: NumberLiteralContext) => void;
 
 	/**
+	 * Enter a parse tree produced by the `longNumberLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	enterLongNumberLiteral?: (ctx: LongNumberLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by the `longNumberLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	exitLongNumberLiteral?: (ctx: LongNumberLiteralContext) => void;
+
+	/**
 	 * Enter a parse tree produced by the `dateTimeLiteral`
 	 * labeled alternative in `cqlParser.literal`.
 	 * @param ctx the parse tree
@@ -604,6 +626,19 @@ export interface cqlListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitDateTimeLiteral?: (ctx: DateTimeLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by the `dateLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	enterDateLiteral?: (ctx: DateLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by the `dateLiteral`
+	 * labeled alternative in `cqlParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	exitDateLiteral?: (ctx: DateLiteralContext) => void;
 
 	/**
 	 * Enter a parse tree produced by the `timeLiteral`
@@ -1087,6 +1122,32 @@ export interface cqlListener extends ParseTreeListener {
 	exitQualifiedFunctionInvocation?: (ctx: QualifiedFunctionInvocationContext) => void;
 
 	/**
+	 * Enter a parse tree produced by the `simpleStringLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterSimpleStringLiteral?: (ctx: SimpleStringLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by the `simpleStringLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitSimpleStringLiteral?: (ctx: SimpleStringLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by the `simpleNumberLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterSimpleNumberLiteral?: (ctx: SimpleNumberLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by the `simpleNumberLiteral`
+	 * labeled alternative in `cqlParser.simpleLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitSimpleNumberLiteral?: (ctx: SimpleNumberLiteralContext) => void;
+
+	/**
 	 * Enter a parse tree produced by the `concurrentWithIntervalOperatorPhrase`
 	 * labeled alternative in `cqlParser.intervalOperatorPhrase`.
 	 * @param ctx the parse tree
@@ -1202,6 +1263,17 @@ export interface cqlListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitEndsIntervalOperatorPhrase?: (ctx: EndsIntervalOperatorPhraseContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `cqlParser.definition`.
+	 * @param ctx the parse tree
+	 */
+	enterDefinition?: (ctx: DefinitionContext) => void;
+	/**
+	 * Exit a parse tree produced by `cqlParser.definition`.
+	 * @param ctx the parse tree
+	 */
+	exitDefinition?: (ctx: DefinitionContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `cqlParser.library`.
@@ -1534,6 +1606,17 @@ export interface cqlListener extends ParseTreeListener {
 	exitContextDefinition?: (ctx: ContextDefinitionContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `cqlParser.fluentModifier`.
+	 * @param ctx the parse tree
+	 */
+	enterFluentModifier?: (ctx: FluentModifierContext) => void;
+	/**
+	 * Exit a parse tree produced by `cqlParser.fluentModifier`.
+	 * @param ctx the parse tree
+	 */
+	exitFluentModifier?: (ctx: FluentModifierContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `cqlParser.functionDefinition`.
 	 * @param ctx the parse tree
 	 */
@@ -1666,6 +1749,17 @@ export interface cqlListener extends ParseTreeListener {
 	exitCodePath?: (ctx: CodePathContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `cqlParser.codeComparator`.
+	 * @param ctx the parse tree
+	 */
+	enterCodeComparator?: (ctx: CodeComparatorContext) => void;
+	/**
+	 * Exit a parse tree produced by `cqlParser.codeComparator`.
+	 * @param ctx the parse tree
+	 */
+	exitCodeComparator?: (ctx: CodeComparatorContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `cqlParser.terminology`.
 	 * @param ctx the parse tree
 	 */
@@ -1752,6 +1846,28 @@ export interface cqlListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitReturnClause?: (ctx: ReturnClauseContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `cqlParser.aggregateClause`.
+	 * @param ctx the parse tree
+	 */
+	enterAggregateClause?: (ctx: AggregateClauseContext) => void;
+	/**
+	 * Exit a parse tree produced by `cqlParser.aggregateClause`.
+	 * @param ctx the parse tree
+	 */
+	exitAggregateClause?: (ctx: AggregateClauseContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `cqlParser.startingClause`.
+	 * @param ctx the parse tree
+	 */
+	enterStartingClause?: (ctx: StartingClauseContext) => void;
+	/**
+	 * Exit a parse tree produced by `cqlParser.startingClause`.
+	 * @param ctx the parse tree
+	 */
+	exitStartingClause?: (ctx: StartingClauseContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `cqlParser.sortClause`.
@@ -2029,15 +2145,15 @@ export interface cqlListener extends ParseTreeListener {
 	exitInvocation?: (ctx: InvocationContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `cqlParser.c_function`.
+	 * Enter a parse tree produced by `cqlParser.function`.
 	 * @param ctx the parse tree
 	 */
-	enterC_function?: (ctx: C_functionContext) => void;
+	enterFunction?: (ctx: FunctionContext) => void;
 	/**
-	 * Exit a parse tree produced by `cqlParser.c_function`.
+	 * Exit a parse tree produced by `cqlParser.function`.
 	 * @param ctx the parse tree
 	 */
-	exitC_function?: (ctx: C_functionContext) => void;
+	exitFunction?: (ctx: FunctionContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `cqlParser.ratio`.

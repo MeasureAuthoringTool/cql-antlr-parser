@@ -57,6 +57,13 @@ export default class CqlFinder {
       }
     }
 
+    for (const v of this.result.identifiers) {
+      if (v.name === term) {
+        v.hits += 1;
+        return true;
+      }
+    }
+
     return false;
   }
 

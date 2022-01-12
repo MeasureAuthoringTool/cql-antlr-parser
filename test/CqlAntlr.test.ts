@@ -78,5 +78,6 @@ describe("test antlr", () => {
     const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.context?.name).toEqual("Patient");
     expect(cqlResult.errors.length).toEqual(0);
+    expect(cqlResult.errors.length).toEqual(0);
   });
 });

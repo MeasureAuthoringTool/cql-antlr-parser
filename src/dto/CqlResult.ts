@@ -7,6 +7,7 @@ import CqlParameter from "./CqlParameter";
 import CqlContext from "./CqlContext";
 import CqlExpressionDefinition from "./CqlExpressionDefinition";
 import CqlError from "./CqlError";
+import CqlIdentifier from "./CqlIdentifier";
 
 export default interface CqlResult {
   library?: CqlVersion;
@@ -16,6 +17,7 @@ export default interface CqlResult {
   valueSets: CqlValueSet[];
   codes: CqlCode[];
   parameters: CqlParameter[];
+  identifiers: CqlIdentifier[];
   context?: CqlContext;
   expressionDefinitions: CqlExpressionDefinition[];
 

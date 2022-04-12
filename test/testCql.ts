@@ -123,11 +123,57 @@ define "Dementia Medications Dispensed":
                 and Patient.gender in { 'male', 'female', 'unknown' }
 `;
 
+const cqlFluentFunctions = `
+valueset "Diabetes Mellitus": 'https://cts.nlm.nih.gov/fhir/ValueSet/melitus'
+valueset "Condition Active": 'https://cts.nlm.nih.gov/fhir/ValueSet/active'
+valueset "Condition Recurrence": 'https://cts.nlm.nih.gov/fhir/ValueSet/recurring'
+valueset "Condition Confirmed": 'https://cts.nlm.nih.gov/fhir/ValueSet/recurring'
+define "Diabetes Conditions":
+  [Condition: "Diabetes Mellitus"]
+
+define "Confirmed and Active or Recurring Diabetes Conditions":
+  "Diabetes Conditions".confirmed().activeOrRecurring()
+ 
+define fluent function "confirmed"(Conditions List<Condition>):
+  Conditions C where C.verificationStatus ~ "Condition Confirmed"
+
+define fluent function "activeOrRecurring"(Conditions List<Condition>):
+  Conditions C
+    where C.clinicalStatus ~ "Condition Active"
+      or C.clinicalStatus ~ "Condition Recurrence"
+`;
+
+const relatedContextRetrieve = `
+valueset "Mother Relationship": 'https://cts.nlm.nih.gov/fhir/ValueSet/mother_relationship'
+valueset "Birth Date": 'https://cts.nlm.nih.gov/fhir/ValueSet/birth_date'
+context Patient
+
+define "Mother": singleton from ([RelatedPerson: "Mother Relationship"])
+
+define "Estimated Due Date":
+  Last(
+    ["Mother" -> "Observation": "Estimated Due Date Exam"] Exam
+      sort by effective
+  )
+
+define "Gestational Age in Days at Birth":
+  (280 - (duration in days between "Estimated Due Date" and "Birth Date")) div 7
+`;
+
+const aggregateQuery = `
+define FactorialOfFive:
+  ({ 1, 2, 3, 4, 5 }) Num
+    aggregate Result starting 1: Result * Num
+`
+
 export {
   testCql,
   cqlWithSyntaxErrors,
   cqlWithUsedParam,
   cqlWithUsedDefines,
   cqlWithUsedCodeAndCodeSystem,
-  cqlWithUsedContext
+  cqlWithUsedContext,
+  cqlFluentFunctions,
+  relatedContextRetrieve,
+  aggregateQuery
 } ;

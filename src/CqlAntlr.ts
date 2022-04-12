@@ -30,6 +30,7 @@ class CqlAntlr {
       valueSets: [],
       codes: [],
       parameters: [],
+      identifiers: [],
       expressionDefinitions: [],
       errors:[]
     };

@@ -7,10 +7,10 @@ import {
   cqlWithUsedContext,
   cqlFluentFunctions,
   relatedContextRetrieve,
-  aggregateQuery
+  aggregateQuery,
 } from "./testCql";
 import { CqlAntlr } from "../src";
-import CqlResult from "../src/dto/CqlResult"
+import CqlResult from "../src/dto/CqlResult";
 
 describe("test antlr", () => {
   it("parse", () => {
@@ -36,17 +36,21 @@ describe("test antlr", () => {
 
     expect(cqlResult.codes.length).toBe(1);
     expect(cqlResult.codeSystems.length).toBe(3);
-    expect(cqlResult.errors.length).toBe(4);
+    expect(cqlResult.errors.length).toBe(3);
 
     expect(cqlResult.errors[0].name).toBe("includess");
-    expect(cqlResult.errors[0].message).toContain("extraneous input 'includess' expecting");
-    expect(cqlResult.errors[0].start).toEqual({line: 6, position: 180});
-    expect(cqlResult.errors[0].stop).toEqual({line: 6, position: 188});
+    expect(cqlResult.errors[0].message).toContain(
+      "extraneous input 'includess' expecting"
+    );
+    expect(cqlResult.errors[0].start).toEqual({ line: 6, position: 0 });
+    expect(cqlResult.errors[0].stop).toEqual({ line: 6, position: 9 });
 
     expect(cqlResult.errors[1].name).toBe("valuesetss");
 
     expect(cqlResult.errors[2].name).toBe("Interval");
-    expect(cqlResult.errors[2].message).toContain("missing {QUOTEDIDENTIFIER, IDENTIFIER, DELIMITEDIDENTIFIER} at 'Interval'");
+    expect(cqlResult.errors[2].message).toContain(
+      "missing {QUOTEDIDENTIFIER, IDENTIFIER, DELIMITEDIDENTIFIER} at 'Interval'"
+    );
   });
 
   it("should recognize valid parameter", () => {
@@ -87,7 +91,7 @@ describe("test antlr", () => {
   it("should recognize cql 1.5 Related Context Retrieve", (): void => {
     const cqlAntlr = new CqlAntlr(relatedContextRetrieve);
     const cqlResult: CqlResult = cqlAntlr.parse();
-    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors.length).toEqual(0);
   });
 
   it("should recognize cql 1.5 aggregate clause", (): void => {

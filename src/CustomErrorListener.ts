@@ -20,7 +20,10 @@ export default class CustomErrorListener implements ANTLRErrorListener<Token> {
     if (offendingSymbol) {
       this.cqlResult.errors.push({
         text: offendingSymbol.text,
-        start: { line, position: offendingSymbol.charPositionInLine },
+        start: {
+          line,
+          position: offendingSymbol.charPositionInLine,
+        },
         stop: {
           line,
           position:

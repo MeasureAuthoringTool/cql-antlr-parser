@@ -52,15 +52,15 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
     this.checkForError(ctx);
   }
 
-  visitTerminology (ctx: TerminologyContext) : void {
+  visitTerminology(ctx: TerminologyContext): void {
     this.checkForError(ctx);
   }
 
-  visitCodesystemIdentifier (ctx: CodesystemIdentifierContext) : void {
+  visitCodesystemIdentifier(ctx: CodesystemIdentifierContext): void {
     this.checkForError(ctx);
   }
 
-  checkForError (ctx: ParserRuleContext): void {
+  checkForError(ctx: ParserRuleContext): void {
     const term = AntlrUtils.findChildText(ctx.children, ctx.start.type);
     if (term) {
       if (!this.finder.find(term)) {

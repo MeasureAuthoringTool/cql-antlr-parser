@@ -1,15 +1,13 @@
-import {CharStreams, CommonTokenStream} from "antlr4ts";
-import {CodePointCharStream} from "antlr4ts/CodePointCharStream";
-import {ParseTreeWalker} from "antlr4ts/tree";
-import {cqlLexer, cqlParser, LibraryContext, cqlListener} from "../generated";
+import { CharStreams, CommonTokenStream } from "antlr4ts";
+import { CodePointCharStream } from "antlr4ts/CodePointCharStream";
+import { ParseTreeWalker } from "antlr4ts/tree";
+import { cqlLexer, cqlParser, LibraryContext, cqlListener } from "../generated";
 import CqlAntlrListener from "./CqlAntlrListener";
 import CqlResult from "./dto/CqlResult";
 import CustomErrorListener from "./CustomErrorListener";
-import CqlExpressionVisitor from "./CqlExpressionVisitor";
 
 class CqlAntlr {
-  constructor(private cql: string) {
-  }
+  constructor(private cql: string) {}
 
   parse(): CqlResult {
     const result = CqlAntlr.initCqlResult();
@@ -18,8 +16,12 @@ class CqlAntlr {
     const listener: cqlListener = new CqlAntlrListener(result);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
 
-    const cqlExpressionVisitor = new CqlExpressionVisitor(result);
-    cqlExpressionVisitor.visit(tree);
+    /**
+     * Disabled. Only partially implemented and would be
+     * a duplicate of checks performed by the CQL-to-ELM Translator.
+     */
+    // const cqlExpressionVisitor = new CqlExpressionVisitor(result);
+    // cqlExpressionVisitor.visit(tree);
     return result;
   }
 
@@ -32,7 +34,7 @@ class CqlAntlr {
       parameters: [],
       identifiers: [],
       expressionDefinitions: [],
-      errors:[]
+      errors: [],
     };
   }
 
@@ -56,5 +58,3 @@ class CqlAntlr {
 }
 
 export default CqlAntlr;
-
-

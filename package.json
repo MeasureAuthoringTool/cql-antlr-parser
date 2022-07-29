@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/MeasureAuthoringTool/cql-antlr-parser#readme",
   "devDependencies": {
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^28.1.6",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "eslint": "^8.13.0",

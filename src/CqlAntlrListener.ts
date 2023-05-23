@@ -8,6 +8,7 @@ import {
   IncludeDefinitionContext,
   LibraryDefinitionContext,
   ParameterDefinitionContext,
+  RetrieveContext,
   UsingDefinitionContext,
   ValuesetDefinitionContext
 } from "../generated";
@@ -28,6 +29,8 @@ import CqlExpressionDefinitionCreator from "./CqlExpressionDefinitionCreator";
 import {CqlCode} from "./dto";
 import CqlIdentifier from "./dto/CqlIdentifier";
 import CqlIdentifierCreator from "./CqlIdentifierCreator";
+import CqlRetrieve from "./dto/CqlRetrieve";
+import CqlRetrieveCreator from "./CqlRetrieveCreator";
 
 export default class CqlAntlrListener implements cqlListener {
   constructor(private cqlResult: CqlResult) {
@@ -101,6 +104,16 @@ export default class CqlAntlrListener implements cqlListener {
     const identifier: CqlIdentifier | undefined = new CqlIdentifierCreator(ctx).buildDao();
     if (identifier) {
       this.cqlResult.identifiers.push(identifier);
+    }
+  }
+  
+  enterRetrieve(ctx: RetrieveContext): void {
+    if (ctx.terminology() == undefined) {
+      return;
+    }
+    const cqlRetrieve: CqlRetrieve | undefined = new CqlRetrieveCreator(ctx).buildDao();
+    if (cqlRetrieve) {
+      this.cqlResult.retrieves.push(cqlRetrieve);
     }
   }
 }

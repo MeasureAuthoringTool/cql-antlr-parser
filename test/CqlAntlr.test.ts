@@ -27,6 +27,7 @@ describe("test antlr", () => {
     expect(cqlResult.context?.name).toEqual("Patient");
 
     expect(cqlResult.expressionDefinitions.length).toEqual(6);
+    expect(cqlResult.retrieves.length).toEqual(1);
   });
 
   it("reports syntactical errors", () => {

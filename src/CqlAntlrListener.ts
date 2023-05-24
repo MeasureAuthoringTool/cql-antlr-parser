@@ -108,7 +108,7 @@ export default class CqlAntlrListener implements cqlListener {
   }
   
   enterRetrieve(ctx: RetrieveContext): void {
-    if (ctx.terminology() == undefined) {
+    if (ctx.terminology() === undefined) {
       return;
     }
     const cqlRetrieve: CqlRetrieve | undefined = new CqlRetrieveCreator(ctx).buildDao();

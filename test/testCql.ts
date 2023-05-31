@@ -38,7 +38,10 @@ define "Denominator Exclusion":
     TJC."Ischemic Stroke Encounters with Discharge Disposition"
         union TJC."Comfort Measures during Hospitalization"
       
-    
+define "Encounter Performed":
+    ["Encounter, Performed"] EP
+        where EP.relevantPeriod not null
+        
 define "Antithrombotic Not Given at Discharge":
     ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
     where NoAntithromboticDischarge.doNotPerform is true

@@ -65,10 +65,10 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
-    const cqlCode: CqlValueSet | undefined = new CqlValueSetSystemCreator(ctx).buildDao();
+    const cqlValueSet: CqlValueSet | undefined = new CqlValueSetSystemCreator(ctx, this.cqlResult.using?.name).buildDao();
 
-    if (cqlCode) {
-      this.cqlResult.valueSets.push(cqlCode);
+    if (cqlValueSet) {
+      this.cqlResult.valueSets.push(cqlValueSet);
     }
   }
 

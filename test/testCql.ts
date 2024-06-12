@@ -1,4 +1,4 @@
-const testCql = `library TJCOverall_FHIR4 version '4.0.000'
+const fhirTestCql = `library TJCOverall_FHIR4 version '4.0.000'
 
 using FHIR version '4.0.0'
 // NOTE: BTR 2019-07-30: Updated version dependencies
@@ -52,6 +52,12 @@ define "Antithrombotic Not Given at Discharge":
       and NoAntithromboticDischarge.status = 'completed'
       and NoAntithromboticDischarge.intent = 'order'     
 `;
+const qdmTestCql = `
+library PreventiveCareScreeningFollowUpPlan version '0.0.000'
+using QDM version '5.6'
+valueset "Adolescent depression screening assessment": 'urn:oid:2.16.840.1.113762.1.4.1260.162'
+valueset "Adolescent depression screening assessment with version":  'urn:oid:2.16.840.1.113762.1.4.1260.162' version 'urn:hl7:version:20240307'
+`
 
 const cqlWithSyntaxErrors = `library TJCOverall_FHIR4 version '4.0.000'
 
@@ -170,7 +176,8 @@ define FactorialOfFive:
 `
 
 export {
-  testCql,
+  fhirTestCql,
+  qdmTestCql,
   cqlWithSyntaxErrors,
   cqlWithUsedParam,
   cqlWithUsedDefines,

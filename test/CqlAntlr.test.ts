@@ -1,4 +1,5 @@
 import {
+  simpleDefinitionCql,
   fhirTestCql,
   qdmTestCql,
   cqlWithSyntaxErrors,
@@ -14,6 +15,22 @@ import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult";
 
 describe("test antlr", () => {
+  it("parse simple Fhir CQL Definition", () => {
+    const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
+
+    const cqlResult: CqlResult = cqlAntlr.parse();
+
+    expect(cqlResult.codes.length).toBe(0);
+    expect(cqlResult.valueSets.length).toBe(0);
+    expect(cqlResult.codeSystems.length).toBe(0);
+
+    expect(cqlResult.parameters.length).toBe(0);  
+
+    expect(cqlResult.expressionDefinitions.length).toEqual(1);
+    cqlResult.expressionDefinitions.forEach(def => {
+      expect(def.name).toBeDefined();
+    })
+  });
   it("parse fhir cql", () => {
     const cqlAntlr = new CqlAntlr(fhirTestCql);
 
@@ -27,7 +44,10 @@ describe("test antlr", () => {
 
     expect(cqlResult.context?.name).toEqual("Patient");
 
-    expect(cqlResult.expressionDefinitions.length).toEqual(7);
+    expect(cqlResult.expressionDefinitions.length).toEqual(8);
+    cqlResult.expressionDefinitions.forEach(def => {
+      expect(def.name).toBeDefined();
+    })
     expect(cqlResult.retrieves.length).toEqual(1);
   });
   

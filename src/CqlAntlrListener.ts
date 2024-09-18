@@ -74,7 +74,7 @@ export default class CqlAntlrListener implements cqlListener {
 
   enterCodeDefinition(ctx: CodeDefinitionContext): void {
     const cqlCode: CqlCode | undefined = new CqlCodeCreator(ctx).buildDao();
-
+    console.log("#### build cqlCode code", cqlCode);
     if (cqlCode) {
       this.cqlResult.codes.push(cqlCode);
     }
@@ -94,7 +94,7 @@ export default class CqlAntlrListener implements cqlListener {
 
   enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
     const cqlCode: CqlExpressionDefinition | undefined = new CqlExpressionDefinitionCreator(ctx).buildDao();
-
+    console.log("#### build cqlCode expression", cqlCode);
     if (cqlCode) {
       this.cqlResult.expressionDefinitions.push(cqlCode);
     }

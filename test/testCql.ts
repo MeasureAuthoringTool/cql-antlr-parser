@@ -1,3 +1,13 @@
+const simpleDefinitionCql = `library TJCOverall_FHIR4 version '4.0.000'
+
+
+
+//MAT-4844: Test Define with no quotes
+define InitialPopulation:
+  true   
+  
+`;
+
 const fhirTestCql = `library TJCOverall_FHIR4 version '4.0.000'
 
 using FHIR version '4.0.0'
@@ -33,7 +43,10 @@ define "SDE Race":
 define "SDE Sex":
   SDE."SDE Sex"
 
-   
+//MAT-4844: Test Define with no quotes
+define InitialPopulation:
+  true   
+
 define "Denominator Exclusion":
     TJC."Ischemic Stroke Encounters with Discharge Disposition"
         union TJC."Comfort Measures during Hospitalization"
@@ -176,6 +189,7 @@ define FactorialOfFive:
 `
 
 export {
+  simpleDefinitionCql,
   fhirTestCql,
   qdmTestCql,
   cqlWithSyntaxErrors,

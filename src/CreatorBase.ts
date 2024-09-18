@@ -43,8 +43,18 @@ export default abstract class CreatorBase<T extends CqlText> {
   protected findChildText(cqlLexerId: number,
                           occurrence = 1,
                           children: ParseTree[] | undefined = this.ctx.children): string | undefined {
+
     return AntlrUtils.findChildText(children, cqlLexerId, occurrence);
   }
+
+  protected findChildTextByTypes(lexerIdArr: number[],
+    occurrence = 1,
+    children: ParseTree[] | undefined = this.ctx.children): string | undefined {
+
+    const result: string | undefined =  AntlrUtils.findChildTextByTypes(children, lexerIdArr, occurrence);
+    console.log("Found in Creator Base", result);
+    return result ; 
+}
 
   protected abstract build(): T;
 }

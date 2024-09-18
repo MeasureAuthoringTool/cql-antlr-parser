@@ -20,6 +20,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
 
   constructor(private result: CqlResult, private aliases: string[] = []) {
     super();
+    console.log("##### Aliases", aliases);
     this.finder = new CqlFinder(result, aliases);
   }
 

@@ -14,6 +14,7 @@
     "prebuild": "rm -rf dist",
     "build": "tsc",
     "generate": "npx antlr4ts generated/cql.g4",
+    "format": "prettier --write .",
     "lint": "npx eslint . --fix --ext .js,.ts"
   },
   "main": "dist/index.js",

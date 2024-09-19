@@ -1,13 +1,15 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
-import {Token} from "antlr4ts/Token";
-import {ParseTree} from "antlr4ts/tree";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
+import { Token } from "antlr4ts/Token";
+import { ParseTree } from "antlr4ts/tree";
 import CqlText from "./dto/CqlText";
 import AntlrUtils from "./AntlrUtils";
 import LineInfo from "./dto/LineInfo";
 
 export default abstract class CreatorBase<T extends CqlText> {
-  protected constructor(protected ctx: ParserRuleContext, protected cqlDao: T) {
-  }
+  protected constructor(
+    protected ctx: ParserRuleContext,
+    protected cqlDao: T
+  ) {}
 
   protected processLineInfo(): void {
     this.cqlDao.start = this.buildLineInfo(this.ctx.start);
@@ -24,7 +26,6 @@ export default abstract class CreatorBase<T extends CqlText> {
     return undefined;
   }
 
-
   buildLineInfo(token: Token | undefined): LineInfo | undefined {
     if (token) {
       const lineInfo = {} as LineInfo;
@@ -40,21 +41,26 @@ export default abstract class CreatorBase<T extends CqlText> {
     return undefined;
   }
 
-  protected findChildText(cqlLexerId: number,
-                          occurrence = 1,
-                          children: ParseTree[] | undefined = this.ctx.children): string | undefined {
-
+  protected findChildText(
+    cqlLexerId: number,
+    occurrence = 1,
+    children: ParseTree[] | undefined = this.ctx.children
+  ): string | undefined {
     return AntlrUtils.findChildText(children, cqlLexerId, occurrence);
   }
 
-  protected findChildTextByTypes(lexerIdArr: number[],
+  protected findChildTextByTypes(
+    lexerIdArr: number[],
     occurrence = 1,
-    children: ParseTree[] | undefined = this.ctx.children): string | undefined {
-
-    const result: string | undefined =  AntlrUtils.findChildTextByTypes(children, lexerIdArr, occurrence);
-    console.log("Found in Creator Base", result);
-    return result ; 
-}
+    children: ParseTree[] | undefined = this.ctx.children
+  ): string | undefined {
+    const result: string | undefined = AntlrUtils.findChildTextByTypes(
+      children,
+      lexerIdArr,
+      occurrence
+    );
+    return result;
+  }
 
   protected abstract build(): T;
 }

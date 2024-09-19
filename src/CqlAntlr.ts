@@ -10,12 +10,10 @@ class CqlAntlr {
   constructor(private cql: string) {}
 
   parse(): CqlResult {
-    console.log("Before parse");
     const result = CqlAntlr.initCqlResult();
     const tree: LibraryContext = this.buildTree(result);
     const listener: cqlListener = new CqlAntlrListener(result);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
-    console.log("After parse", result);
     /**
      * Disabled. Only partially implemented and would be
      * a duplicate of checks performed by the CQL-to-ELM Translator.

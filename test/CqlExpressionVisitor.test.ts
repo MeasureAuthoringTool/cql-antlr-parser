@@ -2,9 +2,8 @@ import CqlAntlr from "../src/CqlAntlr";
 import CqlExpressionVisitor from "../src/CqlExpressionVisitor";
 import CqlInclude from "../src/dto/CqlInclude";
 import CqlValueSet from "../src/dto/CqlValueSet";
-import {ExpressionDefinitionContext} from "../generated";
-import {CqlResult} from "../src";
-
+import { ExpressionDefinitionContext } from "../generated";
+import { CqlResult } from "../src";
 
 const testDefineWithAlias = `define "Antithrombotic Not Given at Discharge":
     ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
@@ -16,7 +15,6 @@ const testDefineWithAlias = `define "Antithrombotic Not Given at Discharge":
       and NoAntithromboticDischarge.status = 'completed'
       and NoAntithromboticDischarge.intent = 'order'        
 `;
-
 
 const sdeDefine = `define "SDE Sex":
   SDE."SDE Sex"'        
@@ -59,9 +57,9 @@ describe("test visitor", () => {
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
-    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""))
-    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""))
-    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""))
+    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""));
+    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""));
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""));
 
     const cqlExpressionVisitor = new CqlExpressionVisitor(cqlResult);
     cqlExpressionVisitor.visit(createAntlrContext(testDefineWithAlias));
@@ -98,20 +96,18 @@ describe("test visitor", () => {
     expect(cqlResult.errors.length).toEqual(0);
   });
 
-
   it("parse valueset with no errors", () => {
     const cqlResult = CqlAntlr.initCqlResult();
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
-    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""))
-    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""))
-    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""))
+    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""));
+    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""));
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""));
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeValueset));
 
     expect(cqlResult.errors.length).toEqual(0);
   });
-
 });

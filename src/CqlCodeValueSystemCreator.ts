@@ -1,12 +1,12 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
 import CqlValueSet from "./dto/CqlValueSet";
-import {cqlLexer} from "../generated";
+import { cqlLexer } from "../generated";
 
 type StringOrUndefined = undefined | string;
 
 export default class CqlValueSetSystemCreator extends CreatorBase<CqlValueSet> {
-  model: StringOrUndefined
+  model: StringOrUndefined;
 
   constructor(ctx: ParserRuleContext, model: StringOrUndefined) {
     super(ctx, {} as CqlValueSet);
@@ -20,7 +20,7 @@ export default class CqlValueSetSystemCreator extends CreatorBase<CqlValueSet> {
       this.cqlDao.version = this.findChildText(cqlLexer.STRING, 2);
     } else {
       const tokens = this.cqlDao.url?.split("|");
-      this.cqlDao.version = tokens?.length === 2 ? tokens[1] : undefined
+      this.cqlDao.version = tokens?.length === 2 ? tokens[1] : undefined;
     }
     this.cqlDao.hits = 0;
     return this.cqlDao;

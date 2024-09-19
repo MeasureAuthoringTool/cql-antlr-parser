@@ -8,6 +8,7 @@ import CqlContext from "./CqlContext";
 import CqlExpressionDefinition from "./CqlExpressionDefinition";
 import CqlError from "./CqlError";
 import CqlIdentifier from "./CqlIdentifier";
+import CqlRetrieve from "./CqlRetrieve";
 
 export default interface CqlResult {
   library?: CqlVersion;
@@ -20,7 +21,7 @@ export default interface CqlResult {
   identifiers: CqlIdentifier[];
   context?: CqlContext;
   expressionDefinitions: CqlExpressionDefinition[];
+  retrieves: CqlRetrieve[];
 
   errors: CqlError[];
 }
-

@@ -23,13 +23,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2-beta
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 20.x
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -44,7 +44,7 @@ jobs:
         run: npm ci
 
       - name: Audit dependencies for security vulnerabilities
-        run: npm audit
+        run: npm audit --production
 
       - name: Lint the source code
         run: npm run-script lint
@@ -55,13 +55,19 @@ jobs:
       - name: Execute test coverage
         run: npm run-script coverage
 
+      - name: Store the coverage report as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/lcov.info
+
   upload-codacy-coverage:
     name: Upload code coverage to Codacy
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Download coverage artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: coverage
 
@@ -70,3 +76,21 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: lcov.info
+
+  upload-codecov-coverage:
+    name: Upload code coverage to Codecov
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download coverage artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage
+
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: lcov.info
+          fail_ci_if_error: true

@@ -1,8 +1,8 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
 import CqlCode from "./dto/CqlCode";
 import CqlValueSet from "./dto/CqlValueSet";
-import {cqlLexer} from "../generated";
+import { cqlLexer } from "../generated";
 
 export default class CqlCodeCreator extends CreatorBase<CqlCode> {
   constructor(ctx: ParserRuleContext) {

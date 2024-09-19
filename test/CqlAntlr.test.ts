@@ -1,5 +1,7 @@
 import {
-  testCql,
+  simpleDefinitionCql,
+  fhirTestCql,
+  qdmTestCql,
   cqlWithSyntaxErrors,
   cqlWithUsedParam,
   cqlWithUsedDefines,
@@ -13,8 +15,24 @@ import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult";
 
 describe("test antlr", () => {
-  it("parse", () => {
-    const cqlAntlr = new CqlAntlr(testCql);
+  it("parse simple Fhir CQL Definition", () => {
+    const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
+
+    const cqlResult: CqlResult = cqlAntlr.parse();
+
+    expect(cqlResult.codes.length).toBe(0);
+    expect(cqlResult.valueSets.length).toBe(0);
+    expect(cqlResult.codeSystems.length).toBe(0);
+
+    expect(cqlResult.parameters.length).toBe(0);
+
+    expect(cqlResult.expressionDefinitions.length).toEqual(1);
+    cqlResult.expressionDefinitions.forEach((def) => {
+      expect(def.name).toBeDefined();
+    });
+  });
+  it("parse fhir cql", () => {
+    const cqlAntlr = new CqlAntlr(fhirTestCql);
 
     const cqlResult: CqlResult = cqlAntlr.parse();
 
@@ -26,7 +44,27 @@ describe("test antlr", () => {
 
     expect(cqlResult.context?.name).toEqual("Patient");
 
-    expect(cqlResult.expressionDefinitions.length).toEqual(6);
+    expect(cqlResult.expressionDefinitions.length).toEqual(8);
+    cqlResult.expressionDefinitions.forEach((def) => {
+      expect(def.name).toBeDefined();
+    });
+    expect(cqlResult.retrieves.length).toEqual(1);
+  });
+
+  it("parse qdm cql", () => {
+    const cqlAntlr = new CqlAntlr(qdmTestCql);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+
+    expect(cqlResult.using?.name).toBe("QDM");
+    expect(cqlResult.valueSets.length).toBe(2);
+    expect(cqlResult.valueSets[0].name).toBe(
+      "\"Adolescent depression screening assessment\""
+    );
+    expect(cqlResult.valueSets[0].version).toBeUndefined();
+    expect(cqlResult.valueSets[1].name).toBe(
+      "\"Adolescent depression screening assessment with version\""
+    );
+    expect(cqlResult.valueSets[1].version).toBe("'urn:hl7:version:20240307'");
   });
 
   it("reports syntactical errors", () => {

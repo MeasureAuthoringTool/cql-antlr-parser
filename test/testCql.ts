@@ -1,4 +1,14 @@
-const testCql = `library TJCOverall_FHIR4 version '4.0.000'
+const simpleDefinitionCql = `library TJCOverall_FHIR4 version '4.0.000'
+
+
+
+//MAT-4844: Test Define with no quotes
+define InitialPopulation:
+  true   
+  
+`;
+
+const fhirTestCql = `library TJCOverall_FHIR4 version '4.0.000'
 
 using FHIR version '4.0.0'
 // NOTE: BTR 2019-07-30: Updated version dependencies
@@ -33,12 +43,18 @@ define "SDE Race":
 define "SDE Sex":
   SDE."SDE Sex"
 
-   
+//MAT-4844: Test Define with no quotes
+define InitialPopulation:
+  true   
+
 define "Denominator Exclusion":
     TJC."Ischemic Stroke Encounters with Discharge Disposition"
         union TJC."Comfort Measures during Hospitalization"
       
-    
+define "Encounter Performed":
+    ["Encounter, Performed"] EP
+        where EP.relevantPeriod not null
+        
 define "Antithrombotic Not Given at Discharge":
     ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
     where NoAntithromboticDischarge.doNotPerform is true
@@ -48,6 +64,12 @@ define "Antithrombotic Not Given at Discharge":
       and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and NoAntithromboticDischarge.status = 'completed'
       and NoAntithromboticDischarge.intent = 'order'     
+`;
+const qdmTestCql = `
+library PreventiveCareScreeningFollowUpPlan version '0.0.000'
+using QDM version '5.6'
+valueset "Adolescent depression screening assessment": 'urn:oid:2.16.840.1.113762.1.4.1260.162'
+valueset "Adolescent depression screening assessment with version":  'urn:oid:2.16.840.1.113762.1.4.1260.162' version 'urn:hl7:version:20240307'
 `;
 
 const cqlWithSyntaxErrors = `library TJCOverall_FHIR4 version '4.0.000'
@@ -164,10 +186,12 @@ const aggregateQuery = `
 define FactorialOfFive:
   ({ 1, 2, 3, 4, 5 }) Num
     aggregate Result starting 1: Result * Num
-`
+`;
 
 export {
-  testCql,
+  simpleDefinitionCql,
+  fhirTestCql,
+  qdmTestCql,
   cqlWithSyntaxErrors,
   cqlWithUsedParam,
   cqlWithUsedDefines,
@@ -175,5 +199,5 @@ export {
   cqlWithUsedContext,
   cqlFluentFunctions,
   relatedContextRetrieve,
-  aggregateQuery
-} ;
+  aggregateQuery,
+};

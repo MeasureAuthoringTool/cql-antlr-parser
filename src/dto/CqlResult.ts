@@ -25,4 +25,3 @@ export default interface CqlResult {
 
   errors: CqlError[];
 }
-

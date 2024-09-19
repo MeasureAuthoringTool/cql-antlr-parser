@@ -1,13 +1,10 @@
-import {CqlResult} from "../dto";
+import { CqlResult } from "../dto";
 
 export default class CqlFinder {
-
-  constructor(private result: CqlResult, private aliases: string[]) {
-  }
+  constructor(private result: CqlResult, private aliases: string[]) {}
 
   find(term: string): boolean {
-
-    if (this.aliases.find(a => a === term)) {
+    if (this.aliases.find((a) => a === term)) {
       return true;
     }
 
@@ -16,7 +13,7 @@ export default class CqlFinder {
     }
 
     for (const i of this.result.includes) {
-      if( i.called === term) {
+      if (i.called === term) {
         i.hits += 1;
         return true;
       }
@@ -66,6 +63,4 @@ export default class CqlFinder {
 
     return false;
   }
-
-
 }

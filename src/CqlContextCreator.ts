@@ -1,6 +1,6 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
-import {cqlLexer} from "../generated";
+import { cqlLexer } from "../generated";
 import CqlParameter from "./dto/CqlParameter";
 import CqlContext from "./dto/CqlContext";
 

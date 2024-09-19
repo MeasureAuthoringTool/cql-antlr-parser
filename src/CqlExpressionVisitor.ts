@@ -1,6 +1,6 @@
-import {AbstractParseTreeVisitor} from "antlr4ts/tree";
-import {ParseTree} from "antlr4ts/tree/ParseTree";
-import {RuleNode} from "antlr4ts/tree/RuleNode";
+import { AbstractParseTreeVisitor } from "antlr4ts/tree";
+import { ParseTree } from "antlr4ts/tree/ParseTree";
+import { RuleNode } from "antlr4ts/tree/RuleNode";
 import {
   AliasContext,
   CodesystemIdentifierContext,
@@ -10,12 +10,15 @@ import {
   TerminologyContext,
 } from "../generated";
 import AntlrUtils from "./AntlrUtils";
-import {CqlResult} from "./dto";
+import { CqlResult } from "./dto";
 import CqlFinder from "./util/CqlFinder";
 import CqlErrorCreator from "./CqlErrorCreator";
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 
-export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void> implements cqlVisitor<void> {
+export default class CqlExpressionVisitor
+  extends AbstractParseTreeVisitor<void>
+  implements cqlVisitor<void>
+{
   private finder: CqlFinder;
 
   constructor(private result: CqlResult, private aliases: string[] = []) {
@@ -25,9 +28,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
 
   static count = 0;
 
-  protected defaultResult(): void {
-  }
-
+  protected defaultResult(): void {}
 
   visit(tree: ParseTree): void {
     tree.accept(this);
@@ -36,7 +37,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
 
   visitChildren(/* @NotNull */ node: RuleNode): void {
     for (let i = 0; i < node.childCount; i += 1) {
-      this.visit(node.getChild(i))
+      this.visit(node.getChild(i));
     }
   }
 
@@ -44,7 +45,7 @@ export default class CqlExpressionVisitor extends AbstractParseTreeVisitor<void>
     const alias = AntlrUtils.findChildText(ctx.children, cqlLexer.IDENTIFIER);
 
     if (alias) {
-      this.aliases.push(alias)
+      this.aliases.push(alias);
     }
   }
 

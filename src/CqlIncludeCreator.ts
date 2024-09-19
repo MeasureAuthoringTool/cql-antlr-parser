@@ -1,8 +1,8 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
 import CqlInclude from "./dto/CqlInclude";
 import CqlVersionCreator from "./CqlVersionCreator";
-import {cqlLexer} from "../generated";
+import { cqlLexer } from "../generated";
 
 export default class CqlIncludeCreator extends CreatorBase<CqlInclude> {
   constructor(ctx: ParserRuleContext) {

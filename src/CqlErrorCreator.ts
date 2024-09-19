@@ -1,4 +1,4 @@
-import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
 import CqlError from "./dto/CqlError";
 
@@ -7,12 +7,12 @@ export default class CqlErrorCreator extends CreatorBase<CqlError> {
     super(ctx, {} as CqlError);
   }
 
-
   protected processLineInfo(): void {
     super.processLineInfo();
 
     if (this.cqlDao.stop) {
-      this.cqlDao.stop.position += (this.ctx.start.stopIndex - this.ctx.start.startIndex);
+      this.cqlDao.stop.position +=
+        this.ctx.start.stopIndex - this.ctx.start.startIndex;
     }
   }
 

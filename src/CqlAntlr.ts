@@ -12,10 +12,8 @@ class CqlAntlr {
   parse(): CqlResult {
     const result = CqlAntlr.initCqlResult();
     const tree: LibraryContext = this.buildTree(result);
-
     const listener: cqlListener = new CqlAntlrListener(result);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
-
     /**
      * Disabled. Only partially implemented and would be
      * a duplicate of checks performed by the CQL-to-ELM Translator.

@@ -20,6 +20,8 @@ export default class AntlrUtils {
         "########### Entering.. children length is  ",
         children?.length
       );
+      throw new Error("Definition might be malformed.");
+      
     }
     return children ? children[1].text : undefined;
   }
@@ -32,7 +34,8 @@ export default class AntlrUtils {
       console.error(
         "########### Entering.. children length is  ",
         children?.length
-      );
+      )
+      throw new Error("Definition might be malformed.");
     }
     return children ? children[3].text : undefined;
   }

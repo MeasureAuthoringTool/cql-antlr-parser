@@ -49,16 +49,17 @@ export default abstract class CreatorBase<T extends CqlText> {
     return AntlrUtils.findChildText(children, cqlLexerId, occurrence);
   }
 
-  protected findChildTextByTypes(
-    lexerIdArr: number[],
-    occurrence = 1,
+  protected findChildName(
     children: ParseTree[] | undefined = this.ctx.children
   ): string | undefined {
-    const result: string | undefined = AntlrUtils.findChildTextByTypes(
-      children,
-      lexerIdArr,
-      occurrence
-    );
+    const result: string | undefined = AntlrUtils.findChildName(children);
+    return result;
+  }
+
+  protected findChildExpression(
+    children: ParseTree[] | undefined = this.ctx.children
+  ): string | undefined {
+    const result: string | undefined = AntlrUtils.findChildExpression(children);
     return result;
   }
 

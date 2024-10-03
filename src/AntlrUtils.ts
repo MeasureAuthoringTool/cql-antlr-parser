@@ -13,23 +13,31 @@ export default class AntlrUtils {
     return undefined;
   }
 
-  static findChildTextByTypes(
-    children: ParseTree[] | undefined,
-    lexerType: number[],
-    occurrence = 1
-  ): string | undefined {
-    let result: string | undefined = undefined;
-    lexerType.forEach((lexType) => {
-      const foundChild: string | undefined = this.findChildText(
-        children,
-        lexType,
-        occurrence
+  static findChildName(children: ParseTree[] | undefined): string | undefined {
+    
+    if (children?.length != 4) {
+      console.error(
+        "########### Entering.. children length is  ",
+        children?.length
       );
-      if (foundChild) {
-        result = foundChild;
-      }
-    });
-    return result;
+      throw new Error("Definition might be malformed.");
+      
+    }
+    return children ? children[1].text : undefined;
+  }
+
+  static findChildExpression(
+    children: ParseTree[] | undefined
+  ): string | undefined {
+    
+    if (children?.length != 4) {
+      console.error(
+        "########### Entering.. children length is  ",
+        children?.length
+      )
+      throw new Error("Definition might be malformed.");
+    }
+    return children ? children[3].text : undefined;
   }
 
   static findChildText(

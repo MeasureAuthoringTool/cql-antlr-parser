@@ -100,6 +100,7 @@ export default class CqlAntlrListener implements cqlListener {
   enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
     const cqlCode: CqlExpressionDefinition | undefined =
       new CqlExpressionDefinitionCreator(ctx).buildDao();
+
     if (cqlCode) {
       this.cqlResult.expressionDefinitions.push(cqlCode);
     }

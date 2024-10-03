@@ -1,11 +1,23 @@
-const simpleDefinitionCql = `library TJCOverall_FHIR4 version '4.0.000'
+const simpleDefinitionCql = `
+  //MAT-4844: Test Define with no quotes
+  library ScreeningPrediabetesFHIR version '0.0.000'
+  using QICore version '4.1.1'
 
+  context Patient
 
+  define "SDE Ethnicity":
+    SDE."SDE Ethnicity"
 
-//MAT-4844: Test Define with no quotes
-define InitialPopulation:
-  true   
-  
+  define InitialPopulation:
+    "VTE Prophylaxis by Medication Administered or Device Applied"
+
+  define "Numerator":
+    "VTE Prophylaxis by Medication Administered or Device Applied"
+
+  define "VTE Prophylaxis by Medication Administered or Device Applied":
+    ( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+      where VTEMedication.status = 'completed'
+    )
 `;
 
 const fhirTestCql = `library TJCOverall_FHIR4 version '4.0.000'

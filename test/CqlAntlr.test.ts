@@ -17,16 +17,14 @@ import CqlResult from "../src/dto/CqlResult";
 describe("test antlr", () => {
   it("parse simple Fhir CQL Definition", () => {
     const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
-
     const cqlResult: CqlResult = cqlAntlr.parse();
-
     expect(cqlResult.codes.length).toBe(0);
     expect(cqlResult.valueSets.length).toBe(0);
     expect(cqlResult.codeSystems.length).toBe(0);
 
     expect(cqlResult.parameters.length).toBe(0);
 
-    expect(cqlResult.expressionDefinitions.length).toEqual(1);
+    expect(cqlResult.expressionDefinitions.length).toEqual(4);
     cqlResult.expressionDefinitions.forEach((def) => {
       expect(def.name).toBeDefined();
     });

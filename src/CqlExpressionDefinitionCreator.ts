@@ -31,13 +31,9 @@ export default class CqlExpressionDefinitionCreator extends CreatorBase<CqlExpre
 
   protected build(): CqlExpressionDefinition {
     CqlVersionCreator.setNameVersion(this.ctx.children, this.cqlDao);
+    this.cqlDao.name = this.findChildName();
 
-    this.cqlDao.name = this.findChildTextByTypes(
-      [cqlLexer.QUOTEDIDENTIFIER, cqlLexer.IDENTIFIER],
-      1
-    );
-
-    this.cqlDao.expression = this.findChildText(cqlLexer.IDENTIFIER, 1);
+    this.cqlDao.expression = this.findChildExpression();
 
     if (!this.cqlDao.expression) {
       const foundChild = AntlrUtils.findChild(

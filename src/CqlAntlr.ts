@@ -1,4 +1,4 @@
-import { CharStreams, CommonTokenStream } from "antlr4ts";
+import {BufferedTokenStream, CharStreams, CommonTokenStream} from "antlr4ts";
 import { CodePointCharStream } from "antlr4ts/CodePointCharStream";
 import { ParseTreeWalker } from "antlr4ts/tree";
 import { cqlLexer, cqlParser, LibraryContext, cqlListener } from "../generated";
@@ -12,7 +12,12 @@ class CqlAntlr {
   parse(): CqlResult {
     const result = CqlAntlr.initCqlResult();
     const tree: LibraryContext = this.buildTree(result);
-    const listener: cqlListener = new CqlAntlrListener(result);
+    const charStream: CodePointCharStream = CharStreams.fromString(this.cql);
+    const lexer: cqlLexer = new cqlLexer(charStream);
+    const bufferedTokenStream = new BufferedTokenStream(lexer);
+    bufferedTokenStream.fill()
+
+    const listener: cqlListener = new CqlAntlrListener(result, bufferedTokenStream);
     ParseTreeWalker.DEFAULT.walk(listener, tree);
     /**
      * Disabled. Only partially implemented and would be

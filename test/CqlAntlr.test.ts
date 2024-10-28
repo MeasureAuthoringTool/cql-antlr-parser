@@ -29,6 +29,15 @@ describe("test antlr", () => {
       expect(def.name).toBeDefined();
     });
   });
+  it("Can now parse comments and associate them with functions", () => {
+    const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    const expressions = cqlResult.expressionDefinitions;
+    expect(expressions.length).toEqual(4);
+    expect(expressions[0].comment).toEqual("// ehnicity comment");
+    expect(expressions[1].comment).toContain("multi line");
+    expect(expressions[2].comment).toBeUndefined();
+  });
   it("parse fhir cql", () => {
     const cqlAntlr = new CqlAntlr(fhirTestCql);
 

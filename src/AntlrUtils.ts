@@ -80,7 +80,7 @@ export default class AntlrUtils {
   }
 
   /**
-   * Removes the comment characters from comments and also removes any leading or trailing spaces
+   * Removes the comment characters from comments and also removes any leading and trailing spaces
    * @param comment -> a comment with comment characters
    */
   static formatComment(comment: string): string {

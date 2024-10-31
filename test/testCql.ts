@@ -13,6 +13,10 @@ const simpleDefinitionCql = `
   define InitialPopulation:
     "VTE Prophylaxis by Medication Administered or Device Applied"
 
+  /* 
+    @author: john doe 
+    @description: this is Numerator 
+  */
   define "Numerator":
     "VTE Prophylaxis by Medication Administered or Device Applied"
 

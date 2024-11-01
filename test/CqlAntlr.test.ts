@@ -34,9 +34,10 @@ describe("test antlr", () => {
     const cqlResult: CqlResult = cqlAntlr.parse();
     const expressions = cqlResult.expressionDefinitions;
     expect(expressions.length).toEqual(4);
-    expect(expressions[0].comment).toEqual("// ehnicity comment");
-    expect(expressions[1].comment).toContain("multi line");
-    expect(expressions[2].comment).toBeUndefined();
+    expect(cqlResult.expressionDefinitions[0].comment).toEqual("ehnicity comment");
+    expect(cqlResult.expressionDefinitions[1].comment).toEqual("multi line");
+    expect(cqlResult.expressionDefinitions[2].comment).toEqual("@author: john doe\n@description: this is Numerator");
+    expect(cqlResult.expressionDefinitions[3].comment).toEqual(undefined);
   });
   it("parse fhir cql", () => {
     const cqlAntlr = new CqlAntlr(fhirTestCql);

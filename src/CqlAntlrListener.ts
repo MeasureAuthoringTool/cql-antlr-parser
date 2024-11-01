@@ -33,6 +33,7 @@ import CqlIdentifierCreator from "./CqlIdentifierCreator";
 import CqlRetrieve from "./dto/CqlRetrieve";
 import CqlRetrieveCreator from "./CqlRetrieveCreator";
 import {BufferedTokenStream } from "antlr4ts";
+import AntlrUtils from "./AntlrUtils";
 
 export default class CqlAntlrListener implements cqlListener {
   // save bufferedTokenStream from lexer
@@ -104,10 +105,10 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
-    const cqlCode: CqlExpressionDefinition | undefined =
+    const expressionDefinition: CqlExpressionDefinition | undefined =
       new CqlExpressionDefinitionCreator(ctx).buildDao();
 
-    if (cqlCode) {
+    if (expressionDefinition) {
       if (ctx.start.inputStream) {
         const hiddenTokens = this.bufferedTokenStream.getHiddenTokensToLeft(ctx.start.tokenIndex, cqlLexer.HIDDEN)
         let comment = "";
@@ -118,10 +119,10 @@ export default class CqlAntlrListener implements cqlListener {
         })
         comment = comment.trim();
         if (comment){
-          cqlCode.comment = comment;
+          expressionDefinition.comment = AntlrUtils.formatComment(comment);
         }
       }
-      this.cqlResult.expressionDefinitions.push(cqlCode);
+      this.cqlResult.expressionDefinitions.push(expressionDefinition);
     }
   }
 

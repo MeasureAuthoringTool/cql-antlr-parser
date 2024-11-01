@@ -3,6 +3,7 @@ import {
   CodeDefinitionContext,
   CodesystemDefinitionContext,
   ContextDefinitionContext,
+  cqlLexer,
   cqlListener,
   ExpressionDefinitionContext,
   IncludeDefinitionContext,
@@ -31,9 +32,15 @@ import CqlIdentifier from "./dto/CqlIdentifier";
 import CqlIdentifierCreator from "./CqlIdentifierCreator";
 import CqlRetrieve from "./dto/CqlRetrieve";
 import CqlRetrieveCreator from "./CqlRetrieveCreator";
+import {BufferedTokenStream } from "antlr4ts";
+import AntlrUtils from "./AntlrUtils";
 
 export default class CqlAntlrListener implements cqlListener {
-  constructor(private cqlResult: CqlResult) {}
+  // save bufferedTokenStream from lexer
+  bufferedTokenStream: BufferedTokenStream;
+  constructor(private cqlResult: CqlResult, tokenStream: BufferedTokenStream) {
+    this.bufferedTokenStream = tokenStream;
+  }
 
   enterLibraryDefinition(ctx: LibraryDefinitionContext): void {
     const cqlVersionCreator = new CqlVersionCreator(ctx);
@@ -98,11 +105,24 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
-    const cqlCode: CqlExpressionDefinition | undefined =
+    const expressionDefinition: CqlExpressionDefinition | undefined =
       new CqlExpressionDefinitionCreator(ctx).buildDao();
 
-    if (cqlCode) {
-      this.cqlResult.expressionDefinitions.push(cqlCode);
+    if (expressionDefinition) {
+      if (ctx.start.inputStream) {
+        const hiddenTokens = this.bufferedTokenStream.getHiddenTokensToLeft(ctx.start.tokenIndex, cqlLexer.HIDDEN)
+        let comment = "";
+        hiddenTokens.forEach((token) => {
+          if (token.text){
+            comment += token.text;
+          }
+        })
+        comment = comment.trim();
+        if (comment){
+          expressionDefinition.comment = AntlrUtils.formatComment(comment);
+        }
+      }
+      this.cqlResult.expressionDefinitions.push(expressionDefinition);
     }
   }
 

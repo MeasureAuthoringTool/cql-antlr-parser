@@ -4,13 +4,19 @@ const simpleDefinitionCql = `
   using QICore version '4.1.1'
 
   context Patient
-
+  // ehnicity comment
   define "SDE Ethnicity":
     SDE."SDE Ethnicity"
 
+  /* multi line 
+  */
   define InitialPopulation:
     "VTE Prophylaxis by Medication Administered or Device Applied"
 
+  /* 
+    @author: john doe 
+    @description: this is Numerator 
+  */
   define "Numerator":
     "VTE Prophylaxis by Medication Administered or Device Applied"
 

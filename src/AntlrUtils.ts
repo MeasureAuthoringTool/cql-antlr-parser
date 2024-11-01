@@ -3,6 +3,9 @@ import { Interval } from "antlr4ts/misc";
 import { ParseTree } from "antlr4ts/tree";
 
 export default class AntlrUtils {
+  static SINGLE_LINE_COMMENT_REGEX = /\/\//g;
+
+  static MULTI_LINE_COMMENT_REGEX = /\/\*|\*\//g;
   static findText(ctx: ParserRuleContext): string | undefined {
     const stop: number | undefined = ctx.stop?.stopIndex;
 
@@ -74,6 +77,19 @@ export default class AntlrUtils {
       }
       return false;
     });
+  }
+
+  /**
+   * Removes the comment characters from comments and also removes any leading and trailing spaces
+   * @param comment -> a comment with comment characters
+   */
+  static formatComment(comment: string): string {
+    return comment.replace(AntlrUtils.SINGLE_LINE_COMMENT_REGEX, "")
+      .replace(AntlrUtils.MULTI_LINE_COMMENT_REGEX, "")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(line=> line !== "")
+      .join("\n");
   }
 
   private static isTargetType(child: ParseTree, targetType: number): boolean {

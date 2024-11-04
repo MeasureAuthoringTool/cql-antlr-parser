@@ -38,6 +38,7 @@ import AntlrUtils from "./AntlrUtils";
 export default class CqlAntlrListener implements cqlListener {
   // save bufferedTokenStream from lexer
   bufferedTokenStream: BufferedTokenStream;
+
   constructor(private cqlResult: CqlResult, tokenStream: BufferedTokenStream) {
     this.bufferedTokenStream = tokenStream;
   }

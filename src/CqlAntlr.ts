@@ -11,6 +11,9 @@ class CqlAntlr {
 
   parse(): CqlResult {
     const result = CqlAntlr.initCqlResult();
+    if (!this.cql || !this.cql.trim()) {
+      return result;
+    }
     const tree: LibraryContext = this.buildTree(result);
     const charStream: CodePointCharStream = CharStreams.fromString(this.cql);
     const lexer: cqlLexer = new cqlLexer(charStream);

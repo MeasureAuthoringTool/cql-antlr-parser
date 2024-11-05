@@ -6,6 +6,7 @@ export default class AntlrUtils {
   static SINGLE_LINE_COMMENT_REGEX = /\/\//g;
 
   static MULTI_LINE_COMMENT_REGEX = /\/\*|\*\//g;
+
   static findText(ctx: ParserRuleContext): string | undefined {
     const stop: number | undefined = ctx.stop?.stopIndex;
 

@@ -49,8 +49,10 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterUsingDefinition(ctx: UsingDefinitionContext): void {
-    const cqlVersionCreator = new CqlVersionCreator(ctx);
-    this.cqlResult.using = cqlVersionCreator.buildDao();
+    const using = new CqlVersionCreator(ctx).buildDao();
+    if (using) {
+      this.cqlResult.usings.push(using);
+    }
   }
 
   enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
@@ -76,7 +78,7 @@ export default class CqlAntlrListener implements cqlListener {
   enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
     const cqlValueSet: CqlValueSet | undefined = new CqlValueSetSystemCreator(
       ctx,
-      this.cqlResult.using?.name
+      this.cqlResult.usings[0]?.name
     ).buildDao();
 
     if (cqlValueSet) {

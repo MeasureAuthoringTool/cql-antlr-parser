@@ -36,6 +36,9 @@ describe("test antlr", () => {
   it("parse simple Fhir CQL Definition", () => {
     const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
     const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.usings.length).toBe(2);
+    expect(cqlResult.usings[0]?.name).toBe("QICore");
+    expect(cqlResult.usings[1]?.name).toBe("FHIR");
     expect(cqlResult.codes.length).toBe(0);
     expect(cqlResult.valueSets.length).toBe(0);
     expect(cqlResult.codeSystems.length).toBe(0);
@@ -81,7 +84,8 @@ describe("test antlr", () => {
     const cqlAntlr = new CqlAntlr(qdmTestCql);
     const cqlResult: CqlResult = cqlAntlr.parse();
 
-    expect(cqlResult.using?.name).toBe("QDM");
+    expect(cqlResult.usings.length).toBe(1);
+    expect(cqlResult.usings[0]?.name).toBe("QDM");
     expect(cqlResult.valueSets.length).toBe(2);
     expect(cqlResult.valueSets[0].name).toBe(
       "\"Adolescent depression screening assessment\""

@@ -18,29 +18,12 @@ export default class AntlrUtils {
   }
 
   static findChildName(children: ParseTree[] | undefined): string | undefined {
-    
-    if (children?.length != 4) {
-      console.error(
-        "########### Entering.. children length is  ",
-        children?.length
-      );
-      throw new Error("Definition might be malformed.");
-      
-    }
     return children ? children[1].text : undefined;
   }
 
   static findChildExpression(
     children: ParseTree[] | undefined
   ): string | undefined {
-    
-    if (children?.length != 4) {
-      console.error(
-        "########### Entering.. children length is  ",
-        children?.length
-      )
-      throw new Error("Definition might be malformed.");
-    }
     return children ? children[3].text : undefined;
   }
 
@@ -85,11 +68,12 @@ export default class AntlrUtils {
    * @param comment -> a comment with comment characters
    */
   static formatComment(comment: string): string {
-    return comment.replace(AntlrUtils.SINGLE_LINE_COMMENT_REGEX, "")
+    return comment
+      .replace(AntlrUtils.SINGLE_LINE_COMMENT_REGEX, "")
       .replace(AntlrUtils.MULTI_LINE_COMMENT_REGEX, "")
       .split("\n")
       .map((line) => line.trim())
-      .filter(line=> line !== "")
+      .filter((line) => line !== "")
       .join("\n");
   }
 

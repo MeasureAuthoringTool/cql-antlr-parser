@@ -32,7 +32,7 @@ import { CqlCode } from "./dto";
 import CqlIdentifier from "./dto/CqlIdentifier";
 import CqlIdentifierCreator from "./CqlIdentifierCreator";
 import CqlRetrieve from "./dto/CqlRetrieve";
-import CqlRetrieveCreator from "./CqlRetrieve~Creator";
+import CqlRetrieveCreator from "./CqlRetrieveCreator";
 import { BufferedTokenStream } from "antlr4ts";
 import AntlrUtils from "./AntlrUtils";
 import { ParserRuleContext } from "antlr4ts/ParserRuleContext";

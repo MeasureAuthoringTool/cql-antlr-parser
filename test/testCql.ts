@@ -25,6 +25,19 @@ const simpleDefinitionCql = `
     ( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
       where VTEMedication.status = 'completed'
     )
+    
+  /*
+multiline comment outside of a function with multiple
+rows
+*/
+
+define function "Denominator Observation"(Encounter "Encounter, Performed" ):
+  // inside of definition to ignore
+  duration in hours of Encounter.relevantPeriod
+
+// comment outside of function
+define function "Numerator Observation"(Encounter "Encounter, Performed" ):
+  duration in hours of Encounter.relevantPeriod
 `;
 
 const fhirTestCql = `library TJCOverall_FHIR4 version '4.0.000'

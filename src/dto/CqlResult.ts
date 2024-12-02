@@ -12,7 +12,7 @@ import CqlRetrieve from "./CqlRetrieve";
 
 export default interface CqlResult {
   library?: CqlVersion;
-  using?: CqlVersion;
+  usings: CqlVersion[];
   includes: CqlInclude[];
   codeSystems: CqlCodeSystem[];
   valueSets: CqlValueSet[];

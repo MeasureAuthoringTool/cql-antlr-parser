@@ -34,6 +34,7 @@ class CqlAntlr {
   static initCqlResult(): CqlResult {
     return {
       includes: [],
+      usings: [],
       codeSystems: [],
       valueSets: [],
       codes: [],

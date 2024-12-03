@@ -6,6 +6,7 @@ import {
   cqlLexer,
   cqlListener,
   ExpressionDefinitionContext,
+  FunctionDefinitionContext,
   IncludeDefinitionContext,
   LibraryDefinitionContext,
   ParameterDefinitionContext,
@@ -27,13 +28,14 @@ import CqlParameter from "./dto/CqlParameter";
 import CqlContextCreator from "./CqlContextCreator";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
 import CqlExpressionDefinitionCreator from "./CqlExpressionDefinitionCreator";
-import {CqlCode} from "./dto";
+import { CqlCode } from "./dto";
 import CqlIdentifier from "./dto/CqlIdentifier";
 import CqlIdentifierCreator from "./CqlIdentifierCreator";
 import CqlRetrieve from "./dto/CqlRetrieve";
 import CqlRetrieveCreator from "./CqlRetrieveCreator";
-import {BufferedTokenStream} from "antlr4ts";
+import { BufferedTokenStream } from "antlr4ts";
 import AntlrUtils from "./AntlrUtils";
+import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 
 export default class CqlAntlrListener implements cqlListener {
   // save bufferedTokenStream from lexer
@@ -49,8 +51,10 @@ export default class CqlAntlrListener implements cqlListener {
   }
 
   enterUsingDefinition(ctx: UsingDefinitionContext): void {
-    const cqlVersionCreator = new CqlVersionCreator(ctx);
-    this.cqlResult.using = cqlVersionCreator.buildDao();
+    const using = new CqlVersionCreator(ctx).buildDao();
+    if (using) {
+      this.cqlResult.usings.push(using);
+    }
   }
 
   enterIncludeDefinition(ctx: IncludeDefinitionContext): void {
@@ -76,7 +80,7 @@ export default class CqlAntlrListener implements cqlListener {
   enterValuesetDefinition(ctx: ValuesetDefinitionContext): void {
     const cqlValueSet: CqlValueSet | undefined = new CqlValueSetSystemCreator(
       ctx,
-      this.cqlResult.using?.name
+      this.cqlResult.usings[0]?.name
     ).buildDao();
 
     if (cqlValueSet) {
@@ -105,28 +109,46 @@ export default class CqlAntlrListener implements cqlListener {
     this.cqlResult.context = new CqlContextCreator(ctx).buildDao();
   }
 
-  enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
-    const cqlExpressionCreator = new CqlExpressionDefinitionCreator(ctx);
-    const expressionDefinition: CqlExpressionDefinition | undefined = cqlExpressionCreator.buildDao();
+  private processDefinitionWithComments(
+    ctx: ParserRuleContext,
+    buildDao: () => CqlExpressionDefinition | undefined
+  ): void {
+    const expressionDefinition: CqlExpressionDefinition | undefined =
+      buildDao();
 
-    if (expressionDefinition) {
-      if (ctx.start.inputStream) {
-        const hiddenTokens = this.bufferedTokenStream.getHiddenTokensToLeft(ctx.start.tokenIndex, cqlLexer.HIDDEN)
-        let comment = "";
-        hiddenTokens.forEach((token) => {
-          if (token.text){
-            comment += token.text;
-          }
-        })
-        comment = comment.trim();
-        if (comment){
-          // if expression has comment, start needs to be adjusted to consider comments as comment is part of definition
-          expressionDefinition.start = cqlExpressionCreator.buildLineInfo(hiddenTokens[1]);
+    if (expressionDefinition && ctx.start.inputStream) {
+      const hiddenTokens = this.bufferedTokenStream.getHiddenTokensToLeft(
+        ctx.start.tokenIndex,
+        cqlLexer.HIDDEN
+      );
+
+      if (hiddenTokens && hiddenTokens.length > 0) {
+        const comment = hiddenTokens
+          .map((token) => token.text?.trim())
+          .filter(Boolean)
+          .join(" ");
+
+        if (comment) {
+          expressionDefinition.start = new CqlExpressionDefinitionCreator(
+            ctx
+          ).buildLineInfo(hiddenTokens[1]);
           expressionDefinition.comment = AntlrUtils.formatComment(comment);
         }
       }
       this.cqlResult.expressionDefinitions.push(expressionDefinition);
     }
+  }
+
+  enterExpressionDefinition(ctx: ExpressionDefinitionContext): void {
+    this.processDefinitionWithComments(ctx, () => {
+      return new CqlExpressionDefinitionCreator(ctx).buildDao();
+    });
+  }
+
+  enterFunctionDefinition(ctx: FunctionDefinitionContext): void {
+    this.processDefinitionWithComments(ctx, () => {
+      return new CqlExpressionDefinitionCreator(ctx).buildDao();
+    });
   }
 
   enterAggregateClause(ctx: AggregateClauseContext): void {

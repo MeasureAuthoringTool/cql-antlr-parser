@@ -10,6 +10,7 @@ import {
   cqlFluentFunctions,
   relatedContextRetrieve,
   aggregateQuery,
+  cqlDefineWithNoName,
 } from "./testCql";
 import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult";
@@ -176,5 +177,14 @@ describe("test antlr", () => {
     const cqlAntlr = new CqlAntlr(aggregateQuery);
     const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("test define with no name", (): void => {
+    const cqlAntlr = new CqlAntlr(cqlDefineWithNoName);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors[0].message).toEqual(
+      "Definition is missing a name."
+    );
   });
 });

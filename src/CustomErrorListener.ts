@@ -3,6 +3,7 @@ import { Recognizer } from "antlr4ts/Recognizer";
 import { Token } from "antlr4ts/Token";
 import { ParserATNSimulator } from "antlr4ts/atn/ParserATNSimulator";
 import CqlResult from "./dto/CqlResult";
+import convertCustomError from "./util/CustomeErrorConverter";
 
 /**
  * Fires on grammar errors.
@@ -32,7 +33,7 @@ export default class CustomErrorListener implements ANTLRErrorListener<Token> {
             1, // plus 1 to ensure full text is included in Ace Editor highlight
         },
         name: offendingSymbol.text,
-        message: msg,
+        message: convertCustomError(msg),
       });
     }
   }

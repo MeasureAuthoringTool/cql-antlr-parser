@@ -220,6 +220,10 @@ define FactorialOfFive:
     aggregate Result starting 1: Result * Num
 `;
 
+const cqlDefineWithNoName = `
+define :
+  true
+`;
 export {
   simpleDefinitionCql,
   fhirTestCql,
@@ -232,4 +236,5 @@ export {
   cqlFluentFunctions,
   relatedContextRetrieve,
   aggregateQuery,
+  cqlDefineWithNoName,
 };

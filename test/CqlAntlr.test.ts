@@ -10,6 +10,7 @@ import {
   cqlFluentFunctions,
   relatedContextRetrieve,
   aggregateQuery,
+  cqlDefineWithNoName,
 } from "./testCql";
 import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult";
@@ -21,7 +22,7 @@ describe("test antlr", () => {
     expect(cqlResult.valueSets.length).toBe(0);
     expect(cqlResult.codeSystems.length).toBe(0);
     expect(cqlResult.parameters.length).toBe(0);
-    expect(cqlResult.expressionDefinitions.length).toEqual(0)
+    expect(cqlResult.expressionDefinitions.length).toEqual(0);
   });
 
   it("parse blank CQL", () => {
@@ -30,7 +31,7 @@ describe("test antlr", () => {
     expect(cqlResult.valueSets.length).toBe(0);
     expect(cqlResult.codeSystems.length).toBe(0);
     expect(cqlResult.parameters.length).toBe(0);
-    expect(cqlResult.expressionDefinitions.length).toEqual(0)
+    expect(cqlResult.expressionDefinitions.length).toEqual(0);
   });
 
   it("parse simple Fhir CQL Definition", () => {
@@ -45,7 +46,7 @@ describe("test antlr", () => {
 
     expect(cqlResult.parameters.length).toBe(0);
 
-    expect(cqlResult.expressionDefinitions.length).toEqual(4);
+    expect(cqlResult.expressionDefinitions.length).toEqual(6);
     cqlResult.expressionDefinitions.forEach((def) => {
       expect(def.name).toBeDefined();
     });
@@ -54,11 +55,21 @@ describe("test antlr", () => {
     const cqlAntlr = new CqlAntlr(simpleDefinitionCql);
     const cqlResult: CqlResult = cqlAntlr.parse();
     const expressions = cqlResult.expressionDefinitions;
-    expect(expressions.length).toEqual(4);
-    expect(cqlResult.expressionDefinitions[0].comment).toEqual("ehnicity comment");
+    expect(expressions.length).toEqual(6);
+    expect(cqlResult.expressionDefinitions[0].comment).toEqual(
+      "ehnicity comment"
+    );
     expect(cqlResult.expressionDefinitions[1].comment).toEqual("multi line");
-    expect(cqlResult.expressionDefinitions[2].comment).toEqual("@author: john doe\n@description: this is Numerator");
+    expect(cqlResult.expressionDefinitions[2].comment).toEqual(
+      "@author: john doe\n@description: this is Numerator"
+    );
     expect(cqlResult.expressionDefinitions[3].comment).toEqual(undefined);
+    expect(cqlResult.expressionDefinitions[4].comment).toEqual(
+      "multiline comment outside of a function with multiple\nrows"
+    );
+    expect(cqlResult.expressionDefinitions[5].comment).toEqual(
+      "comment outside of function"
+    );
   });
   it("parse fhir cql", () => {
     const cqlAntlr = new CqlAntlr(fhirTestCql);
@@ -88,11 +99,11 @@ describe("test antlr", () => {
     expect(cqlResult.usings[0]?.name).toBe("QDM");
     expect(cqlResult.valueSets.length).toBe(2);
     expect(cqlResult.valueSets[0].name).toBe(
-      "\"Adolescent depression screening assessment\""
+      '"Adolescent depression screening assessment"'
     );
     expect(cqlResult.valueSets[0].version).toBeUndefined();
     expect(cqlResult.valueSets[1].name).toBe(
-      "\"Adolescent depression screening assessment with version\""
+      '"Adolescent depression screening assessment with version"'
     );
     expect(cqlResult.valueSets[1].version).toBe("'urn:hl7:version:20240307'");
   });
@@ -166,5 +177,14 @@ describe("test antlr", () => {
     const cqlAntlr = new CqlAntlr(aggregateQuery);
     const cqlResult: CqlResult = cqlAntlr.parse();
     expect(cqlResult.errors.length).toEqual(0);
+  });
+
+  it("test define with no name", (): void => {
+    const cqlAntlr = new CqlAntlr(cqlDefineWithNoName);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors[0].message).toEqual(
+      "Definition is missing a name."
+    );
   });
 });

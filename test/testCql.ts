@@ -224,6 +224,10 @@ const cqlDefineWithNoName = `
 define :
   true
 `;
+const cqlDefineWithKeyWord = `
+define on or:
+  true
+`;
 export {
   simpleDefinitionCql,
   fhirTestCql,
@@ -237,4 +241,5 @@ export {
   relatedContextRetrieve,
   aggregateQuery,
   cqlDefineWithNoName,
+  cqlDefineWithKeyWord,
 };

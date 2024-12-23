@@ -11,6 +11,7 @@ import {
   relatedContextRetrieve,
   aggregateQuery,
   cqlDefineWithNoName,
+  cqlDefineWithKeyWord,
 } from "./testCql";
 import { CqlAntlr } from "../src";
 import CqlResult from "../src/dto/CqlResult";
@@ -185,6 +186,15 @@ describe("test antlr", () => {
     expect(cqlResult.errors.length).toEqual(1);
     expect(cqlResult.errors[0].message).toEqual(
       "Definition is missing a name."
+    );
+  });
+
+  it("test define with key words", (): void => {
+    const cqlAntlr = new CqlAntlr(cqlDefineWithKeyWord);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors[0].message).toEqual(
+      "Definition names must not be a reserved word."
     );
   });
 });

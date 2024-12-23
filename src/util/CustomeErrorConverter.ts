@@ -131,7 +131,7 @@ const convertCustomError = (errorMessage: string): string => {
     }
     default: {
       const findKeyword = errorMessage
-        ?.replace(/'/g, "")
+        .replace(/'/g, "")
         .replace("no viable alternative at input define ", "");
       if (findKeyword && keyWords.find((kword) => findKeyword === kword)) {
         convertedMsg = "Definition names must not be a reserved word.";

@@ -1,6 +1,6 @@
 {
   "name": "@madie/cql-antlr-parser",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Antlr Parsing of CQL in typescript",
   "publishConfig": {
     "access": "public"
@@ -28,7 +28,7 @@
     "Fhir"
   ],
   "author": "SemanticBits sb-mat-help@semanticbits.com",
-  "license": "CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL LICENSE",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/MeasureAuthoringTool/cql-antlr-parser/issues"
   },

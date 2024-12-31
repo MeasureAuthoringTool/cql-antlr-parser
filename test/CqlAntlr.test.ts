@@ -1,5 +1,6 @@
 import {
   simpleDefinitionCql,
+  missingCodeSystemCql,
   fhirTestCql,
   qdmTestCql,
   cqlWithSyntaxErrors,
@@ -100,11 +101,11 @@ describe("test antlr", () => {
     expect(cqlResult.usings[0]?.name).toBe("QDM");
     expect(cqlResult.valueSets.length).toBe(2);
     expect(cqlResult.valueSets[0].name).toBe(
-      '"Adolescent depression screening assessment"'
+      "\"Adolescent depression screening assessment\""
     );
     expect(cqlResult.valueSets[0].version).toBeUndefined();
     expect(cqlResult.valueSets[1].name).toBe(
-      '"Adolescent depression screening assessment with version"'
+      "\"Adolescent depression screening assessment with version\""
     );
     expect(cqlResult.valueSets[1].version).toBe("'urn:hl7:version:20240307'");
   });
@@ -195,6 +196,15 @@ describe("test antlr", () => {
     expect(cqlResult.errors.length).toEqual(1);
     expect(cqlResult.errors[0].message).toEqual(
       "Definition names must not be a reserved word."
+    );
+  });
+
+  it("test code with no system", (): void => {
+    const cqlAntlr = new CqlAntlr(missingCodeSystemCql);
+    const cqlResult: CqlResult = cqlAntlr.parse();
+    expect(cqlResult.errors.length).toEqual(1);
+    expect(cqlResult.errors[0].message).toEqual(
+      "code statement requires a codesystem reference. Please add a 'from' clause to your statement."
     );
   });
 });

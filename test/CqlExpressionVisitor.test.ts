@@ -57,9 +57,9 @@ describe("test visitor", () => {
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
-    cqlResult.valueSets.push(createValueSet('"Patient Refusal"'));
-    cqlResult.valueSets.push(createValueSet('"Medical Reason"'));
-    cqlResult.valueSets.push(createValueSet('"Antithrombotic Therapy"'));
+    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""));
+    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""));
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""));
 
     const cqlExpressionVisitor = new CqlExpressionVisitor(cqlResult);
     cqlExpressionVisitor.visit(createAntlrContext(testDefineWithAlias));
@@ -101,9 +101,9 @@ describe("test visitor", () => {
     cqlResult.includes.push(createInclude("FHIRHelpers"));
     cqlResult.includes.push(createInclude("Global"));
 
-    cqlResult.valueSets.push(createValueSet('"Patient Refusal"'));
-    cqlResult.valueSets.push(createValueSet('"Medical Reason"'));
-    cqlResult.valueSets.push(createValueSet('"Antithrombotic Therapy"'));
+    cqlResult.valueSets.push(createValueSet("\"Patient Refusal\""));
+    cqlResult.valueSets.push(createValueSet("\"Medical Reason\""));
+    cqlResult.valueSets.push(createValueSet("\"Antithrombotic Therapy\""));
 
     const v = new CqlExpressionVisitor(cqlResult);
     v.visit(createAntlrContext(sdeValueset));

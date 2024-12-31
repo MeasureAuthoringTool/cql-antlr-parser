@@ -124,6 +124,12 @@ const keyWords: string[] = [
 ];
 const convertCustomError = (errorMessage: string): string => {
   let convertedMsg: string = errorMessage;
+
+  if (errorMessage.match(/mismatched input \'display\' expecting \'from\'/g)) {
+    convertedMsg =
+      "code statement requires a codesystem reference. Please add a 'from' clause to your statement.";
+  }
+
   switch (errorMessage) {
     case "no viable alternative at input 'define :'": {
       convertedMsg = "Definition is missing a name.";

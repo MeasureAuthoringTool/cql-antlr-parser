@@ -70,7 +70,7 @@ describe("test antlr", () => {
       "multiline comment outside of a function with multiple\nrows"
     );
     expect(cqlResult.expressionDefinitions[5].comment).toEqual(
-      "comment outside of function"
+      "comment outside of function\nnext line comment"
     );
   });
   it("parse fhir cql", () => {
@@ -101,11 +101,11 @@ describe("test antlr", () => {
     expect(cqlResult.usings[0]?.name).toBe("QDM");
     expect(cqlResult.valueSets.length).toBe(2);
     expect(cqlResult.valueSets[0].name).toBe(
-      "\"Adolescent depression screening assessment\""
+      '"Adolescent depression screening assessment"'
     );
     expect(cqlResult.valueSets[0].version).toBeUndefined();
     expect(cqlResult.valueSets[1].name).toBe(
-      "\"Adolescent depression screening assessment with version\""
+      '"Adolescent depression screening assessment with version"'
     );
     expect(cqlResult.valueSets[1].version).toBe("'urn:hl7:version:20240307'");
   });

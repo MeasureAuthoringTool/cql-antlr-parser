@@ -36,6 +36,7 @@ define function "Denominator Observation"(Encounter "Encounter, Performed" ):
   duration in hours of Encounter.relevantPeriod
 
 // comment outside of function
+// next line comment
 define function "Numerator Observation"(Encounter "Encounter, Performed" ):
   duration in hours of Encounter.relevantPeriod
 `;
@@ -151,8 +152,6 @@ define "SDE Race":
 define "SDE Sex":
   SDE."SDE Sex"       
 `;
-
-
 
 const cqlWithUsedParam = `
 valueset "Statin Allergen": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.42' 

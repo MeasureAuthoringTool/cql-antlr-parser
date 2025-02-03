@@ -69,7 +69,7 @@ export default class AntlrUtils {
    */
   static formatComment(comment: string): string {
     return comment
-      .replace(AntlrUtils.SINGLE_LINE_COMMENT_REGEX, "")
+      .replace(AntlrUtils.SINGLE_LINE_COMMENT_REGEX, "\n")
       .replace(AntlrUtils.MULTI_LINE_COMMENT_REGEX, "")
       .split("\n")
       .map((line) => line.trim())

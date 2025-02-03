@@ -70,7 +70,7 @@ describe("test antlr", () => {
       "multiline comment outside of a function with multiple\nrows"
     );
     expect(cqlResult.expressionDefinitions[5].comment).toEqual(
-      "comment outside of function"
+      "comment outside of function\nnext line comment"
     );
   });
   it("parse fhir cql", () => {

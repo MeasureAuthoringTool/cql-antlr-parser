@@ -1,27 +1,28 @@
-name: Github Secrets Scanner
-
-on: [push]
-
+name: npm-publish
+on:
+  push:
+    branches:
+      - master
 jobs:
-  build:
+  npm-publish:
+    if: contains(github.event.head_commit.message, 'Release')
+    name: npm-publish
     runs-on: ubuntu-latest
-    env:
-      REPO: https://github.com/MeasureAuthoringTool/cql-antlr-parser
-      REMOTE_EXCLUDES_URL: https://raw.githubusercontent.com/semanticbits/bmat-gitleaks-automation/master/cql-antlr-parser/gitleaks.toml
-      GITLEAKS_VERSION: v7.5.0
+
     steps:
-      - name: Execute Gitleaks
-        run: |
-          wget ${REMOTE_EXCLUDES_URL} -O gitleaks.toml
-          wget https://github.com/zricethezav/gitleaks/releases/download/${GITLEAKS_VERSION}/gitleaks-linux-amd64 -O gitleaks
-          chmod +x gitleaks
-          echo ${GITHUB_SHA}
-          echo "gitleaks --repo-url=${REPO} -v --redact --commit=${GITHUB_SHA} --config-path=gitleaks.toml"
-          ./gitleaks --repo-url=${REPO} -v --redact --commit=${GITHUB_SHA} --config-path=gitleaks.toml
-      - name: Slack notification
-        if: failure()
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        uses: Ilshidur/action-slack@master
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
         with:
-          args: "Potential Secrets found in: https://github.com/{{ GITHUB_REPOSITORY }}/commit/{{ GITHUB_SHA }} Link to build with full gitleaks output: https://github.com/{{ GITHUB_REPOSITORY }}/commit/{{ GITHUB_SHA }}/checks"
+          node-version: 20.x
+
+      - name: Install node dependencies
+        run: npm ci
+
+      - name: Publish to npm
+        uses: JS-DevTools/npm-publish@v3
+        env: # More info about the environment variables in the README
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

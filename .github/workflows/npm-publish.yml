@@ -49,7 +49,3 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with: # All of theses inputs are optional
           token: ${{ secrets.NPM_TOKEN }}
-        env: # More info about the environment variables in the README
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} #https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-

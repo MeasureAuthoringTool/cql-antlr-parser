@@ -45,6 +45,11 @@ jobs:
 
       - name: Execute test coverage
         run: npm run-script coverage
+      - name: Debug NPM Token & Registry
+        run: |
+          echo "NPM User: $(npm whoami)"
+          npm config get registry
+          npm config get //registry.npmjs.org/:_authToken
 
       - name: Publish to npm
         run: npm publish --access public

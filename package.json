@@ -1,6 +1,6 @@
 {
   "name": "@madie/cql-antlr-parser",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Antlr Parsing of CQL in typescript",
   "publishConfig": {
     "access": "public"

@@ -13,7 +13,7 @@ import {
   RetrieveContext,
   UsingDefinitionContext,
   ValuesetDefinitionContext,
-} from "../generated";
+} from "./generated";
 import CqlResult from "./dto/CqlResult";
 import CqlInclude from "./dto/CqlInclude";
 import CqlCodeSystem from "./dto/CqlCodeSystem";

@@ -3,7 +3,7 @@ import { ParseTree } from "antlr4ts/tree";
 import CreatorBase from "./CreatorBase";
 import CqlInclude from "./dto/CqlInclude";
 import CqlVersionCreator from "./CqlVersionCreator";
-import { cqlLexer } from "../generated";
+import { cqlLexer } from "./generated";
 import CqlExpressionDefinition from "./dto/CqlExpressionDefinition";
 import AntlrUtils from "./AntlrUtils";
 

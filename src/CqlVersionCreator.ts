@@ -3,7 +3,7 @@ import { ParseTree } from "antlr4ts/tree";
 import CreatorBase from "./CreatorBase";
 import CqlVersion from "./dto/CqlVersion";
 import AntlrUtils from "./AntlrUtils";
-import { cqlLexer } from "../generated";
+import { cqlLexer } from "./generated";
 
 export default class CqlVersionCreator extends CreatorBase<CqlVersion> {
   constructor(ctx: ParserRuleContext, cqlVersion?: CqlVersion) {

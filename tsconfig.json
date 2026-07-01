@@ -6,9 +6,14 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
+    "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
     "noImplicitAny": true,
     "sourceMap": true
-  }
+  },
+
+  "include": ["src", "generated"],
+  "exclude": ["test", "**/*.test.ts"]
+
 }

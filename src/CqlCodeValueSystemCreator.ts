@@ -1,7 +1,7 @@
 import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import CreatorBase from "./CreatorBase";
 import CqlValueSet from "./dto/CqlValueSet";
-import { cqlLexer } from "../generated";
+import { cqlLexer } from "./generated";
 
 type StringOrUndefined = undefined | string;
 

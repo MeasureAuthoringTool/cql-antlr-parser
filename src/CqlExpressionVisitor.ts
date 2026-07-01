@@ -8,7 +8,7 @@ import {
   cqlVisitor,
   InvocationTermContext,
   TerminologyContext,
-} from "../generated";
+} from "./generated";
 import AntlrUtils from "./AntlrUtils";
 import { CqlResult } from "./dto";
 import CqlFinder from "./util/CqlFinder";

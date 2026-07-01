@@ -21,4 +21,4 @@ export {
 };
 
 export * from "./dto";
-export * from "../generated";
+export * from "./generated";

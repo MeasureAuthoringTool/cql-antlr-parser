@@ -1,7 +1,7 @@
 import { BufferedTokenStream, CharStreams, CommonTokenStream } from "antlr4ts";
 import { CodePointCharStream } from "antlr4ts/CodePointCharStream";
 import { ParseTreeWalker } from "antlr4ts/tree";
-import { cqlLexer, cqlParser, LibraryContext, cqlListener } from "../generated";
+import { cqlLexer, cqlParser, LibraryContext, cqlListener } from "./generated";
 import CqlAntlrListener from "./CqlAntlrListener";
 import CqlResult from "./dto/CqlResult";
 import CustomErrorListener from "./CustomErrorListener";

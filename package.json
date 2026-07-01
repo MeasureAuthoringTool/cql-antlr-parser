@@ -8,12 +8,20 @@
   "files": [
     "dist"
   ],
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "test": "npx jest",
     "coverage": "npx jest --coverage",
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "generate": "npx antlr4ts generated/cql.g4",
+    "generate": "npx antlr4ts -o src/generated -Xexact-output-dir src/generated/cql.g4",
     "format": "prettier --write .",
     "lint": "npx eslint . --fix --ext .js,.ts"
   },
@@ -53,6 +61,7 @@
     "typescript-eslint": "^0.0.1-alpha.0"
   },
   "dependencies": {
+    "@babel/runtime": "^8.0.0",
     "antlr4ts": "^0.5.0-alpha.4",
     "antlr4ts-cli": "^0.5.0-alpha.4"
   }
